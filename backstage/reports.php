@@ -15,7 +15,7 @@ require FORUM_ROOT.'include/common.php';
 require FORUM_ROOT.'include/common_admin.php';
 
 if (!$pun_user['is_admmod']) {
-    header("Location: ../login.php");
+	header("Location: ../login.php");
 }
 
 // Load the backstage.php language file
@@ -57,22 +57,22 @@ require FORUM_ROOT.'backstage/header.php';
 ?>
 <h2><?php echo $lang_back['New reports head'] ?></h2>
 <div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title"><?php echo $lang_back['New reports head'] ?></h3>
-    </div>
-    <div class="panel-body">
-        <form method="post" action="reports.php?action=zap">
-            <fieldset>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th><?php echo $lang_back['Reported by'] ?></th>
-                            <th><?php echo $lang_back['Date and time'] ?></th>
-                            <th><?php echo $lang_back['Message'] ?></th>
-                            <th><?php echo $lang_back['Actions'] ?></th>
-                        </tr>
-                    </thead>
-                    <tbody>
+	<div class="panel-heading">
+		<h3 class="panel-title"><?php echo $lang_back['New reports head'] ?></h3>
+	</div>
+	<div class="panel-body">
+		<form method="post" action="reports.php?action=zap">
+			<fieldset>
+				<table class="table">
+					<thead>
+						<tr>
+							<th><?php echo $lang_back['Reported by'] ?></th>
+							<th><?php echo $lang_back['Date and time'] ?></th>
+							<th><?php echo $lang_back['Message'] ?></th>
+							<th><?php echo $lang_back['Actions'] ?></th>
+						</tr>
+					</thead>
+					<tbody>
 <?php
 
 $result = $db->query('SELECT r.id, r.topic_id, r.forum_id, r.reported_by, r.created, r.message, p.id AS pid, t.subject, f.forum_name, u.username AS reporter FROM '.$db->prefix.'reports AS r LEFT JOIN '.$db->prefix.'posts AS p ON r.post_id=p.id LEFT JOIN '.$db->prefix.'topics AS t ON r.topic_id=t.id LEFT JOIN '.$db->prefix.'forums AS f ON r.forum_id=f.id LEFT JOIN '.$db->prefix.'users AS u ON r.reported_by=u.id WHERE r.zapped IS NULL ORDER BY created DESC') or error('Unable to fetch report list', __FILE__, __LINE__, $db->error());
@@ -88,15 +88,15 @@ if ($db->num_rows($result))
 		$report_location = array($forum, $topic, $post_id);
 
 ?>
-                    <tr>
-                        <td><?php printf($reporter) ?></td>
-                        <td><?php printf(format_time($cur_report['created'])) ?></td>
-                        <td>
-                            <div class="breadcrumb"><?php echo implode(' ', $report_location) ?></div>
-                            <?php echo $post ?>
-                        </td>
-                        <td><input class="btn btn-primary" type="submit" name="zap_id[<?php echo $cur_report['id'] ?>]" value="<?php echo $lang_back['Zap'] ?>" /></td>
-                    </tr>
+					<tr>
+						<td><?php printf($reporter) ?></td>
+						<td><?php printf(format_time($cur_report['created'])) ?></td>
+						<td>
+							<div class="breadcrumb"><?php echo implode(' ', $report_location) ?></div>
+							<?php echo $post ?>
+						</td>
+						<td><input class="btn btn-primary" type="submit" name="zap_id[<?php echo $cur_report['id'] ?>]" value="<?php echo $lang_back['Zap'] ?>" /></td>
+					</tr>
 <?php
 
 	}
@@ -105,35 +105,35 @@ else
 {
 
 ?>
-                    <tr>
-                        <td colspan="4"><p><?php echo $lang_back['No new reports'] ?></p></td>
-                    </tr>
+					<tr>
+						<td colspan="4"><p><?php echo $lang_back['No new reports'] ?></p></td>
+					</tr>
 <?php
 
 }
 
 ?>
-                    </tbody>
-                </table>
-            </fieldset>
-        </form>
-    </div>
+					</tbody>
+				</table>
+			</fieldset>
+		</form>
+	</div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title"><?php echo $lang_back['Last 10 head'] ?></h3>
-    </div>
-    <div class="panel-body">
-        <table class="table">
-            <thead>
-            <tr>
-                <th><?php echo $lang_back['Reported by'] ?></th>
-                <th><?php echo $lang_back['Readed by'] ?></th>
-                <th><?php echo $lang_back['Date and time'] ?></th>
-                <th><?php echo $lang_back['Message'] ?></th>
-            </tr>
-            </thead>
-            <tbody>
+	<div class="panel-heading">
+		<h3 class="panel-title"><?php echo $lang_back['Last 10 head'] ?></h3>
+	</div>
+	<div class="panel-body">
+		<table class="table">
+			<thead>
+			<tr>
+				<th><?php echo $lang_back['Reported by'] ?></th>
+				<th><?php echo $lang_back['Readed by'] ?></th>
+				<th><?php echo $lang_back['Date and time'] ?></th>
+				<th><?php echo $lang_back['Message'] ?></th>
+			</tr>
+			</thead>
+			<tbody>
 <?php
 
 $result = $db->query('SELECT r.id, r.topic_id, r.forum_id, r.reported_by, r.message, r.zapped, r.zapped_by AS zapped_by_id, p.id AS pid, t.subject, f.forum_name, u.username AS reporter, u2.username AS zapped_by FROM '.$db->prefix.'reports AS r LEFT JOIN '.$db->prefix.'posts AS p ON r.post_id=p.id LEFT JOIN '.$db->prefix.'topics AS t ON r.topic_id=t.id LEFT JOIN '.$db->prefix.'forums AS f ON r.forum_id=f.id LEFT JOIN '.$db->prefix.'users AS u ON r.reported_by=u.id LEFT JOIN '.$db->prefix.'users AS u2 ON r.zapped_by=u2.id WHERE r.zapped IS NOT NULL ORDER BY zapped DESC LIMIT 10') or error('Unable to fetch report list', __FILE__, __LINE__, $db->error());
@@ -152,15 +152,15 @@ if ($db->num_rows($result))
 		$report_location = array($forum, $topic, $post_id);
 
 ?>
-                <tr>
-                    <td><?php printf($reporter) ?></td>
-                    <td><?php printf($zapped_by) ?></td>
-                    <td><?php printf(format_time($cur_report['zapped'])) ?></td>
-                    <td>
-                        <div class="breadcrumb"><?php echo implode(' ', $report_location) ?></div>
-                        <?php echo $post ?>
-                    </td>
-                </tr>
+				<tr>
+					<td><?php printf($reporter) ?></td>
+					<td><?php printf($zapped_by) ?></td>
+					<td><?php printf(format_time($cur_report['zapped'])) ?></td>
+					<td>
+						<div class="breadcrumb"><?php echo implode(' ', $report_location) ?></div>
+						<?php echo $post ?>
+					</td>
+				</tr>
 <?php
 
 	}
@@ -169,15 +169,15 @@ else
 {
 
 ?>
-                <tr>
-                    <td colspan="4"><?php echo $lang_back['No zapped reports'] ?></td>
-                </tr>
+				<tr>
+					<td colspan="4"><?php echo $lang_back['No zapped reports'] ?></td>
+				</tr>
 <?php
 
 } ?>
-            </tbody>
-        </table>
-    </div>
+			</tbody>
+		</table>
+	</div>
 </div>
 <?php
 require FORUM_ROOT.'backstage/footer.php';

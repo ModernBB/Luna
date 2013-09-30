@@ -14,8 +14,9 @@ define('FORUM_ROOT', '../');
 require FORUM_ROOT.'include/common.php';
 require FORUM_ROOT.'include/common_admin.php';
 
-if (!$pun_user['is_admmod']) {
-    header("Location: ../login.php");
+if (!$pun_user['is_admmod'])
+{
+	header("Location: ../login.php");
 }
 
 // Load the backstage.php language file
@@ -68,15 +69,17 @@ function num_fields($query_id = 0)
 {
 	global $db_type;
 	if (!$query_id)
+	{
 		$query_id = $this->query_result;
-		switch($db_type)
-		{
-			case 'mysql':
-				return ($query_id) ? @mysql_num_fields($query_id) : false;
-			break;
-			case 'mysqli':
-				return ($query_id) ? @mysqli_num_fields($query_id) : false;
-		}
+	}
+	switch($db_type)
+	{
+		case 'mysql':
+			return ($query_id) ? @mysql_num_fields($query_id) : false;
+		break;
+		case 'mysqli':
+			return ($query_id) ? @mysqli_num_fields($query_id) : false;
+	}
 }
 
 //
@@ -148,7 +151,9 @@ function get_table_def_mysql($table, $crlf)
 			$kname = "UNIQUE|$kname";
 		}
 		if (!isset($index[$kname]))
+		{
 			$index[$kname] = array();
+		}
 
 		$index[$kname][] = $row['Column_name'];
 	}
@@ -397,7 +402,8 @@ switch($db_type)
 		message('Sorry your database type is not yet supported');
 }
 //Start actual db stuff
-if (isset($_POST['backupstart'])) {
+if (isset($_POST['backupstart']))
+{
 	//output sql dump
 	$tables = array('bans', 'categories', 'censoring', 'config', 'forum_perms', 'forums', 'forum_subscriptions', 'groups', 'online', 'posts', 'ranks', 'reports', 'search_cache', 'search_matches', 'search_words', 'subscriptions', 'topics', 'topic_subscriptions', 'users'
 	);
@@ -410,12 +416,9 @@ if (isset($_POST['backupstart'])) {
 	if( $gzipcompress )
 	{
 		$phpver = phpversion();
-		if($phpver >= "4.0")
+		if($phpver >= "4.0" AND extension_loaded("zlib"))
 		{
-			if(extension_loaded("zlib"))
-			{
-				$do_gzip_compress = TRUE;
-			}
+			$do_gzip_compress = TRUE;
 		}
 	}
 	if($do_gzip_compress)
@@ -463,7 +466,8 @@ if (isset($_POST['backupstart'])) {
 	}
 exit;
 }
-elseif ( isset($_POST['restore_start']) ) {
+elseif ( isset($_POST['restore_start']) )
+{
 	// Restore SQL Dump
 	//
 	// Handle the file upload ....
@@ -483,12 +487,9 @@ elseif ( isset($_POST['restore_start']) ) {
 		{
 			$do_gzip_compress = FALSE;
 			$phpver = phpversion();
-			if($phpver >= "4.0")
+			if($phpver >= "4.0" AND extension_loaded("zlib"))
 			{
-				if(extension_loaded("zlib"))
-				{
-					$do_gzip_compress = TRUE;
-				}
+				$do_gzip_compress = TRUE;
 			}
 			if($do_gzip_compress)
 			{
@@ -522,7 +523,7 @@ elseif ( isset($_POST['restore_start']) ) {
 		$pieces = split_sql_file($sql_query, ";");
 		if(defined('FORUM_DEBUG'))
 		{
-		generate_admin_menu($plugin);
+			generate_admin_menu($plugin);
 ?>
 	<div class="block">
 		<h2><span>Debug info</span></h2>
@@ -674,7 +675,9 @@ elseif (isset($_POST['submit']))
 	foreach($queries as $query)
 	{
 		if (!$query)
+		{
 			continue;
+		}
 
 		// Add a semi-colon to the end if there isn't one:
 		if (!strrpos($query, ";"))

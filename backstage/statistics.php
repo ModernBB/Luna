@@ -15,7 +15,7 @@ require FORUM_ROOT.'include/common.php';
 require FORUM_ROOT.'include/common_admin.php';
 
 if (!$pun_user['is_admmod']) {
-    header("Location: ../login.php");
+		header("Location: ../login.php");
 }
 
 // Load the backstage.php language file
@@ -29,7 +29,10 @@ if ($action == 'phpinfo' && $pun_user['g_id'] == FORUM_ADMIN)
 {
 	// Is phpinfo() a disabled function?
 	if (strpos(strtolower((string) ini_get('disable_functions')), 'phpinfo') !== false)
+	{
+		generate_admin_menu('statistics');
 		message($lang_back['PHPinfo disabled message']);
+	}
 
 	phpinfo();
 	exit;
@@ -107,36 +110,36 @@ require FORUM_ROOT.'backstage/header.php';
 
 ?>
 <div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title"><?php echo $lang_back['Server statistics head'] ?></h3>
-    </div>
+		<div class="panel-heading">
+				<h3 class="panel-title"><?php echo $lang_back['Server statistics head'] ?></h3>
+		</div>
 	<div class="panel-body">
-        <table class="table">
-            <tr>
-                <th><?php echo $lang_back['Server load label'] ?></th>
-                <td><?php printf($lang_back['Server load data']."\n", $server_load, $num_online) ?></td>
-            </tr>
-            <tr>
-                <?php if ($pun_user['g_id'] == FORUM_ADMIN): ?>
-                <th><?php echo $lang_back['Environment label'] ?></th>
-                <td>
-                    <?php printf($lang_back['Environment data OS'], PHP_OS) ?><br />
-                    <?php printf($lang_back['Environment data version'], phpversion(), '<a href="statistics.php?action=phpinfo">'.$lang_back['Show info'].'</a>') ?><br />
-                    <?php printf($lang_back['Environment data acc']."\n", $php_accelerator) ?>
-                </td>
-            </tr>
-            <tr>
-                <th><?php echo $lang_back['Database label'] ?></th>
-                <td>
-                    <?php echo implode(' ', $db->get_version())."\n" ?>
-                    <?php if (isset($total_records) && isset($total_size)): ?>
-                    <br /><?php printf($lang_back['Database data rows']."\n", forum_number_format($total_records)) ?>
-                    <br /><?php printf($lang_back['Database data size']."\n", $total_size) ?>
-                    <?php endif; ?>
-                </td>
-                <?php endif; ?>
-            </tr>
-        </table>
+				<table class="table">
+						<tr>
+								<th><?php echo $lang_back['Server load label'] ?></th>
+								<td><?php printf($lang_back['Server load data']."\n", $server_load, $num_online) ?></td>
+						</tr>
+						<tr>
+								<?php if ($pun_user['g_id'] == FORUM_ADMIN): ?>
+								<th><?php echo $lang_back['Environment label'] ?></th>
+								<td>
+										<?php printf($lang_back['Environment data OS'], PHP_OS) ?><br />
+										<?php printf($lang_back['Environment data version'], phpversion(), '<a href="statistics.php?action=phpinfo">'.$lang_back['Show info'].'</a>') ?><br />
+										<?php printf($lang_back['Environment data acc']."\n", $php_accelerator) ?>
+								</td>
+						</tr>
+						<tr>
+								<th><?php echo $lang_back['Database label'] ?></th>
+								<td>
+										<?php echo implode(' ', $db->get_version())."\n" ?>
+										<?php if (isset($total_records) && isset($total_size)): ?>
+										<br /><?php printf($lang_back['Database data rows']."\n", forum_number_format($total_records)) ?>
+										<br /><?php printf($lang_back['Database data size']."\n", $total_size) ?>
+										<?php endif; ?>
+								</td>
+								<?php endif; ?>
+						</tr>
+				</table>
 	</div>
 </div>
 <?php
