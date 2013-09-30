@@ -60,28 +60,42 @@ if (isset($_POST['form_sent']))
 	);
 
 	if ($form['board_title'] == '')
+	{
+		generate_admin_menu('options');
 		message($lang_back['Must enter title message']);
+	}
 
 	// Make sure base_url doesn't end with a slash
 	if (substr($form['base_url'], -1) == '/')
 		$form['base_url'] = substr($form['base_url'], 0, -1);
-		
+
 	// Convert IDN to Punycode if needed  
-	if (preg_match('/[^\x00-\x7F]/', $form['base_url']))  
-	{  
-		if (!function_exists('idn_to_ascii'))  
-			message($lang_admin_options['Base URL problem']);  
-		else  
-			$form['base_url'] = idn_to_ascii($form['base_url']);  
+	if (preg_match('/[^\x00-\x7F]/', $form['base_url']))
+	{
+		if (!function_exists('idn_to_ascii'))
+		{
+			generate_admin_menu('options');
+			message($lang_admin_options['Base URL problem']);
+		}
+		else
+		{
+			$form['base_url'] = idn_to_ascii($form['base_url']);
+		}
 	}
 
 	$languages = forum_list_langs();
 	if (!in_array($form['default_lang'], $languages))
+	{
+		generate_admin_menu('options');
 		message($lang_common['Bad request']);
+	}
 
 	$styles = forum_list_styles();
 	if (!in_array($form['default_style'], $styles))
+	{
+		generate_admin_menu('options');
 		message($lang_common['Bad request']);
+	}
 
 	if ($form['time_format'] == '')
 		$form['time_format'] = 'H:i:s';
@@ -106,13 +120,20 @@ if (isset($_POST['form_sent']))
 		$smtp_pass2 = isset($_POST['form']['smtp_pass2']) ? pun_trim($_POST['form']['smtp_pass2']) : '';
 
 		if ($smtp_pass1 == $smtp_pass2)
+		{
 			$form['smtp_pass'] = $smtp_pass1;
+		}
 		else
+		{
+			generate_admin_menu('options');
 			message($lang_back['SMTP passwords did not match']);
+		}
 	}
 
 	if ($form['announcement_message'] != '')
+	{
 		$form['announcement_message'] = pun_linebreaks($form['announcement_message']);
+	}
 	else
 	{
 		$form['announcement_message'] = $lang_back['Enter announcement here'];
@@ -120,7 +141,9 @@ if (isset($_POST['form_sent']))
 	}
 
 	if ($form['rules_message'] != '')
+	{
 		$form['rules_message'] = pun_linebreaks($form['rules_message']);
+	}
 	else
 	{
 		$form['rules_message'] = $lang_back['Enter rules here'];
@@ -128,7 +151,9 @@ if (isset($_POST['form_sent']))
 	}
 
 	if ($form['maintenance_message'] != '')
+	{
 		$form['maintenance_message'] = pun_linebreaks($form['maintenance_message']);
+	}
 	else
 	{
 		$form['maintenance_message'] = $lang_back['Default maintenance message'];
@@ -136,19 +161,34 @@ if (isset($_POST['form_sent']))
 	}
 
 	if ($form['feed_type'] < 0 || $form['feed_type'] > 2)
+	{
+		generate_admin_menu('options');
 		message($lang_common['Bad request']);
+	}
 
 	if ($form['feed_ttl'] < 0)
+	{
+		generate_admin_menu('options');
 		message($lang_common['Bad request']);
+	}
 
 	if ($form['report_method'] < 0 || $form['report_method'] > 2)
+	{
+		generate_admin_menu('options');
 		message($lang_common['Bad request']);
+	}
 
 	if ($form['default_email_setting'] < 0 || $form['default_email_setting'] > 2)
+	{
+		generate_admin_menu('options');
 		message($lang_common['Bad request']);
+	}
 
 	if ($form['timeout_online'] >= $form['timeout_visit'])
+	{
+		generate_admin_menu('options');
 		message($lang_back['Timeout error message']);
+	}
 
 	foreach ($form as $key => $input)
 	{
@@ -156,9 +196,13 @@ if (isset($_POST['form_sent']))
 		if (array_key_exists('o_'.$key, $pun_config) && $pun_config['o_'.$key] != $input)
 		{
 			if ($input != '' || is_int($input))
+			{
 				$value = '\''.$db->escape($input).'\'';
+			}
 			else
+			{
 				$value = 'NULL';
+			}
 
 			$db->query('UPDATE '.$db->prefix.'config SET conf_value='.$value.' WHERE conf_name=\'o_'.$db->escape($key).'\'') or error('Unable to update board config', __FILE__, __LINE__, $db->error());
 		}

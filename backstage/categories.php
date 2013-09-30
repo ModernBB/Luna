@@ -26,7 +26,10 @@ if (isset($_POST['add_cat']))
 {
 	$new_cat_name = pun_trim($_POST['new_cat_name']);
 	if ($new_cat_name == '')
+	{
+		generate_admin_menu('categories');
 		message($lang_back['Must enter name message']);
+	}
 
 	$db->query('INSERT INTO '.$db->prefix.'categories (cat_name) VALUES(\''.$db->escape($new_cat_name).'\')') or error('Unable to create category', __FILE__, __LINE__, $db->error());
 
@@ -38,7 +41,10 @@ else if (isset($_POST['del_cat']) || isset($_POST['del_cat_comply']))
 {
 	$cat_to_delete = intval($_POST['cat_to_delete']);
 	if ($cat_to_delete < 1)
+	{
+		generate_admin_menu('categories');
 		message($lang_common['Bad request']);
+	}
 
 	if (isset($_POST['del_cat_comply'])) // Delete a category with all forums and posts
 	{
@@ -116,7 +122,10 @@ else if (isset($_POST['update'])) // Change position and name of the categories
 {
 	$categories = $_POST['cat'];
 	if (empty($categories))
+	{
+		generate_admin_menu('categories');
 		message($lang_common['Bad request']);
+	}
 
 	foreach ($categories as $cat_id => $cur_cat)
 	{
@@ -124,10 +133,16 @@ else if (isset($_POST['update'])) // Change position and name of the categories
 		$cur_cat['order'] = pun_trim($cur_cat['order']);
 
 		if ($cur_cat['name'] == '')
+		{
+			generate_admin_menu('categories');
 			message($lang_back['Must enter name message']);
+		}
 
 		if ($cur_cat['order'] == '' || preg_match('%[^0-9]%', $cur_cat['order']))
+		{
+			generate_admin_menu('categories');
 			message($lang_back['Must enter integer message']);
+		}
 
 		$db->query('UPDATE '.$db->prefix.'categories SET cat_name=\''.$db->escape($cur_cat['name']).'\', disp_position='.$cur_cat['order'].' WHERE id='.intval($cat_id)) or error('Unable to update category', __FILE__, __LINE__, $db->error());
 	}

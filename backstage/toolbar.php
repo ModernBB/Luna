@@ -15,7 +15,7 @@ require FORUM_ROOT.'include/common.php';
 require FORUM_ROOT.'include/common_admin.php';
 
 if (!$pun_user['is_admmod']) {
-    header("Location: ../login.php");
+		header("Location: ../login.php");
 }
 
 // Load the backstage.php language file
@@ -79,7 +79,10 @@ else if (isset($_POST['form_conf']))
 		{
 			// Checking input (basically for numeric values)
 			if ($key != 'img_pack' && !is_numeric($input))
+			{
+				generate_admin_menu('toolbar');
 				message($lang_back['not_numeric'].$key);
+			}
 
 			$db->query('UPDATE '.$db->prefix.'toolbar_conf SET conf_value=\''.$db->escape($input).'\' WHERE conf_name=\''.$db->escape($key).'\'') or error('Unable to update general settings', __FILE__, __LINE__, $db->error());
 			$done = true;
@@ -109,29 +112,29 @@ require FORUM_ROOT.'backstage/header.php';
 ?>
 <h2>Toolbar settings</h2>
 <div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title"><?php echo $lang_back['glob_conf'] ?></h3>
-    </div>
-    <div class="panel-body">
+		<div class="panel-heading">
+				<h3 class="panel-title"><?php echo $lang_back['glob_conf'] ?></h3>
+		</div>
+		<div class="panel-body">
 		<form action="toolbar.php" method="post">
-            <input type="hidden" name="form_conf" value="1" />
-            <fieldset>
-                <table class="table">
-                    <tr>
-                        <th><?php echo $lang_back['enable_form'] ?></th>
-                        <td><input type="radio" name="form[enable_form]" value="1"<?php if ($ftb_conf['enable_form'] == '1') echo ' checked="checked"' ?> />&nbsp;<strong><?php echo $lang_back['yes'] ?></strong>&nbsp;&nbsp;&nbsp;<input type="radio" name="form[enable_form]" value="0"<?php if ($ftb_conf['enable_form'] == '0') echo ' checked="checked"' ?> />&nbsp;<strong><?php echo $lang_back['no'] ?></strong>
-                            <span class="help-block"><?php echo $lang_back['enable_form_infos'] ?></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th><?php echo $lang_back['enable_quickform'] ?></th>
-                        <td><input type="radio" name="form[enable_quickform]" value="1"<?php if ($ftb_conf['enable_quickform'] == '1') echo ' checked="checked"' ?> />&nbsp;<strong><?php echo $lang_back['yes'] ?></strong>&nbsp;&nbsp;&nbsp;<input type="radio" name="form[enable_quickform]" value="0"<?php if ($ftb_conf['enable_quickform'] == '0') echo ' checked="checked"' ?> />&nbsp;<strong><?php echo $lang_back['no'] ?></strong>
-                            <span class="help-block"><?php echo $lang_back['enable_quickform_infos'] ?></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th><?php echo $lang_back['images_pack'] ?></th>
-                        <td><select class="form-control" name="form[img_pack]">
+						<input type="hidden" name="form_conf" value="1" />
+						<fieldset>
+								<table class="table">
+										<tr>
+												<th><?php echo $lang_back['enable_form'] ?></th>
+												<td><input type="radio" name="form[enable_form]" value="1"<?php if ($ftb_conf['enable_form'] == '1') echo ' checked="checked"' ?> />&nbsp;<strong><?php echo $lang_back['yes'] ?></strong>&nbsp;&nbsp;&nbsp;<input type="radio" name="form[enable_form]" value="0"<?php if ($ftb_conf['enable_form'] == '0') echo ' checked="checked"' ?> />&nbsp;<strong><?php echo $lang_back['no'] ?></strong>
+														<span class="help-block"><?php echo $lang_back['enable_form_infos'] ?></span>
+												</td>
+										</tr>
+										<tr>
+												<th><?php echo $lang_back['enable_quickform'] ?></th>
+												<td><input type="radio" name="form[enable_quickform]" value="1"<?php if ($ftb_conf['enable_quickform'] == '1') echo ' checked="checked"' ?> />&nbsp;<strong><?php echo $lang_back['yes'] ?></strong>&nbsp;&nbsp;&nbsp;<input type="radio" name="form[enable_quickform]" value="0"<?php if ($ftb_conf['enable_quickform'] == '0') echo ' checked="checked"' ?> />&nbsp;<strong><?php echo $lang_back['no'] ?></strong>
+														<span class="help-block"><?php echo $lang_back['enable_quickform_infos'] ?></span>
+												</td>
+										</tr>
+										<tr>
+												<th><?php echo $lang_back['images_pack'] ?></th>
+												<td><select class="form-control" name="form[img_pack]">
 <?php
 	$packs = array();
 	$d = dir(FORUM_ROOT.'img/toolbar');
@@ -151,33 +154,33 @@ require FORUM_ROOT.'backstage/header.php';
 			echo "\t\t\t\t\t\t\t\t\t".'<option value="'.$temp.'">'.$temp.'</option>'."\n";
 	}
 ?>
-                        </select>
-                        <br /><span class="help-block"><?php echo $lang_back['images_pack_infos'] ?></span></td>
-                    </tr>
-                </table>
-            </fieldset>
+												</select>
+												<br /><span class="help-block"><?php echo $lang_back['images_pack_infos'] ?></span></td>
+										</tr>
+								</table>
+						</fieldset>
 			<input type="submit" class="btn btn-primary" name="save" value="<?php echo $lang_common['Submit'] ?>" />
 		</form>
 	</div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title"><?php echo $lang_back['button_conf'] ?></h3>
-    </div>
-    <div class="panel-body">
+		<div class="panel-heading">
+				<h3 class="panel-title"><?php echo $lang_back['button_conf'] ?></h3>
+		</div>
+		<div class="panel-body">
 		<form action="toolbar.php" method="post">
-            <input type="hidden" name="form_button" value="1" />
-            <fieldset>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col" style="width: 6em"><?php echo $lang_back['position'] ?></th>
-                            <th scope="col" style="width: 6em"><?php echo $lang_back['button'] ?></th>
-                            <th scope="col"><?php echo $lang_back['classic_form'] ?></th>
-                            <th scope="col"><?php echo $lang_back['quickreply_form'] ?></th>
-                        </tr>
-                    </thead>
-                    <tbody>
+						<input type="hidden" name="form_button" value="1" />
+						<fieldset>
+								<table class="table">
+										<thead>
+												<tr>
+														<th scope="col" style="width: 6em"><?php echo $lang_back['position'] ?></th>
+														<th scope="col" style="width: 6em"><?php echo $lang_back['button'] ?></th>
+														<th scope="col"><?php echo $lang_back['classic_form'] ?></th>
+														<th scope="col"><?php echo $lang_back['quickreply_form'] ?></th>
+												</tr>
+										</thead>
+										<tbody>
 <?php
 	// Retrieve buttons
 	$result = $db->query('SELECT position, name, enable_form, enable_quick, image FROM '.$db->prefix.'toolbar_tags ORDER by position') or error('Unable to retrieve toolbar buttons', __FILE__, __LINE__, $db->error());
@@ -209,10 +212,10 @@ require FORUM_ROOT.'backstage/header.php';
 		echo "\t\t\t\t\t\t\t\t".'</tr>'."\n";
 	}
 ?>
-                    </tbody>
-                </table>
-            </fieldset>
-            <input type="submit" class="btn btn-primary" name="edit_pos" value="<?php echo $lang_back['update_pos'] ?>" />
+										</tbody>
+								</table>
+						</fieldset>
+						<input type="submit" class="btn btn-primary" name="edit_pos" value="<?php echo $lang_back['update_pos'] ?>" />
 		</form>
 	</div>
 </div>
