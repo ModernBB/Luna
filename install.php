@@ -1521,6 +1521,11 @@ else
 				'datatype'		=> 'VARCHAR(8)',
 				'allow_null'	=> true
 			),
+			'first_run'		=> array(
+				'datatype'		=> 'TINYINT(1)',
+				'allow_null'	=> false,
+				'default'		=> '0'
+			),
 		),
 		'PRIMARY KEY'	=> array('id'),
 		'UNIQUE KEYS'	=> array(
@@ -1571,7 +1576,6 @@ else
 		'o_date_format'				=> 'd/m/Y',
 		'o_timeout_visit'			=> 1800,
 		'o_timeout_online'			=> 300,
-		'o_redirect_delay'			=> 1,
 		'o_show_version'			=> 0,
 		'o_show_index_stats'		=> 1,
 		'o_show_user_info'			=> 1,
@@ -1617,6 +1621,9 @@ else
 		'o_webmaster_email'			=> $email,
 		'o_forum_subscriptions'		=> 1,
 		'o_topic_subscriptions'		=> 1,
+		'o_first_run_message'		=> $lang['First run message'],
+		'o_show_first_run'			=> 1,
+		'o_first_run_guests'		=> 1,
 		'o_smtp_host'				=> NULL,
 		'o_smtp_user'				=> NULL,
 		'o_smtp_pass'				=> NULL,

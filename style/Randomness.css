@@ -141,7 +141,6 @@ h1, h2, h3, h4, h5, h6 {
 
 /* First run */
 .first-run-content {
-	min-height: 200px;
 	padding-left: 15px;
 }
 
@@ -152,9 +151,9 @@ h1, h2, h3, h4, h5, h6 {
 .first-run-profile {
 	background-image: url(../img/core/firstrun.png);
 	background-size: cover;
-	min-height: 200px;
 	border-bottom-left-radius: 3px;
 	border-top-left-radius: 3px;
+	padding-bottom: 16px;
 }
 
 .first-run-title {
@@ -175,8 +174,37 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 15px;
 }
 
-.first-run .list-group-item-danger {
+.first-run-login {
+	margin-right: 15px;
+}
+
+.first-run .active {
 	text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+	.first-run-content {
+		padding-right: 15px;
+	}
+
+	.first-run-profile {
+		margin-top: -15px;
+		border-bottom-left-radius: 0;
+		border-top-right-radius: 3px;
+	}
+	
+	.first-run-title {
+		padding-top: 15px;
+	}
+	
+	.first-run-list {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.first-run-login {
+		margin-right: 0;
+	}
 }
 
 /* Welcome box and header */
@@ -954,6 +982,11 @@ q:after {
 	background-color: #fff;
 }
 
+.form-first-run {
+	max-width: 100%;
+	margin: 0;
+}
+
 .form input[type="text"], .form input[type="password"] {
 	font-size: 16px;
 	height: auto;
@@ -976,6 +1009,11 @@ q:after {
 
 .form-content {
 	padding: 15px 18px 10px 20px;
+}
+
+.form-first-run .form-content {
+	padding: 0;
+	padding-right: 15px;
 }
 
 .remember {
