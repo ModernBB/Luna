@@ -7,7 +7,7 @@
  * License: http://opensource.org/licenses/MIT MIT
  */
 
-include FORUM_ROOT.'include/srand.php'; 
+include FORUM_ROOT.'include/srand.php';
 
 //
 // Return current timestamp (with microseconds) as a float
@@ -238,23 +238,23 @@ function get_base_url($support_https = false)
 
 
 //
-// Fetch admin IDs  
-//  
-function get_admin_ids()  
-{  
-	if (file_exists(FORUM_CACHE_DIR.'cache_admins.php'))  
-		include FORUM_CACHE_DIR.'cache_admins.php';  
-	
-	if (!defined('FORUM_ADMINS_LOADED'))  
-	{  
-		if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))  
-			require FORUM_ROOT.'include/cache.php';  
-		
-		generate_admins_cache();  
-		require FORUM_CACHE_DIR.'cache_admins.php';  
+// Fetch admin IDs
+//
+function get_admin_ids()
+{
+	if (file_exists(FORUM_CACHE_DIR.'cache_admins.php'))
+		include FORUM_CACHE_DIR.'cache_admins.php';
+
+	if (!defined('FORUM_ADMINS_LOADED'))
+	{
+		if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
+			require FORUM_ROOT.'include/cache.php';
+
+		generate_admins_cache();
+		require FORUM_CACHE_DIR.'cache_admins.php';
 	}
-	
-	return $luna_admins;  
+
+	return $luna_admins;
 }
 
 //
@@ -361,9 +361,9 @@ function luna_setcookie($user_id, $password_hash, $expire)
 //
 function forum_setcookie($name, $value, $expire)
 {
-	global $cookie_path, $cookie_domain, $cookie_secure, $luna_config;  
-  
-	if ($expire - time() - $luna_config['o_timeout_visit'] < 1)  
+	global $cookie_path, $cookie_domain, $cookie_secure, $luna_config;
+
+	if ($expire - time() - $luna_config['o_timeout_visit'] < 1)
 		$expire = 0;
 
 	// Enable sending of a P3P header
@@ -456,7 +456,7 @@ function check_username($username, $exclude_id = null)
 
 	// Include UTF-8 function
 	require_once FORUM_ROOT.'include/utf8/strcasecmp.php';
-	
+
 	// Convert multiple whitespace characters into one (to prevent people from registering with indistinguishable usernames)
 	$username = preg_replace('%\s+%s', ' ', $username);
 
@@ -542,11 +542,13 @@ function generate_profile_menu($page = '')
 ?>
 <div class="col-sm-2 profile-nav">
     <div class="list-group">
-        <a class="<?php if ($page == 'view') echo 'active'; ?> list-group-item" href="profile.php?section=view&amp;id=<?php echo $id ?>"><?php echo $lang['Section view'] ?></a>
-        <a class="<?php if ($page == 'personality') echo 'active'; ?> list-group-item" href="profile.php?section=personality&amp;id=<?php echo $id ?>"><?php echo $lang['Section personality'] ?></a>
-        <a class="<?php if ($page == 'settings') echo 'active'; ?> list-group-item" href="profile.php?section=settings&amp;id=<?php echo $id ?>"><?php echo $lang['Section settings'] ?></a>
-		<?php if ($luna_user['g_id'] == FORUM_ADMIN || ($luna_user['g_moderator'] == '1' && $luna_user['g_mod_ban_users'] == '1')): ?>
-            <a class="<?php if ($page == 'admin') echo 'active'; ?> list-group-item" href="profile.php?section=admin&amp;id=<?php echo $id ?>"><?php echo $lang['Section admin'] ?></a>
+        <a class="<?php if ($page == 'view') echo 'active'; ?> list-group-item" href="profile.php?section=view&amp;id=<?php echo $id ?>"><?php echo $lang['Profile'] ?></a>
+		<?php if ($luna_user['id'] = $id && !$luna_user['is_guest'] || ($luna_user['g_id'] == FORUM_ADMIN || ($luna_user['g_moderator'] == '1' && $luna_user['g_mod_ban_users'] == '1'))): ?>
+			<a class="<?php if ($page == 'personality') echo 'active'; ?> list-group-item" href="profile.php?section=personality&amp;id=<?php echo $id ?>"><?php echo $lang['Section personality'] ?></a>
+			<a class="<?php if ($page == 'settings') echo 'active'; ?> list-group-item" href="profile.php?section=settings&amp;id=<?php echo $id ?>"><?php echo $lang['Section settings'] ?></a>
+			<?php if ($luna_user['g_id'] == FORUM_ADMIN || ($luna_user['g_moderator'] == '1' && $luna_user['g_mod_ban_users'] == '1')): ?>
+				<a class="<?php if ($page == 'admin') echo 'active'; ?> list-group-item" href="profile.php?section=admin&amp;id=<?php echo $id ?>"><?php echo $lang['Section admin'] ?></a>
+			<?php endif; ?>
 		<?php endif; ?>
     </div>
 </div>
@@ -590,7 +592,7 @@ function generate_avatar_markup($user_id)
 function generate_page_title($page_title, $p = null)
 {
 	global $luna_config, $lang;
-	
+
 	if (!is_array($page_title))
 		$page_title = array($page_title);
 
@@ -1026,18 +1028,23 @@ function message($message, $no_back_link = false, $http_status = null)
 
 ?>
 
-<div id="msg" class="block">
-	<h2><span><?php echo $lang['Info'] ?></span></h2>
-	<div class="box">
-		<div class="inbox">
-			<p><?php echo $message ?></p>
-<?php if (!$no_back_link): ?>			<p><a href="javascript: history.go(-1)"><?php echo $lang['Go back'] ?></a></p>
-<?php endif; ?>		</div>
-	</div>
+<div>
+	<h2><?php echo $lang['Info'] ?></h2>
+	<p><?php echo $message ?></p>
+	<?php if (!$no_back_link): ?>
+		<p><a href="javascript: history.go(-1)"><?php echo $lang['Go back'] ?></a></p>
+	<?php endif; ?>
 </div>
 <?php
 
-	require FORUM_ROOT.'footer.php';
+	if( FORUM_ACTIVE_PAGE === 'admin' )
+	{
+		require FORUM_ROOT .'backstage/footer.php';
+	}
+	else
+	{
+		require FORUM_ROOT.'footer.php';
+	}
 }
 
 
@@ -1098,21 +1105,21 @@ function forum_number_format($number, $decimals = 0)
 //
 function random_key($len, $readable = false, $hash = false)
 {
-	$key = secure_random_bytes($len); 
+	$key = secure_random_bytes($len);
 
-	if ($hash)  
+	if ($hash)
 		return substr(bin2hex($key), 0, $len);
-	else if ($readable)  
+	else if ($readable)
 	{
 		$chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-	     
+
 		$result = '';
 		for ($i = 0; $i < $len; ++$i)
 			$result .= substr($chars, (ord($key[$i]) % strlen($chars)), 1);
 
 		return $result;
 	}
-		
+
 	return $key;
 }
 
@@ -1502,13 +1509,9 @@ function redirect($destination_url, $message)
 	ob_start();
 
 ?>
-<div class="block">
+<div>
 	<h2><?php echo $lang['Redirecting'] ?></h2>
-	<div class="box">
-		<div class="inbox">
-			<p><?php echo $message.'<br /><br /><a href="'.$destination_url.'">'.$lang['Click redirect'].'</a>' ?></p>
-		</div>
-	</div>
+	<p><?php echo $message.'<br /><br /><a href="'.$destination_url.'">'.$lang['Click redirect'].'</a>' ?></p>
 </div>
 <?php
 
@@ -2077,7 +2080,7 @@ function url_valid($url)
 //
 function ucp_preg_replace($pattern, $replace, $subject, $callback = false)
 {
-	if($callback) 
+	if($callback)
 		$replaced = preg_replace_callback($pattern, create_function('$matches', 'return '.$replace.';'), $subject);
 	else
 		$replaced = preg_replace($pattern, $replace, $subject);
@@ -2180,18 +2183,16 @@ function display_saved_queries()
 
 ?>
 
-<div id="debug" class="blocktable">
-	<h2><span><?php echo $lang['Debug table'] ?></span></h2>
-	<div class="box">
-		<div class="inbox">
-			<table cellspacing="0">
-			<thead>
-				<tr>
-					<th class="tcl" scope="col"><?php echo $lang['Query times'] ?></th>
-					<th class="tcr" scope="col"><?php echo $lang['Query'] ?></th>
-				</tr>
-			</thead>
-			<tbody>
+<div id="debug">
+	<h2><?php echo $lang['Debug table'] ?>></h2>
+	<table class="table table-bordered table-hover">
+	<thead>
+		<tr>
+			<th class="tcl" scope="col"><?php echo $lang['Query times'] ?></th>
+			<th class="tcr" scope="col"><?php echo $lang['Query'] ?></th>
+		</tr>
+	</thead>
+	<tbody>
 <?php
 
 	$query_time_total = 0.0;
@@ -2200,22 +2201,20 @@ function display_saved_queries()
 		$query_time_total += $cur_query[1];
 
 ?>
-				<tr>
-					<td class="tcl"><?php echo ($cur_query[1] != 0) ? $cur_query[1] : '&#160;' ?></td>
-					<td class="tcr"><?php echo luna_htmlspecialchars($cur_query[0]) ?></td>
-				</tr>
+		<tr>
+			<td class="tcl"><?php echo ($cur_query[1] != 0) ? $cur_query[1] : '&#160;' ?></td>
+			<td class="tcr"><?php echo luna_htmlspecialchars($cur_query[0]) ?></td>
+		</tr>
 <?php
 
 	}
 
 ?>
-				<tr>
-					<td class="tcl" colspan="2"><?php printf($lang['Total query time'], $query_time_total.' s') ?></td>
-				</tr>
-			</tbody>
-			</table>
-		</div>
-	</div>
+		<tr>
+			<td class="tcl" colspan="2"><?php printf($lang['Total query time'], $query_time_total.' s') ?></td>
+		</tr>
+	</tbody>
+	</table>
 </div>
 <?php
 

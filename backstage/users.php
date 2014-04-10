@@ -21,6 +21,11 @@ if (!$luna_user['is_admmod']) {
 // Create new user
 if (isset($_POST['add_user']))
 {
+	$page_title = array(luna_htmlspecialchars($luna_config['o_board_title']), $lang['Admin'], $lang['Users'], $lang['Results head']);
+	define('FORUM_ACTIVE_PAGE', 'admin');
+	require FORUM_ROOT.'backstage/header.php';
+	generate_admin_menu('users');
+
 	$username = luna_trim($_POST['username']);
 	$email1 = strtolower(trim($_POST['email']));
 	$email2 = strtolower(trim($_POST['email']));
@@ -29,7 +34,7 @@ if (isset($_POST['add_user']))
 		$password = random_pass(8);
 	else
 		$password = trim($_POST['password']);
-	
+
 	$errors = array();
 
 	// Convert multiple whitespace characters into one (to prevent people from registering with indistinguishable usernames)
@@ -258,7 +263,7 @@ if (isset($_GET['show_users']))
 	<table class="table">
 		<thead>
 			<tr>
-				<th><?php echo $lang['Results username head'] ?></th>
+				<th><?php echo $lang['Username'] ?></th>
 				<th><?php echo $lang['Results e-mail head'] ?></th>
 				<th><?php echo $lang['Results title head'] ?></th>
 				<th class="text-center"><?php echo $lang['Results posts head'] ?></th>
@@ -297,7 +302,7 @@ if (isset($_GET['show_users']))
 ?>
 			<tr>
 				<td><?php echo '<a href="../profile.php?id='.$user_data[$cur_poster['poster_id']]['id'].'">'.luna_htmlspecialchars($user_data[$cur_poster['poster_id']]['username']).'</a>' ?></td>
-				<td><a href="mailto:<?php echo luna_htmlspecialchars($user_data[$cur_poster['poster_id']]['email']) ?>"><?php echo luna_htmlspecialchars($user_data[$cur_poster['poster_id']]['email']) ?></a></td> 
+				<td><a href="mailto:<?php echo luna_htmlspecialchars($user_data[$cur_poster['poster_id']]['email']) ?>"><?php echo luna_htmlspecialchars($user_data[$cur_poster['poster_id']]['email']) ?></a></td>
 				<td><?php echo $user_title ?></td>
 				<td class="text-center"><?php echo forum_number_format($user_data[$cur_poster['poster_id']]['num_posts']) ?></td>
 				<td><?php echo ($user_data[$cur_poster['poster_id']]['admin_note'] != '') ? luna_htmlspecialchars($user_data[$cur_poster['poster_id']]['admin_note']) : '&#160;' ?></td>
@@ -313,7 +318,7 @@ if (isset($_GET['show_users']))
 			<tr>
 				<td><?php echo luna_htmlspecialchars($cur_poster['poster']) ?></td>
 				<td>&#160;</td>
-				<td><?php echo $lang['Results guest'] ?></td>
+				<td><?php echo $lang['Guest'] ?></td>
 				<td>&#160;</td>
 				<td>&#160;</td>
 				<td>&#160;</td>
@@ -345,7 +350,7 @@ else if (isset($_POST['move_users']) || isset($_POST['move_users_comply']))
 {
 	if ($luna_user['g_id'] > FORUM_ADMIN)
 		message($lang['No permission'], false, '403 Forbidden');
-		
+
 	confirm_referrer('backstage/users.php');
 
 	if (isset($_POST['users']))
@@ -465,7 +470,7 @@ else if (isset($_POST['delete_users']) || isset($_POST['delete_users_comply']))
 {
 	if ($luna_user['g_id'] > FORUM_ADMIN)
 		message($lang['No permission'], false, '403 Forbidden');
-		
+
 	confirm_referrer('backstage/users.php');
 
 	if (isset($_POST['users']))
@@ -614,7 +619,7 @@ else if (isset($_POST['ban_users']) || isset($_POST['ban_users_comply']))
 {
 	if ($luna_user['g_id'] != FORUM_ADMIN && ($luna_user['g_moderator'] != '1' || $luna_user['g_mod_ban_users'] == '0'))
 		message($lang['No permission'], false, '403 Forbidden');
-		
+
 	confirm_referrer('backstage/users.php');
 
 	if (isset($_POST['users']))
@@ -917,7 +922,7 @@ else if (isset($_GET['find_user']))
 		<table class="table">
 			<thead>
 				<tr>
-					<th><?php echo $lang['Results username head'] ?></th>
+					<th><?php echo $lang['Username'] ?></th>
 					<th><?php echo $lang['Results e-mail head'] ?></th>
 					<th><?php echo $lang['Results title head'] ?></th>
 					<th class="text-center"><?php echo $lang['Results posts head'] ?></th>
@@ -1010,13 +1015,13 @@ else
 			</div>
 			<table class="table">
 				<tr>
-					<th><?php echo $lang['Username label'] ?></th>
+					<th><?php echo $lang['Username'] ?></th>
 					<td><input type="text" class="form-control" name="form[username]" maxlength="25" tabindex="2" /></td>
 					<th><?php echo $lang['E-mail address label'] ?></th>
 					<td><input type="text" class="form-control" name="form[email]" maxlength="80" tabindex="3" /></td>
 				</tr>
 				<tr>
-					<th><?php echo $lang['Title label'] ?></th>
+					<th><?php echo $lang['Title'] ?></th>
 					<td><input type="text" class="form-control" name="form[title]" maxlength="50" tabindex="4" /></td>
 					<th><?php echo $lang['Real name label'] ?></th>
 					<td><input type="text" class="form-control" name="form[realname]" maxlength="40" tabindex="5" /></td>
@@ -1092,10 +1097,10 @@ else
 					<th><?php echo $lang['Order by label'] ?></th>
 					<td colspan="3">
 						<select class="form-control" name="order_by" tabindex="21">
-							<option value="username" selected="selected"><?php echo $lang['Order by username'] ?></option>
+							<option value="username" selected="selected"><?php echo $lang['Username'] ?></option>
 							<option value="email"><?php echo $lang['Order by e-mail'] ?></option>
 							<option value="num_posts"><?php echo $lang['Order by posts'] ?></option>
-							<option value="last_post"><?php echo $lang['Order by last post'] ?></option>
+							<option value="last_post"><?php echo $lang['Last post'] ?></option>
 							<option value="last_visit"><?php echo $lang['Order by last visit'] ?></option>
 							<option value="registered"><?php echo $lang['Order by registered'] ?></option>
 						</select>&#160;&#160;&#160;<select class="form-control" name="direction" tabindex="22">

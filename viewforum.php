@@ -103,24 +103,28 @@ require FORUM_ROOT.'header.php';
 
 ?>
 <h2><?php echo luna_htmlspecialchars($cur_forum['forum_name']) ?></h2>
-<ol class="breadcrumb">
-    <li><a href="index.php"><?php echo $lang['Index'] ?></a></li>
-    <li class="active"><a href="viewforum.php?id=<?php echo $id ?>"><?php echo luna_htmlspecialchars($cur_forum['forum_name']) ?></a></li>
-</ol>
-<div class="pagepost">
-    <ul class="pagination">
-        <?php echo $paging_links ?>
-    </ul>
-    <?php echo $post_link ?>
+<div class="row row-nav">
+	<div class="col-sm-6">
+		<div class="btn-group btn-breadcrumb">
+			<a class="btn btn-primary" href="index.php"><span class="glyphicon glyphicon-home"></span></a>
+			<a class="btn btn-primary" href="viewforum.php?id=<?php echo $id ?>"><?php echo luna_htmlspecialchars($cur_forum['forum_name']) ?></a>
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<?php echo $post_link ?>
+		<ul class="pagination">
+			<?php echo $paging_links ?>
+		</ul>
+	</div>
 </div>
 <div class="forum-box">
     <div class="row forum-header">
-        <div class="col-xs-7"><?php echo $lang['Topic'] ?></div>
-        <div class="col-xs-1 hidden-xs"><p class="text-center"><?php echo $lang['Replies forum'] ?></p></div>
+        <div class="col-sm-7 col-xs-7"><?php echo $lang['Topic'] ?></div>
+        <div class="col-sm-1 hidden-xs"><p class="text-center"><?php echo $lang['Replies forum'] ?></p></div>
         <?php if ($luna_config['o_topic_views'] == '1'): ?>
-            <div class="col-xs-1 hidden-xs"><p class="text-center"><?php echo $lang['Views'] ?></p></div>
+            <div class="col-sm-1 hidden-xs"><p class="text-center"><?php echo $lang['Views'] ?></p></div>
         <?php endif; ?>
-        <div class="col-xs-3"><?php echo $lang['Last post'] ?></div>
+        <div class="col-sm-3 col-xs-5"><?php echo $lang['Last post'] ?></div>
     </div>
 <?php
 
@@ -205,7 +209,7 @@ if ($db->num_rows($result))
 
 ?>
     <div class="row topic-row <?php echo $item_status ?>">
-        <div class="col-xs-7">
+        <div class="col-sm-7 col-xs-7">
             <div class="<?php echo $icon_type ?>"><div class="nosize"><?php echo forum_number_format($topic_count + $start_from) ?></div></div>
             <div class="tclcon">
                 <div>
@@ -213,11 +217,11 @@ if ($db->num_rows($result))
                 </div>
             </div>
         </div>
-        <div class="col-xs-1 hidden-xs"><p class="text-center"><?php echo (is_null($cur_topic['moved_to'])) ? forum_number_format($cur_topic['num_replies']) : '-' ?></p></div>
+        <div class="col-sm-1 hidden-xs"><p class="text-center"><?php echo (is_null($cur_topic['moved_to'])) ? forum_number_format($cur_topic['num_replies']) : '-' ?></p></div>
         <?php if ($luna_config['o_topic_views'] == '1'): ?>
-            <div class="col-xs-1 hidden-xs"><p class="text-center"><?php echo (is_null($cur_topic['moved_to'])) ? forum_number_format($cur_topic['num_views']) : '-' ?></p></div>
+            <div class="col-sm-1 hidden-xs"><p class="text-center"><?php echo (is_null($cur_topic['moved_to'])) ? forum_number_format($cur_topic['num_views']) : '-' ?></p></div>
         <?php endif; ?>
-        <div class="col-xs-3"><?php echo $last_post ?></div>
+        <div class="col-sm-3 col-xs-5"><?php echo $last_post ?></div>
     </div>
 <?php
 
@@ -238,16 +242,21 @@ else
 ?>
 </div>
 
-<div class="pagepost">
-    <ul class="pagination">
-        <?php echo $paging_links ?>
-    </ul>
-	<?php echo $post_link ?>
+<div class="row">
+	<div class="col-sm-6">
+		<div class="btn-group btn-breadcrumb">
+			<a class="btn btn-primary" href="index.php"><span class="glyphicon glyphicon-home"></span></a>
+			<a class="btn btn-primary" href="viewforum.php?id=<?php echo $id ?>"><?php echo luna_htmlspecialchars($cur_forum['forum_name']) ?></a>
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<?php echo $post_link ?>
+		<ul class="pagination">
+			<?php echo $paging_links ?>
+		</ul>
+	</div>
 </div>
-<ol class="breadcrumb">
-    <li><a href="index.php"><?php echo $lang['Index'] ?></a></li>
-    <li class="active"><a href="viewforum.php?id=<?php echo $id ?>"><?php echo luna_htmlspecialchars($cur_forum['forum_name']) ?></a></li>
-</ol>
+
 <?php
 
 $forum_id = $id;
