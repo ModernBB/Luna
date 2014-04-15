@@ -2,27 +2,27 @@
 
 // Make sure there's no direct access to this template.
 if (!defined('FORUM_ROOT'))
-	exit('The constant FORUM_ROOT must be defined and point to a valid ModernBB installation root directory.');
+    exit('The constant FORUM_ROOT must be defined and point to a valid ModernBB installation root directory.');
 
 ?>
 
 <h2 class="profile-h2"><?php echo $lang['Change pass'] ?></h2>
-<form class="form-horizontal" id="change_pass" method="post" action="profile.php?action=change_pass&amp;id=<?php echo $id ?>" onsubmit="return process_form(this)">
-	<div class="panel panel-default">
-    	<div class="panel-heading">
-        	<h3 class="panel-title"><?php echo $lang['Change pass'] ?></h3>
+<form class="form-horizontal" id="change_pass" method="post" action="profile.php?action=change_pass&id=<?php echo $id ?>" onsubmit="return process_form(this)">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><?php echo $lang['Change pass'] ?></h3>
         </div>
         <div class="panel-body">
             <input type="hidden" name="form_sent" value="1" />
             <fieldset>
-				<?php if (!$luna_user['is_admmod']): ?>
+                <?php if (!$luna_user['is_admmod']): ?>
                     <div class="form-group">
                         <label class="col-sm-3 control-label"><?php echo $lang['Old pass'] ?></label>
                         <div class="col-sm-9">
                             <input class="form-control" type="password" name="req_old_password" />
                         </div>
                     </div>
-				<?php endif; ?>
+                <?php endif; ?>
                 <div class="form-group">
                     <label class="col-sm-3 control-label"><?php echo $lang['New pass'] ?></label>
                     <div class="col-sm-9">
@@ -45,5 +45,4 @@ if (!defined('FORUM_ROOT'))
 </form>
 
 <?php
-	require FORUM_ROOT.'footer.php';
-?>
+    require FORUM_ROOT.'footer.php';

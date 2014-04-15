@@ -2,16 +2,16 @@
 
 // Make sure there's no direct access to this template.
 if (!defined('FORUM_ROOT'))
-	exit('The constant FORUM_ROOT must be defined and point to a valid ModernBB installation root directory.');
+    exit('The constant FORUM_ROOT must be defined and point to a valid ModernBB installation root directory.');
 
 ?>
 
 <div class="panel panel-default">
-	<div class="panel-heading">
-		<h3 class="panel-title"><?php echo $lang['Upload avatar'] ?></h3>
+    <div class="panel-heading">
+        <h3 class="panel-title"><?php echo $lang['Upload avatar'] ?></h3>
     </div>
     <div class="panel-body">
-        <form id="upload_avatar" method="post" enctype="multipart/form-data" action="profile.php?action=upload_avatar2&amp;id=<?php echo $id ?>" onsubmit="return process_form(this)">
+        <form id="upload_avatar" method="post" enctype="multipart/form-data" action="profile.php?action=upload_avatar2&id=<?php echo $id ?>" onsubmit="return process_form(this)">
             <fieldset>
                 <input type="hidden" name="form_sent" value="1" />
                 <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $luna_config['o_avatars_size'] ?>" />
@@ -24,5 +24,4 @@ if (!defined('FORUM_ROOT'))
 </div>
 
 <?php
-	require FORUM_ROOT.'footer.php';
-?>
+    require FORUM_ROOT.'footer.php';

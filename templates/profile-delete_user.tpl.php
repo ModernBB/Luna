@@ -2,7 +2,7 @@
 
 // Make sure there's no direct access to this template.
 if (!defined('FORUM_ROOT'))
-	exit('The constant FORUM_ROOT must be defined and point to a valid ModernBB installation root directory.');
+    exit('The constant FORUM_ROOT must be defined and point to a valid ModernBB installation root directory.');
 
 ?>
 
@@ -10,25 +10,24 @@ if (!defined('FORUM_ROOT'))
 <form id="confirm_del_user" method="post" action="profile.php?id=<?php echo $id ?>">
     <fieldset>
         <div class="panel panel-danger">
-			<div class="panel-heading">
-				<h3 class="panel-title"><?php echo $lang['Confirmation info'].' <strong>'.luna_htmlspecialchars($username).'</strong>' ?></h3>
+            <div class="panel-heading">
+                <h3 class="panel-title"><?php echo $lang['Confirmation info'].' <strong>'.luna_htmlspecialchars($username).'</strong>' ?></h3>
             </div>
             <div class="panel-body">
-				<?php echo $lang['Delete warning'] ?>
+                <?php echo $lang['Delete warning'] ?>
                 <div class="checkbox">
                     <label>
                         <input type="checkbox" name="delete_posts" value="1" checked="checked" />
                         <?php echo $lang['Delete posts'] ?>
                     </label>
                 </div>
-			</div>
+            </div>
             <div class="panel-footer">
-				<input type="submit" class="btn btn-primary" name="delete_user_comply" value="<?php echo $lang['Delete'] ?>" /> <a class="btn btn-link" href="javascript:history.go(-1)"><?php echo $lang['Go back'] ?></a>
-    		</div>
+                <input type="submit" class="btn btn-primary" name="delete_user_comply" value="<?php echo $lang['Delete'] ?>" /> <a class="btn btn-link" href="javascript:history.go(-1)"><?php echo $lang['Go back'] ?></a>
+            </div>
         </div>
     </fieldset>
 </form>
 
 <?php
-	require FORUM_ROOT.'footer.php';
-?>
+    require FORUM_ROOT.'footer.php';

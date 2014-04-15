@@ -2,12 +2,12 @@
 
 // Make sure there's no direct access to this template.
 if (!defined('FORUM_ROOT'))
-	exit('The constant FORUM_ROOT must be defined and point to a valid ModernBB installation root directory.');
+    exit('The constant FORUM_ROOT must be defined and point to a valid ModernBB installation root directory.');
 
 ?>
 
 <h2 class="profile-h2"><?php echo $lang['Change email'] ?></h2>
-<form id="change_email" method="post" action="profile.php?action=change_email&amp;id=<?php echo $id ?>" onsubmit="return process_form(this)">
+<form id="change_email" method="post" action="profile.php?action=change_email&id=<?php echo $id ?>" onsubmit="return process_form(this)">
     <fieldset>
         <h3><?php echo $lang['Email legend'] ?></h3>
         <input type="hidden" name="form_sent" value="1" />
@@ -19,5 +19,4 @@ if (!defined('FORUM_ROOT'))
 </form>
 
 <?php
-	require FORUM_ROOT.'footer.php';
-?>
+    require FORUM_ROOT.'footer.php';
