@@ -199,7 +199,7 @@ if (isset($_POST['add_group']) || isset($_GET['edit_group']))
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label"><?php echo $lang['Delete posts label'] ?></label>
+                    <label class="col-sm-2 control-label"><?php echo $lang['Delete posts'] ?></label>
                     <div class="col-sm-10">
                     	<div class="checkbox">
                             <label>
@@ -210,7 +210,7 @@ if (isset($_POST['add_group']) || isset($_GET['edit_group']))
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label"><?php echo $lang['Delete topics label'] ?></label>
+                    <label class="col-sm-2 control-label"><?php echo $lang[Delete topics'] ?></label>
                     <div class="col-sm-10">
                     	<div class="checkbox">
                             <label>
@@ -375,9 +375,9 @@ else if (isset($_POST['add_edit_group']))
 	}
 
 	if ($_POST['mode'] == 'edit')
-		redirect('backstage/groups.php', $lang['Group edited redirect']);
+		redirect('backstage/groups.php');
 	else
-		redirect('backstage/groups.php', $lang['Group added redirect']);
+		redirect('backstage/groups.php');
 }
 
 
@@ -405,7 +405,7 @@ else if (isset($_POST['set_default_group']))
 
 	generate_config_cache();
 
-	redirect('backstage/groups.php', $lang['Default group redirect']);
+	redirect('backstage/groups.php');
 }
 
 
@@ -440,7 +440,7 @@ else if (isset($_GET['del_group']))
 			$db->query('DELETE FROM '.$db->prefix.'groups WHERE g_id='.$group_id) or error('Unable to delete group', __FILE__, __LINE__, $db->error());
 			$db->query('DELETE FROM '.$db->prefix.'forum_perms WHERE group_id='.$group_id) or error('Unable to delete group forum permissions', __FILE__, __LINE__, $db->error());
 
-			redirect('backstage/groups.php', $lang['Group removed redirect']);
+			redirect('backstage/groups.php');
 		}
 		else
 		{
@@ -609,7 +609,7 @@ $cur_index = 5;
 $result = $db->query('SELECT g_id, g_title FROM '.$db->prefix.'groups ORDER BY g_id') or error('Unable to fetch user group list', __FILE__, __LINE__, $db->error());
 
 while ($cur_group = $db->fetch_assoc($result))
-	echo "\t\t\t\t\t\t\t\t".'<tr><td class="col-lg-2"><div class="btn-group"><a class="btn btn-primary" href="groups.php?edit_group='.$cur_group['g_id'].'" tabindex="'.$cur_index++.'">'.$lang['Edit link'].'</a>'.(($cur_group['g_id'] > FORUM_MEMBER) ? '<a class="btn btn-danger" href="groups.php?del_group='.$cur_group['g_id'].'" tabindex="'.$cur_index++.'">'.$lang['Delete link'].'</a>' : '').'</div></td><td class="col-lg-10">'.luna_htmlspecialchars($cur_group['g_title']).'</td></tr>'."\n";
+	echo "\t\t\t\t\t\t\t\t".'<tr><td class="col-lg-2"><div class="btn-group"><a class="btn btn-primary" href="groups.php?edit_group='.$cur_group['g_id'].'" tabindex="'.$cur_index++.'">'.$lang['Edit'].'</a>'.(($cur_group['g_id'] > FORUM_MEMBER) ? '<a class="btn btn-danger" href="groups.php?del_group='.$cur_group['g_id'].'" tabindex="'.$cur_index++.'">'.$lang['Delete'].'</a>' : '').'</div></td><td class="col-lg-10">'.luna_htmlspecialchars($cur_group['g_title']).'</td></tr>'."\n";
 
 ?>
 		</tbody>

@@ -32,6 +32,9 @@ if (isset($_POST['form_sent']))
 		'signatures'			=> isset($_POST['form']['signatures']) ? '1' : '0',
 		'ranks'					=> isset($_POST['form']['ranks']) ? '1' : '0',
 		'topic_views'			=> isset($_POST['form']['topic_views']) ? '1' : '0',
+		'show_first_run'		=> isset($_POST['form']['show_first_run']) ? '1' : '0',
+		'first_run_guests'		=> isset($_POST['form']['first_run_guests']) ? '1' : '0',
+		'first_run_message'		=> luna_trim($_POST['form']['first_run_message']),
 		'gzip'					=> isset($_POST['form']['gzip']) ? '1' : '0',
 		'search_all_forums'		=> isset($_POST['form']['search_all_forums']) ? '1' : '0',
 	);
@@ -57,7 +60,7 @@ if (isset($_POST['form_sent']))
 	generate_config_cache();
 	clear_feed_cache();
 
-	redirect('backstage/features.php', $lang['Options updated redirect']);
+	redirect('backstage/features.php');
 }
 
 $page_title = array(luna_htmlspecialchars($luna_config['o_board_title']), $lang['Admin'], $lang['Options']);
@@ -112,13 +115,13 @@ generate_admin_menu('features');
                             	<input type="checkbox" name="form[signatures]" value="1" <?php if ($luna_config['o_signatures'] == '1') echo ' checked="checked"' ?> />
 								<?php echo $lang['Signatures help'] ?>
                             </label>
-                        </div>   
+                        </div>
                         <div class="checkbox">
                             <label>
                             	<input type="checkbox" name="form[ranks]" value="1" <?php if ($luna_config['o_ranks'] == '1') echo ' checked="checked"' ?> />
 								<?php printf($lang['User ranks help'], '<a href="ranks.php">'.$lang['Ranks'].'</a>') ?>
                             </label>
-                        </div>                     
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -130,6 +133,40 @@ generate_admin_menu('features');
 								<?php echo $lang['Search all help'] ?>
                             </label>
                         </div>                  
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><?php echo $lang['First run'] ?><span class="pull-right"><input class="btn btn-primary" type="submit" name="save" value="<?php echo $lang['Save changes'] ?>" /></span></h3>
+        </div>
+        <div class="panel-body">
+            <input type="hidden" name="form_sent" value="1" />
+            <fieldset>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"><?php echo $lang['General settings'] ?></label>
+                    <div class="col-sm-10">
+                        <div class="checkbox">
+                            <label>
+                            	<input type="checkbox" name="form[show_first_run]" value="1" <?php if ($luna_config['o_show_first_run'] == '1') echo ' checked="checked"' ?> />
+								<?php echo $lang['Show first run label'] ?>
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                            	<input type="checkbox" name="form[first_run_guests]" value="1" <?php if ($luna_config['o_first_run_guests'] == '1') echo ' checked="checked"' ?> />
+								<?php echo $lang['Show guests label'] ?>
+                            </label>
+                        </div>
+					</div>
+				</div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"><?php echo $lang['Welcome text'] ?></label>
+                    <div class="col-sm-10">
+						<input type="text" class="form-control" name="form[first_run_message]" maxlength="255" value="<?php echo luna_htmlspecialchars($luna_config['o_first_run_message']) ?>" />
+						<span class="help-block"><?php echo $lang['First run help message'] ?></span>           
                     </div>
                 </div>
             </fieldset>

@@ -21,6 +21,11 @@ if (!$luna_user['is_admmod']) {
 // Create new user
 if (isset($_POST['add_user']))
 {
+	$page_title = array(luna_htmlspecialchars($luna_config['o_board_title']), $lang['Admin'], $lang['Users'], $lang['Results head']);
+	define('FORUM_ACTIVE_PAGE', 'admin');
+	require FORUM_ROOT.'backstage/header.php';
+	generate_admin_menu('users');
+
 	$username = luna_trim($_POST['username']);
 	$email1 = strtolower(trim($_POST['email']));
 	$email2 = strtolower(trim($_POST['email']));
@@ -29,7 +34,7 @@ if (isset($_POST['add_user']))
 		$password = random_pass(8);
 	else
 		$password = trim($_POST['password']);
-	
+
 	$errors = array();
 
 	// Convert multiple whitespace characters into one (to prevent people from registering with indistinguishable usernames)
@@ -258,11 +263,11 @@ if (isset($_GET['show_users']))
 	<table class="table">
 		<thead>
 			<tr>
-				<th><?php echo $lang['Results username head'] ?></th>
+				<th><?php echo $lang['Username'] ?></th>
 				<th><?php echo $lang['Results e-mail head'] ?></th>
 				<th><?php echo $lang['Results title head'] ?></th>
 				<th class="text-center"><?php echo $lang['Results posts head'] ?></th>
-				<th><?php echo $lang['Results admin note head'] ?></th>
+				<th><?php echo $lang['Admin note'] ?></th>
 				<th><?php echo $lang['Results actions head'] ?></th>
 			</tr>
 		</thead>
@@ -297,7 +302,7 @@ if (isset($_GET['show_users']))
 ?>
 			<tr>
 				<td><?php echo '<a href="../profile.php?id='.$user_data[$cur_poster['poster_id']]['id'].'">'.luna_htmlspecialchars($user_data[$cur_poster['poster_id']]['username']).'</a>' ?></td>
-				<td><a href="mailto:<?php echo luna_htmlspecialchars($user_data[$cur_poster['poster_id']]['email']) ?>"><?php echo luna_htmlspecialchars($user_data[$cur_poster['poster_id']]['email']) ?></a></td> 
+				<td><a href="mailto:<?php echo luna_htmlspecialchars($user_data[$cur_poster['poster_id']]['email']) ?>"><?php echo luna_htmlspecialchars($user_data[$cur_poster['poster_id']]['email']) ?></a></td>
 				<td><?php echo $user_title ?></td>
 				<td class="text-center"><?php echo forum_number_format($user_data[$cur_poster['poster_id']]['num_posts']) ?></td>
 				<td><?php echo ($user_data[$cur_poster['poster_id']]['admin_note'] != '') ? luna_htmlspecialchars($user_data[$cur_poster['poster_id']]['admin_note']) : '&#160;' ?></td>
@@ -313,7 +318,7 @@ if (isset($_GET['show_users']))
 			<tr>
 				<td><?php echo luna_htmlspecialchars($cur_poster['poster']) ?></td>
 				<td>&#160;</td>
-				<td><?php echo $lang['Results guest'] ?></td>
+				<td><?php echo $lang['Guest'] ?></td>
 				<td>&#160;</td>
 				<td>&#160;</td>
 				<td>&#160;</td>
@@ -345,7 +350,7 @@ else if (isset($_POST['move_users']) || isset($_POST['move_users_comply']))
 {
 	if ($luna_user['g_id'] > FORUM_ADMIN)
 		message($lang['No permission'], false, '403 Forbidden');
-		
+
 	confirm_referrer('backstage/users.php');
 
 	if (isset($_POST['users']))
@@ -420,7 +425,7 @@ else if (isset($_POST['move_users']) || isset($_POST['move_users_comply']))
 		// Change user group
 		$db->query('UPDATE '.$db->prefix.'users SET group_id='.$new_group.' WHERE id IN ('.implode(',', $user_ids).')') or error('Unable to change user group', __FILE__, __LINE__, $db->error());
 
-		redirect('backstage/users.php', $lang['Users move redirect']);
+		redirect('backstage/users.php');
 	}
 
 	$page_title = array(luna_htmlspecialchars($luna_config['o_board_title']), $lang['Admin'], $lang['Users'], $lang['Move users']);
@@ -465,7 +470,7 @@ else if (isset($_POST['delete_users']) || isset($_POST['delete_users_comply']))
 {
 	if ($luna_user['g_id'] > FORUM_ADMIN)
 		message($lang['No permission'], false, '403 Forbidden');
-		
+
 	confirm_referrer('backstage/users.php');
 
 	if (isset($_POST['users']))
@@ -570,7 +575,7 @@ else if (isset($_POST['delete_users']) || isset($_POST['delete_users_comply']))
 
 		generate_users_info_cache();
 
-		redirect('backstage/users.php', $lang['Users delete redirect']);
+		redirect('backstage/users.php');
 	}
 
 	$page_title = array(luna_htmlspecialchars($luna_config['o_board_title']), $lang['Admin'], $lang['Users'], $lang['Delete users']);
@@ -592,7 +597,7 @@ else if (isset($_POST['delete_users']) || isset($_POST['delete_users_comply']))
 				<div class="checkbox">
 					<label>
 						<input type="checkbox" name="delete_posts" value="1" checked="checked" />
-						<?php echo $lang['Delete posts'] ?>
+						<?php echo $lang['Delete all posts'] ?>
 					</label>
 				</div>
 			</fieldset>
@@ -614,7 +619,7 @@ else if (isset($_POST['ban_users']) || isset($_POST['ban_users_comply']))
 {
 	if ($luna_user['g_id'] != FORUM_ADMIN && ($luna_user['g_moderator'] != '1' || $luna_user['g_mod_ban_users'] == '0'))
 		message($lang['No permission'], false, '403 Forbidden');
-		
+
 	confirm_referrer('backstage/users.php');
 
 	if (isset($_POST['users']))
@@ -695,7 +700,7 @@ else if (isset($_POST['ban_users']) || isset($_POST['ban_users_comply']))
 
 		generate_bans_cache();
 
-		redirect('backstage/users.php', $lang['Users banned redirect']);
+		redirect('backstage/users.php');
 	}
 
 	$page_title = array(luna_htmlspecialchars($luna_config['o_board_title']), $lang['Admin'], $lang['Bans']);
@@ -917,11 +922,11 @@ else if (isset($_GET['find_user']))
 		<table class="table">
 			<thead>
 				<tr>
-					<th><?php echo $lang['Results username head'] ?></th>
+					<th><?php echo $lang['Username'] ?></th>
 					<th><?php echo $lang['Results e-mail head'] ?></th>
 					<th><?php echo $lang['Results title head'] ?></th>
 					<th class="text-center"><?php echo $lang['Results posts head'] ?></th>
-					<th><?php echo $lang['Results admin note head'] ?></th>
+					<th><?php echo $lang['Admin note'] ?></th>
 					<th><?php echo $lang['Results actions head'] ?></th>
 		<?php if ($can_action): ?>					<th><?php echo $lang['Select'] ?></th>
 		<?php endif; ?>
@@ -1002,7 +1007,7 @@ else
     <h2><?php echo $lang['Users'] ?></h2>
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title"><?php echo $lang['User search head'] ?><span class="pull-right"><input class="btn btn-primary" type="submit" name="find_user" value="<?php echo $lang['Submit search'] ?>" tabindex="1" /></span></h3>
+            <h3 class="panel-title"><?php echo $lang['User search'] ?><span class="pull-right"><input class="btn btn-primary" type="submit" name="find_user" value="<?php echo $lang['Submit search'] ?>" tabindex="1" /></span></h3>
         </div>
 		<fieldset>
 			<div class="panel-body">
@@ -1010,45 +1015,45 @@ else
 			</div>
 			<table class="table">
 				<tr>
-					<th><?php echo $lang['Username label'] ?></th>
+					<th><?php echo $lang['Username'] ?></th>
 					<td><input type="text" class="form-control" name="form[username]" maxlength="25" tabindex="2" /></td>
 					<th><?php echo $lang['E-mail address label'] ?></th>
 					<td><input type="text" class="form-control" name="form[email]" maxlength="80" tabindex="3" /></td>
 				</tr>
 				<tr>
-					<th><?php echo $lang['Title label'] ?></th>
+					<th><?php echo $lang['Title'] ?></th>
 					<td><input type="text" class="form-control" name="form[title]" maxlength="50" tabindex="4" /></td>
 					<th><?php echo $lang['Real name label'] ?></th>
 					<td><input type="text" class="form-control" name="form[realname]" maxlength="40" tabindex="5" /></td>
 				</tr>
 				<tr>
-					<th><?php echo $lang['Website label'] ?></th>
+					<th><?php echo $lang['Website'] ?></th>
 					<td><input type="text" class="form-control" name="form[url]" maxlength="100" tabindex="6" /></td>
-					<th><?php echo $lang['Jabber label'] ?></th>
+					<th><?php echo $lang['Jabber'] ?></th>
 					<td><input type="text" class="form-control" name="form[jabber]" maxlength="75" tabindex="7" /></td>
 				</tr>
 				<tr>
-					<th><?php echo $lang['ICQ label'] ?></th>
+					<th><?php echo $lang['ICQ'] ?></th>
 					<td><input type="text" class="form-control" name="form[icq]" maxlength="12" tabindex="8" /></td>
-					<th><?php echo $lang['MSN label'] ?></th>
+					<th><?php echo $lang['MSN'] ?></th>
 					<td><input type="text" class="form-control" name="form[msn]" maxlength="50" tabindex="9" /></td>
 				</tr>
 				<tr>
-					<th><?php echo $lang['AOL label'] ?></th>
+					<th><?php echo $lang['AOL'] ?></th>
 					<td><input type="text" class="form-control" name="form[aim]" maxlength="20" tabindex="10" /></td>
-					<th><?php echo $lang['Yahoo label'] ?></th>
+					<th><?php echo $lang['Yahoo'] ?></th>
 					<td><input type="text" class="form-control" name="form[yahoo]" maxlength="20" tabindex="11" /></td>
 				</tr>
 				<tr>
-					<th><?php echo $lang['Location label'] ?></th>
+					<th><?php echo $lang['Location'] ?></th>
 					<td><input type="text" class="form-control" name="form[location]" maxlength="30" tabindex="12" /></td>
-					<th><?php echo $lang['Signature label'] ?></th>
+					<th><?php echo $lang['Signature'] ?></th>
 					<td><input type="text" class="form-control" name="form[signature]" maxlength="512" tabindex="13" /></td>
 				</tr>
 				<tr>
-					<th><?php echo $lang['Admin note label'] ?></th>
+					<th><?php echo $lang['Admin note'] ?></th>
 					<td><input type="text" class="form-control" name="form[admin_note]" maxlength="30" tabindex="14" /></td>
-					<th><?php echo $lang['User group label'] ?></th>
+					<th><?php echo $lang['User group'] ?></th>
 					<td>
 						<select class="form-control" name="user_group" tabindex="23">
 							<option value="-1" selected="selected"><?php echo $lang['All groups'] ?></option>
@@ -1092,10 +1097,10 @@ else
 					<th><?php echo $lang['Order by label'] ?></th>
 					<td colspan="3">
 						<select class="form-control" name="order_by" tabindex="21">
-							<option value="username" selected="selected"><?php echo $lang['Order by username'] ?></option>
+							<option value="username" selected="selected"><?php echo $lang['Username'] ?></option>
 							<option value="email"><?php echo $lang['Order by e-mail'] ?></option>
 							<option value="num_posts"><?php echo $lang['Order by posts'] ?></option>
-							<option value="last_post"><?php echo $lang['Order by last post'] ?></option>
+							<option value="last_post"><?php echo $lang['Last post'] ?></option>
 							<option value="last_visit"><?php echo $lang['Order by last visit'] ?></option>
 							<option value="registered"><?php echo $lang['Order by registered'] ?></option>
 						</select>&#160;&#160;&#160;<select class="form-control" name="direction" tabindex="22">

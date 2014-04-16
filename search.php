@@ -503,9 +503,9 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 		if ($search_type[0] == 'action')
 		{
 			if ($search_type[1] == 'show_user_topics')
-				$crumbs_text['search_type'] = '<a href="search.php?action=show_user_topics&amp;user_id='.$search_type[2].'">'.sprintf($lang['Quick search show_user_topics'], luna_htmlspecialchars($search_set[0]['poster'])).'</a>';
+				$crumbs_text['search_type'] = '<a class="btn btn-primary" href="search.php?action=show_user_topics&amp;user_id='.$search_type[2].'">'.sprintf($lang['Quick search show_user_topics'], luna_htmlspecialchars($search_set[0]['poster'])).'</a>';
 			else if ($search_type[1] == 'show_user_posts')
-				$crumbs_text['search_type'] = '<a href="search.php?action=show_user_posts&amp;user_id='.$search_type[2].'">'.sprintf($lang['Quick search show_user_posts'], luna_htmlspecialchars($search_set[0]['pposter'])).'</a>';
+				$crumbs_text['search_type'] = '<a class="btn btn-primary" href="search.php?action=show_user_posts&amp;user_id='.$search_type[2].'">'.sprintf($lang['Quick search show_user_posts'], luna_htmlspecialchars($search_set[0]['pposter'])).'</a>';
 			else if ($search_type[1] == 'show_subscriptions')
 			{
 				// Fetch username of subscriber
@@ -517,10 +517,10 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 				else
 					message($lang['Bad request'], false, '404 Not Found');
 
-				$crumbs_text['search_type'] = '<a href="search.php?action=show_subscriptions&amp;user_id='.$subscriber_id.'">'.sprintf($lang['Quick search show_subscriptions'], luna_htmlspecialchars($subscriber_name)).'</a>';
+				$crumbs_text['search_type'] = '<a class="btn btn-primary" href="search.php?action=show_subscriptions&amp;user_id='.$subscriber_id.'">'.sprintf($lang['Quick search show_subscriptions'], luna_htmlspecialchars($subscriber_name)).'</a>';
 			}
 			else
-				$crumbs_text['search_type'] = '<a href="search.php?action='.$search_type[1].'">'.$lang['Quick search '.$search_type[1]].'</a>';
+				$crumbs_text['search_type'] = '<a class="btn btn-primary" href="search.php?action='.$search_type[1].'">'.$lang['Quick search '.$search_type[1]].'</a>';
 		}
 		else
 		{
@@ -542,7 +542,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 				$crumbs_text['search_type'] = sprintf($lang['By user show as '.$show_as], luna_htmlspecialchars($author));
 			}
 
-			$crumbs_text['search_type'] = '<a href="search.php?action=search&amp;keywords='.urlencode($keywords).'&amp;author='.urlencode($author).'&amp;forums='.$search_type[2].'&amp;search_in='.$search_type[3].'&amp;sort_by='.$sort_by.'&amp;sort_dir='.$sort_dir.'&amp;show_as='.$show_as.'">'.$crumbs_text['search_type'].'</a>';
+			$crumbs_text['search_type'] = '<a class="btn btn-primary" href="search.php?action=search&amp;keywords='.urlencode($keywords).'&amp;author='.urlencode($author).'&amp;forums='.$search_type[2].'&amp;search_in='.$search_type[3].'&amp;sort_by='.$sort_by.'&amp;sort_dir='.$sort_dir.'&amp;show_as='.$show_as.'">'.$crumbs_text['search_type'].'</a>';
 		}
 
 		$page_title = array(luna_htmlspecialchars($luna_config['o_board_title']), $lang['Search results']);
@@ -550,15 +550,19 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 		require FORUM_ROOT.'header.php';
 
 ?>
-<div class="linkst">
-    <ol class="breadcrumb">
-        <li><a href="index.php"><?php echo $lang['Index'] ?></a></li>
-        <li><a href="search.php"><?php echo $crumbs_text['show_as'] ?></a></li>
-        <li class="active"><?php echo $crumbs_text['search_type'] ?></li>
-    </ol>
-    <ul class="pagination">
-        <?php echo $paging_links ?>
-    </ul>
+<div class="row row-nav-fix">
+	<div class="col-sm-6">
+		<div class="btn-group btn-breadcrumb">
+			<a class="btn btn-primary" href="index.php"><span class="glyphicon glyphicon-home"></span></a>
+			<a class="btn btn-primary" href="search.php"><?php echo $crumbs_text['show_as'] ?></a>
+			<?php echo $crumbs_text['search_type'] ?>
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<ul class="pagination">
+			<?php echo $paging_links ?>
+		</ul>
+	</div>
 </div>
 
 <?php
@@ -591,7 +595,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 
 		foreach ($search_set as $cur_search)
 		{
-			$forum = '<a href="viewforum.php?id='.$cur_search['forum_id'].'">'.luna_htmlspecialchars($cur_search['forum_name']).'</a>';
+			$forum = '<a class="btn btn-primary" href="viewforum.php?id='.$cur_search['forum_id'].'">'.luna_htmlspecialchars($cur_search['forum_name']).'</a>';
 
 			if ($luna_config['o_censoring'] == '1')
 				$cur_search['subject'] = censor_words($cur_search['subject']);
@@ -631,15 +635,6 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 ?>
 <div class="blockpost<?php echo ($post_count % 2 == 0) ? ' roweven' : ' rowodd' ?><?php if ($cur_search['pid'] == $cur_search['first_post_id']) echo ' firstpost' ?><?php if ($post_count == 1) echo ' blockpost1' ?><?php if ($item_status != '') echo ' '.$item_status ?>">
     <table class="table">
-    	<tr>
-            <td colspan="2" class="postbreadcrumb" style="padding-bottom: 0px;">
-                <ol class="breadcrumb">
-                    <li><?php if ($cur_search['pid'] != $cur_search['first_post_id']) echo $lang['Re'].' ' ?><?php echo $forum ?></li>
-                    <li><a href="viewtopic.php?id=<?php echo $cur_search['tid'] ?>"><?php echo luna_htmlspecialchars($cur_search['subject']) ?></a></li>
-                    <li><a href="viewtopic.php?pid=<?php echo $cur_search['pid'].'#p'.$cur_search['pid'] ?>"><?php echo format_time($cur_search['pposted']) ?></a></li>
-                </ol>
-            </td>
-        </tr>
         <tr>
             <td class="col-lg-2 user-data">
                 <?php echo $pposter ?><br />
@@ -653,6 +648,11 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
         </tr>
         <tr>
             <td colspan="2" class="postfooter" style="padding-bottom: 0;">
+				<div class="btn-group btn-breadcrumb">
+					<?php if ($cur_search['pid'] != $cur_search['first_post_id']) echo $lang['Re'].' ' ?><?php echo $forum ?>
+					<a class="btn btn-primary" href="viewtopic.php?id=<?php echo $cur_search['tid'] ?>"><?php echo luna_htmlspecialchars($cur_search['subject']) ?></a>
+					<a class="btn btn-primary" href="viewtopic.php?pid=<?php echo $cur_search['pid'].'#p'.$cur_search['pid'] ?>"><?php echo format_time($cur_search['pposted']) ?></a>
+				</div>
                 <p class="pull-right">
 					<a class="btn btn-small btn-primary" href="viewtopic.php?id=<?php echo $cur_search['tid'] ?>"><?php echo $lang['Go to topic'] ?></a>
 					<a class="btn btn-small btn-primary" href="viewtopic.php?pid=<?php echo $cur_search['pid'].'#p'.$cur_search['pid'] ?>"><?php echo $lang['Go to post'] ?></a>
@@ -733,16 +733,20 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 			echo "\t\t\t".'</div>'."\n\n";
 
 ?>
-<div class="<?php echo ($show_as == 'topics') ? 'linksb' : 'postlinksb'; ?>">
-    <ul class="pagination pagination-fix">
-        <?php echo $paging_links ?>
-    </ul>
-    <ol class="breadcrumb">
-        <li><a href="index.php"><?php echo $lang['Index'] ?></a></li>
-        <li><a href="search.php"><?php echo $crumbs_text['show_as'] ?></a></li>
-        <li class="active"><?php echo $crumbs_text['search_type'] ?></li>
-    </ol>
-    <?php echo (!empty($forum_actions) ? "\t\t".'<p class="subscribelink clearb">'.implode(' - ', $forum_actions).'</p>'."\n" : '') ?>
+
+<div class="row row-nav-fix">
+	<div class="col-sm-6">
+		<div class="btn-group btn-breadcrumb">
+			<a class="btn btn-primary" href="index.php"><span class="glyphicon glyphicon-home"></span></a>
+			<a class="btn btn-primary" href="search.php"><?php echo $crumbs_text['show_as'] ?></a>
+			<?php echo $crumbs_text['search_type'] ?>
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<ul class="pagination">
+			<?php echo $paging_links ?>
+		</ul>
+	</div>
 </div>
 <?php
 
@@ -821,7 +825,7 @@ $result = $db->query('SELECT c.id AS cid, c.cat_name, f.id AS fid, f.forum_name,
 // We either show a list of forums of which multiple can be selected
 if ($luna_config['o_search_all_forums'] == '1' || $luna_user['is_admmod'])
 {
-	echo "\t\t\t\t\t\t".'<div class="col-xs-4"><div class="conl multiselect"><b>'.$lang['Forum search'].'</b>'."\n";
+	echo "\t\t\t\t\t\t".'<div class="col-xs-4"><div class="conl multiselect"><b>'.$lang['Forum'].'</b>'."\n";
 	echo "\t\t\t\t\t\t".'<br />'."\n";
 	echo "\t\t\t\t\t\t".'<div>'."\n";
 
@@ -854,7 +858,7 @@ if ($luna_config['o_search_all_forums'] == '1' || $luna_user['is_admmod'])
 // ... or a simple select list for one forum only
 else
 {
-	echo "\t\t\t\t\t\t".'<div class="col-xs-4"><label class="conl">'.$lang['Forum search']."\n";
+	echo "\t\t\t\t\t\t".'<div class="col-xs-4"><label class="conl">'.$lang['Forum']."\n";
 	echo "\t\t\t\t\t\t".'<br />'."\n";
 	echo "\t\t\t\t\t\t".'<select id="forum" name="forum">'."\n";
 
@@ -880,13 +884,12 @@ else
 
 ?>
                     <div class="col-xs-8">
-                        <label class="conl"><?php echo $lang['Search in']."\n" ?>
-                        <br /><select class="form-control" id="search_in" name="search_in">
+                        <label class="conl"><?php echo $lang['Search in']."\n" ?></label>
+                        <select class="form-control" id="search_in" name="search_in">
                             <option value="0"><?php echo $lang['Message and subject'] ?></option>
                             <option value="1"><?php echo $lang['Message only'] ?></option>
                             <option value="-1"><?php echo $lang['Topic only'] ?></option>
                         </select>
-                        </label>
                         <table>
                             <thead>
                                 <tr>
@@ -901,8 +904,8 @@ else
                                         <select class="form-control" name="sort_by">
                                             <option value="0"><?php echo $lang['Sort by post time'] ?></option>
                                             <option value="1"><?php echo $lang['Sort by author'] ?></option>
-                                            <option value="2"><?php echo $lang['Sort by subject'] ?></option>
-                                            <option value="3"><?php echo $lang['Sort by forum'] ?></option>
+                                            <option value="2"><?php echo $lang['Subject'] ?></option>
+                                            <option value="3"><?php echo $lang['Forum'] ?></option>
                                         </select>
                                     </td>
                                     <td>
@@ -913,7 +916,7 @@ else
                                     </td>
                                     <td>
                                         <select class="form-control" name="show_as">
-                                            <option value="topics"><?php echo $lang['Show as topics'] ?></option>
+                                            <option value="topics"><?php echo $lang['Topics'] ?></option>
                                             <option value="posts"><?php echo $lang['Show as posts'] ?></option>
                                         </select>
                                     </td>

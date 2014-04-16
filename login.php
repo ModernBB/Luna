@@ -84,7 +84,7 @@ if (isset($_POST['form_sent']) && $action == 'in')
 	// Reset tracked topics
 	set_tracked_topics(null);
 
-	redirect(luna_htmlspecialchars($_POST['redirect_url']), $lang['Login redirect']);
+	redirect(luna_htmlspecialchars($_POST['redirect_url']));
 }
 
 
@@ -105,7 +105,7 @@ else if ($action == 'out')
 
 	luna_setcookie(1, luna_hash(uniqid(rand(), true)), time() + 31536000);
 
-	redirect('index.php', $lang['Logout redirect']);
+	redirect('index.php');
 }
 
 
@@ -152,7 +152,7 @@ else if ($action == 'forget' || $action == 'forget_2')
 				while ($cur_hit = $db->fetch_assoc($result))
 				{
 					if ($cur_hit['last_email_sent'] != '' && (time() - $cur_hit['last_email_sent']) < 3600 && (time() - $cur_hit['last_email_sent']) >= 0)
-					message(sprintf($lang['Email flood'], intval((3600 - (time() - $cur_hit['last_email_sent'])) / 60)), true);
+					message(sprintf($lang['Password request flood'], intval((3600 - (time() - $cur_hit['last_email_sent'])) / 60)), true);
 					
 					// Generate a new password and a new password activation code
 					$new_password = random_pass(8);
@@ -186,19 +186,17 @@ if (!empty($errors))
 {
 
 ?>
-<div id="posterror" class="block">
-	<h2><span><?php echo $lang['New password errors'] ?></span></h2>
-	<div class="box">
-		<div class="inbox error-info">
-			<p><?php echo $lang['New passworderrors info'] ?></p>
-			<ul class="error-list">
+<div id="posterror">
+	<h2><?php echo $lang['New password errors'] ?></h2>
+	<div class="error-info">
+		<p><?php echo $lang['New passworderrors info'] ?></p>
+		<ul class="error-list">
 <?php
 
 	foreach ($errors as $cur_error)
 		echo "\t\t\t\t".'<li><strong>'.$cur_error.'</strong></li>'."\n";
 ?>
-			</ul>
-		</div>
+		</ul>
 	</div>
 </div>
 
@@ -275,7 +273,7 @@ require FORUM_ROOT.'header.php';
             <input class="form-control bottom-form" type="password" name="req_password" tabindex="2" placeholder="<?php echo $lang['Password'] ?>" /> 
         </div>
         <div class="form-content">
-            <p class="actions"><?php if ($luna_config['o_regs_allow'] == '1') { ?><a href="register.php" tabindex="5"><?php echo $lang['Not registered'] ?></a> &middot; <?php }; ?><a href="login.php?action=forget" tabindex="6"><?php echo $lang['Forgotten pass'] ?></a></p>
+            <p class="actions"><?php if ($luna_config['o_regs_allow'] == '1') { ?><a href="register.php" tabindex="5"><?php echo $lang['Register'] ?></a> &middot; <?php }; ?><a href="login.php?action=forget" tabindex="6"><?php echo $lang['Forgotten pass'] ?></a></p>
             <div class="control-group">
                 <div class="controls remember">
                     <label class="remember"><input type="checkbox" name="save_pass" value="1" tabindex="3" checked="checked" /> <?php echo $lang['Remember me'] ?></label>

@@ -169,7 +169,7 @@ if ($action == 'prune')
 			$db->query('DELETE FROM '.$db->prefix.'topics WHERE id IN('.implode(',', $orphans).')') or error('Unable to delete redirect topics', __FILE__, __LINE__, $db->error());
 		}
 
-		redirect('backstage/maintenance.php', $lang['Posts pruned redirect']);
+		redirect('backstage/maintenance.php');
 	}
 
 	$prune_days = luna_trim($_POST['req_prune_days']);
@@ -338,7 +338,7 @@ if (isset($_POST['form_sent']))
 	generate_config_cache();
 	clear_feed_cache();
 
-	redirect('backstage/maintenance.php', $lang['Options updated redirect']);
+	redirect('backstage/maintenance.php');
 }
 
 $page_title = array(luna_htmlspecialchars($luna_config['o_board_title']), $lang['Admin'], $lang['Maintenance']);
@@ -351,7 +351,7 @@ require FORUM_ROOT.'backstage/header.php';
 <form class="form-horizontal" method="post" action="maintenance.php">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title" id="maintenance"><?php echo $lang['Maintenance subhead'] ?><span class="pull-right"><input class="btn btn-primary" type="submit" name="save" value="<?php echo $lang['Save changes'] ?>" /></span></h3>
+            <h3 class="panel-title" id="maintenance"><?php echo $lang['Maintenance'] ?><span class="pull-right"><input class="btn btn-primary" type="submit" name="save" value="<?php echo $lang['Save changes'] ?>" /></span></h3>
         </div>
         <div class="panel-body">
             <input type="hidden" name="form_sent" value="1" />

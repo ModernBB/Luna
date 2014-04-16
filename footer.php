@@ -30,22 +30,26 @@ if (isset($footer_style) && ($footer_style == 'viewforum' || $footer_style == 'v
 
 	if ($footer_style == 'viewforum')
 	{
-		echo "\t\t\t\t".'<a href="moderate.php?fid='.$forum_id.'&amp;p='.$p.'" class="btn btn-primary btn-mini">'.$lang['Moderate forum'].'</a>'."\n";
+		echo "\t\t\t\t".'<a href="moderate.php?fid='.$forum_id.'&amp;p='.$p.'" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-eye-open"></span> '.$lang['Moderate forum'].'</a>'."\n";
 	}
 	else if ($footer_style == 'viewtopic')
 	{
-		echo "\t\t\t\t".'<a href="moderate.php?fid='.$forum_id.'&amp;tid='.$id.'&amp;p='.$p.'" class="btn btn-primary btn-mini">'.$lang['Moderate topic'].'</a>'.($num_pages > 1 ? ' (<a href="moderate.php?fid='.$forum_id.'&amp;tid='.$id.'&amp;action=all" class="btn btn-primary btn-mini">'.$lang['All'].'</a>)' : '')."\n";
-		echo "\t\t\t\t".'<a href="moderate.php?fid='.$forum_id.'&amp;move_topics='.$id.'" class="btn btn-primary btn-mini">'.$lang['Move topic'].'</a>'."\n";
+		echo "\t\t\t\t".'<div class="btn-toolbar"><div class="btn-group"><a href="moderate.php?fid='.$forum_id.'&amp;tid='.$id.'&amp;p='.$p.'" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-eye-open"></span> '.$lang['Moderate topic'].'</a></div>';
+
+		if($num_pages > 1)
+			echo '<div class="btn-group"><a href="moderate.php?fid='.$forum_id.'&amp;tid='.$id.'&amp;action=all" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-list"></span> '.$lang['All'].'</a></div>'."\n";
+
+		echo "\t\t\t\t".'<div class="btn-group"><a href="moderate.php?fid='.$forum_id.'&amp;move_topics='.$id.'" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-share-alt"></span> '.$lang['Move topic'].'</a>'."\n";
 
 		if ($cur_topic['closed'] == '1')
-			echo "\t\t\t\t".'<a href="moderate.php?fid='.$forum_id.'&amp;open='.$id.'" class="btn btn-primary btn-mini">'.$lang['Open topic'].'</a>'."\n";
+			echo "\t\t\t\t".'<a href="moderate.php?fid='.$forum_id.'&amp;open='.$id.'" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-ok"></span> '.$lang['Open topic'].'</a>'."\n";
 		else
-			echo "\t\t\t\t".'<a href="moderate.php?fid='.$forum_id.'&amp;close='.$id.'" class="btn btn-primary btn-mini">'.$lang['Close topic'].'</a>'."\n";
+			echo "\t\t\t\t".'<a href="moderate.php?fid='.$forum_id.'&amp;close='.$id.'" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> '.$lang['Close topic'].'</a>'."\n";
 
 		if ($cur_topic['sticky'] == '1')
-			echo "\t\t\t\t".'<a href="moderate.php?fid='.$forum_id.'&amp;unstick='.$id.'" class="btn btn-primary btn-mini">'.$lang['Unstick topic'].'</a>'."\n";
+			echo "\t\t\t\t".'<a href="moderate.php?fid='.$forum_id.'&amp;unstick='.$id.'" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-pushpin"></span> '.$lang['Unstick topic'].'</a></div></div>'."\n";
 		else
-			echo "\t\t\t\t".'<a href="moderate.php?fid='.$forum_id.'&amp;stick='.$id.'" class="btn btn-primary btn-mini">'.$lang['Stick topic'].'</a>'."\n";
+			echo "\t\t\t\t".'<a href="moderate.php?fid='.$forum_id.'&amp;stick='.$id.'" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pushpin"></span> '.$lang['Stick topic'].'</a></div></div>'."\n";
 	}
 
 	echo "\t\t\t\n\t\t".'</div>'."\n";
@@ -54,27 +58,21 @@ if (isset($footer_style) && ($footer_style == 'viewforum' || $footer_style == 'v
 // If no footer style has been specified, we use the default (only copyright/debug info)
 $footer_style = isset($footer_style) ? $footer_style : NULL;
 
-if ($footer_style == 'index')
-{
-	if ($luna_config['o_feed_type'] == '1')
-		echo "\t\t\t\t".'<span class="rss"><a href="extern.php?action=feed&amp;type=rss">'.$lang['RSS active topics feed'].'</a></span>'."\n";
-	else if ($luna_config['o_feed_type'] == '2')
-		echo "\t\t\t\t".'<span class="atom"><a href="extern.php?action=feed&amp;type=atom">'.$lang['Atom active topics feed'].'</a></span>'."\n";
+// Generate the feed links
+if ($footer_style == 'index') {
+    $feed_lang = ($luna_config['o_feed_type'] == '1') ? $lang['RSS active topics feed'] : $lang['Atom active topics feed'];
+    $feed_id = '';
+} elseif ($footer_style == 'viewforum') {
+    $feed_lang = ($luna_config['o_feed_type'] == '1') ? $lang['RSS forum feed'] : $lang['Atom forum feed'];
+    $feed_id = '&fid='.$forum_id;
+} elseif ($footer_style == 'viewtopic') {
+    $feed_lang = ($luna_config['o_feed_type'] == '1') ? $lang['RSS topic feed'] : $lang['Atom topic feed'];
+    $feed_id = '&tid='.$id;
 }
-else if ($footer_style == 'viewforum')
-{
-	if ($luna_config['o_feed_type'] == '1')
-		echo "\t\t\t\t".'<span class="rss"><a href="extern.php?action=feed&amp;fid='.$forum_id.'&amp;type=rss">'.$lang['RSS forum feed'].'</a></span>'."\n";
-	else if ($luna_config['o_feed_type'] == '2')
-		echo "\t\t\t\t".'<span class="atom"><a href="extern.php?action=feed&amp;fid='.$forum_id.'&amp;type=atom">'.$lang['Atom forum feed'].'</a></span>'."\n";
-}
-else if ($footer_style == 'viewtopic')
-{
-	if ($luna_config['o_feed_type'] == '1')
-		echo "\t\t\t\t".'<span class="rss"><a href="extern.php?action=feed&amp;tid='.$id.'&amp;type=rss">'.$lang['RSS topic feed'].'</a></span>'."\n";
-	else if ($luna_config['o_feed_type'] == '2')
-		echo "\t\t\t\t".'<span class="atom"><a href="extern.php?action=feed&amp;tid='.$id.'&amp;type=atom">'.$lang['Atom topic feed'].'</a></span>'."\n";
-}
+
+$feed_type = ($luna_config['o_feed_type'] == '1') ? 'rss' : 'atom';
+
+echo '<span class="'.$feed_type.'"><a href="extern.php?action=feed&type='.$feed_type.$feed_id'">'.$feed_lang.'</a></span>'."\n";
 
 
 if (!defined('FORUM_FORM'))
@@ -91,7 +89,7 @@ if (!defined('FORUM_FORM'))
 // Display debug info (if enabled/defined)
 if (defined('FORUM_DEBUG'))
 {
-	echo '<p id="debugtime">[ ';
+	echo '<p id="debug">[ ';
 
 	// Calculate script generation time
 	$time_diff = sprintf('%.3f', get_microtime() - $luna_start);

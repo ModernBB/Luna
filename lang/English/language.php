@@ -2,17 +2,20 @@
 
 $lang = array(
 
-/////////////////////////////////////////////////// Language for multiple pages ///////////////////////////////////////////////////
+// Line 723 - 51.8% completed
+
 // Text orientation and encoding
 'lang_direction'					=>	'ltr', // ltr (Left-To-Right) or rtl (Right-To-Left)
 'lang_identifier'					=>	'en',
 
-// Number formatting
+// Number and date formatting
 'lang_decimal_point'				=>	'.',
 'lang_thousands_sep'				=>	',',
+'lang_time'							=>	'H:i',
+'lang_date'							=>	'j M Y',
 
 // Notices
-'Bad request'						=>	'Bad request. The link you followed is incorrect or outdated.',
+'Bad request'						=>	'Bad request. The link you followed is incorrect, outdated or you\'re simply not allowed to hang around here.',
 'No view'							=>	'You do not have permission to view these forums.',
 'Bad referrer'						=>	'Bad HTTP_REFERER. You were referred to this page from an unauthorized source. If the problem persists please make sure that \'Base URL\' is correctly set in Admin/Options and that you are visiting the forum by navigating to that URL. More information regarding the referrer check can be found in the FluxBB documentation.',
 'No permission'						=>	'You do not have permission to access this page.',
@@ -37,10 +40,6 @@ $lang = array(
 'Info'								=>	'Info', // A common table header
 'Go back'							=>	'Go back',
 'Maintenance'						=>	'Maintenance',
-'Redirecting'						=>	'Redirecting',
-'Click redirect'					=>	'Click here if you do not want to wait any longer (or if your browser does not automatically forward you)',
-'on'								=>	'on', // As in "BBCode is on"
-'off'								=>	'off',
 'Invalid email'						=>	'The email address you entered is invalid.',
 'Required'							=>	'(Required)',
 'required field'					=>	'is a required field in this form.', // For javascript form validation
@@ -59,24 +58,19 @@ $lang = array(
 'Forum'								=>	'Forum',
 'Posts table'						=>	'Posts',
 'Replies forum'						=>	'Replies',
-'Pages'								=>	'Pages:',
 'Page'								=>	'Page %s',
-'BBCode'							=>	'BBCode', // You probably shouldn't change this
+'BBCode'							=>	'BBCode',
 'img tag'							=>	'[img] tag',
 'Smilies'							=>	'Smilies',
 'and'								=>	'and',
 'Image link'						=>	'image', // This is displayed (i.e. <image>) instead of images when "Show images" is disabled in the profile
 'wrote'								=>	'wrote:', // For [quote]'s
 'Mailer'							=>	'%s Mailer', // As in "MyForums Mailer" in the signature of outgoing emails
-'Important information'				=>	'Important information',
-'Write message legend'				=>	'Write your message and submit',
-'Previous'							=>	'Previous',
-'Next'								=>	'Next',
 'Spacer'							=>	'…', // Ellipsis for paginate
 
 // Title
 'Title'								=>	'Title',
-'Member'							=>	'Member', // Default title
+'Member'							=>	'Member',
 'Moderator'							=>	'Moderator',
 'Administrator'						=>	'Administrator',
 'Banned'							=>	'Banned',
@@ -88,27 +82,22 @@ $lang = array(
 'BBCode error invalid self-nesting'	=>	'[%s] was opened within itself, this is not allowed',
 'BBCode error no closing tag'		=>	'[%1$s] was found without a matching [/%1$s]',
 'BBCode error empty attribute'		=>	'[%s] tag had an empty attribute section',
-'BBCode code problem'				=>	'There is a problem with your [code] tags',
 'BBCode list size error'			=>	'Your list was too long to parse, please make it smaller!',
 
 // Stuff for the navigator (top of every page)
 
 // User menu
-'Welcome'							=>	'Welcome',
 'Support'							=>	'Support',
 'Help'								=>	'Help',
-
 'Index'								=>	'Index',
 'User list'							=>	'User list',
 'Rules'								=>	'Rules',
-'Search'							=>	'Search',
 'Register'							=>	'Register',
+'Registered'						=>	'Registered since',
 'Login'								=>	'Login',
 'Profile'							=>	'Profile',
 'Logout'							=>	'Logout',
-'Logged in as'						=>	'Logged in as',
 'Backstage'							=>	'Backstage',
-'Topic searches'					=>	'Topics:',
 'New posts header'					=>	'New',
 'Active topics'						=>	'Active',
 'Unanswered topics'					=>	'Unanswered',
@@ -123,7 +112,7 @@ $lang = array(
 
 // Stuff for the page footer
 'Moderate topic'					=>	'Moderate topic',
-'All'								=>	'All',
+'All'								=>	'Show all posts',
 'Move topic'						=>	'Move topic',
 'Open topic'						=>	'Open topic',
 'Close topic'						=>	'Close topic',
@@ -143,6 +132,15 @@ $lang = array(
 'Query'								=>	'Query',
 'Total query time'					=>	'Total query time: %s',
 
+// First run
+'First run message'					=>	'Wow, it\'s great to have you here, welcome and thanks for joining us. We\'ve set up your account and you\'re ready to go. Through we like to point out some actions you might want to do first.',
+'Hi there'							=>	'Hi there, %s',
+'Welcome to'						=>	'Welcome to %s',
+'Change your avatar'				=>	'Change your avatar',
+'Extend profile'					=>	'Extend your details',
+'Get help'							=>	'Get help',
+'Do not show again'					=>	'Don\'t show again',
+
 // For extern.php RSS feed
 'RSS description'					=>	'The most recent topics at %s.',
 'RSS description topic'				=>	'The most recent posts in %s.',
@@ -158,26 +156,15 @@ $lang = array(
 'New reports'						=>	'There are new reports',
 'Maintenance mode enabled'			=>	'Maintenance mode is enabled!',
 
-// Units for file sizes
-'Size unit B'						=>	'%s B',
-'Size unit KiB'						=>	'%s KiB',
-'Size unit MiB'						=>	'%s MiB',
-'Size unit GiB'						=>	'%s GiB',
-'Size unit TiB'						=>	'%s TiB',
-'Size unit PiB'						=>	'%s PiB',
-'Size unit EiB'						=>	'%s EiB',
-
-/////////////////////////////////////////////////// Language for installation ///////////////////////////////////////////////////
-
+// Language for installation
 'Choose install language'		=>	'Choose the install script language',
 'Choose install language info'	=>	'The language used for this install script. The default language used for the board itself can be set below.',
 'Install language'				=>	'Install language',
 'Change language'				=>	'Change language',
-'Next'							=>	'Next',
 'Already installed'				=>	'It seems like ModernBB is already installed. You should go <a href="index.php">here</a> instead.',
 'You are running error'			=>	'You are running %1$s version %2$s. ModernBB %3$s requires at least %1$s %4$s to run properly. You must upgrade your %1$s installation before you can continue.',
 'My ModernBB Forum'				=>	'My ModernBB Forum',
-'Description'					=>	'Express Yourself',
+'Description'					=>	'You can do anything',
 'Username 1'					=>	'Usernames must be at least 2 characters long.',
 'Username 2'					=>	'Usernames must not be more than 25 characters long.',
 'Username 3'					=>	'The username guest is reserved.',
@@ -199,33 +186,24 @@ $lang = array(
 'Base URL'						=>	'The URL (without trailing slash) of your ModernBB forum. This must be correct.',
 'Required field'				=>	'is a required field in this form.',
 'ModernBB Installation'			=>	'ModernBB Installation',
-'Welcome'						=>	'You are about to install ModernBB. In order to install ModernBB, you must complete the form set out below. If you encounter any difficulties with the installation, please refer to the documentation.',
 'Install'						=>	'Install ModernBB %s',
 'Errors'						=>	'The following errors need to be corrected:',
 'Database setup'				=>	'Database setup',
 'Select database'				=>	'Select your database type',
 'Info 1'						=>	'Select a database. We support SQLite, MySQL and PostgreSQL.',
-'Database type'					=>	'Database type',
-'Required'						=>	'(Required)',
-'Database hostname'				=>	'Enter your database server hostname',
 'Info 2'						=>	'You should be able to get this info from your web host, if <code>localhost</code> does not work.',
-'Database server hostname'		=>	'Database server hostname',
-'Database enter name'			=>	'Enter the name of your database',
 'Info 3'						=>	'The name of the database you want to install ModernBB on.',
 'Database name'					=>	'Database name',
 'Database enter informations'	=>	'Enter your database username and password',
 'Database username'				=>	'Database username',
 'Info 4'						=>	'Your MySQL username and password (ignore of SQLite).',
 'Database password'				=>	'Database password',
-'Database enter prefix'			=>	'Enter database table prefix',
 'Info 5'						=>	'If you want to run multiple ModernBB installations in a single database, change this.',
 'Table prefix'					=>	'Table prefix',
 'Administration setup'			=>	'Administration setup',
 'Info 6'						=>	'Your username should be between 2 and 25 characters long. Your password must be at least 6 characters long. Remember that passwords are case-sensitive.',
-'Password'						=>	'Password',
 'Confirm password'				=>	'Confirm password',
 'Board setup'					=>	'Board setup',
-'General information'			=>	'Enter your board\'s title and description.',
 'Board description'				=>	'Board description',
 'Appearance'					=>	'Appearance',
 'Info 7'						=>	'Make your forum yours. Choose a language and a style for your board.',
@@ -238,21 +216,12 @@ $lang = array(
 'Existing table error'			=>	'A table called \'%susers\' is already present in the database \'%s\'. This could mean that ModernBB is already installed or that another piece of software is installed and is occupying one or more of the table names ModernBB requires. If you want to install multiple copies of ModernBB in the same database, you must choose a different table prefix',
 'InnoDB off'					=>	'InnoDB does not seem to be enabled. Please choose a database layer that does not have InnoDB support, or enable InnoDB on your MySQL server',
 'Administrators'				=>	'Administrators',
-'Administrator'					=>	'Administrator',
 'Moderators'					=>	'Moderators',
-'Moderator'						=>	'Moderator',
 'Guests'						=>	'Guests',
-'Guest'							=>	'Guest',
 'Members'						=>	'Members',
-'Member'						=>	'Member',
 'New member'					=>	'New member',
-'Announcement'					=>	'Enter your announcement here.',
 'Maintenance message'			=>	'The forums are temporarily down for maintenance. Please try again in a few minutes.',
 'Test post'						=>	'Test topic',
-'Message'						=>	'If you are looking at this (which I guess you are), the install of ModernBB appears to have worked! Now log in and head over to the administration control panel to configure your forum.',
-'Test category'					=>	'Test category',
-'Test forum'					=>	'Test forum',
-'This is just a test forum'		=>	'This is just a test forum',
 'Alert cache'					=>	'<strong>The cache directory is currently not writable!</strong> In order for ModernBB to function properly, the directory <em>%s</em> must be writable by PHP. Use chmod to set the appropriate directory permissions. If in doubt, chmod to 0777.',
 'Alert avatar'					=>	'<strong>The avatar directory is currently not writable!</strong> If you want users to be able to upload their own avatar images you must see to it that the directory <em>%s</em> is writable by PHP. You can later choose to save avatar images in a different directory (see Admin/Options). Use chmod to set the appropriate directory permissions. If in doubt, chmod to 0777.',
 'Alert upload'					=>	'<strong>File uploads appear to be disallowed on this server!</strong> If you want users to be able to upload their own avatar images you must enable the file_uploads configuration setting in PHP. Once file uploads have been enabled, avatar uploads can be enabled in Administration/Options/Features.',
@@ -263,19 +232,11 @@ $lang = array(
 'Download config.php file'		=>	'Download config.php file',
 'ModernBB fully installed'		=>	'ModernBB has been fully installed! You may now <a href="index.php">go to the forum index</a>.',
 
-/////////////////////////////////////////////////// Language for updating ///////////////////////////////////////////////////
-
+// Language for updating
 'Update ModernBB'				=>	'Update ModernBB',
-'Maintenance'					=>	'Maintenance',
-'Next'							=>	'Next',
 'Down'							=>	'The forums are temporarily down for maintenance. Please try again in a few minutes.',
 
-'You are running error'			=>	'You are running %1$s version %2$s. ModernBB %3$s requires at least %1$s %4$s to run properly. You must upgrade your %1$s installation before you can continue.',
 'Version mismatch error'		=>	'Version mismatch. The database \'%s\' doesn\'t seem to be running a ModernBB database schema supported by this update script.',
-'Invalid file error'			=>	'Invalid database file name. When using SQLite the database file name must be entered exactly as it appears in your \'%s\'',
-'Invalid password error'		=>	'Invalid database password. To upgrade ModernBB you must enter your database password exactly as it appears in your \'%s\'',
-'No password error'				=>	'No database password provided',
-'Script runs error'				=>	'It appears the update script is already being ran by someone else. If this is not the case, please manually delete the file \'%s\' and try again',
 'No update error'				=>	'Your forum is already as up-to-date as this script can make it',
 
 'Start update'					=>	'Start update',
@@ -283,27 +244,14 @@ $lang = array(
 'Successfully updated'			=>	'Your forum database was successfully updated. You may now %s.',
 'go to index'					=>	'go to the forum index',
 
-'Unable to lock error'			=>	'Unable to write update lock. Please make sure PHP has write access to the directory \'%s\' and no-one else is currently running the update script.',
-
-'Converting'					=>	'Converting %s …',
-'Converting item'				=>	'Converting %1$s %2$s …',
 'Preparsing item'				=>	'Preparsing %1$s %2$s …',
 'Rebuilding index item'			=>	'Rebuilding index for %1$s %2$s',
 
-'ban'							=>	'ban',
-'categories'					=>	'categories',
-'censor words'					=>	'censor words',
-'configuration'					=>	'configuration',
-'forums'						=>	'forums',
-'groups'						=>	'groups',
 'post'							=>	'post',
-'ranks'							=>	'ranks',
-'report'						=>	'report',
 'topic'							=>	'topic',
-'user'							=>	'user',
 'signature'						=>	'signature',
 
-/////////////////////////////////////////////////// Language for frontend ///////////////////////////////////////////////////
+// Language for frontend
 
 // Language for delete.php
 'Delete post'			=>	'Delete post',
@@ -311,16 +259,12 @@ $lang = array(
 'Delete info'			=>	'The post you have chosen to delete is set out below for you to review before proceeding.',
 'Reply by'				=>	'Reply by %s - %s',
 'Topic by'				=>	'Topic started by %s - %s',
-'Delete'				=>	'Delete', // The submit button
-'Post del redirect'		=>	'Post deleted. Redirecting …',
-'Topic del redirect'	=>	'Topic deleted. Redirecting …',
+'Delete'				=>	'Delete',
 
 // Language for help.php
-'Help'					=>	'Help',
 'produces'				=>	'produces',
 
-'BBCode'				=>	'BBCode',
-'BBCode info'			=>	'BBCode is a collection of formatting tags that are used to change the look of text in this forum. BBCode is based on the same principal as, and is very similar to, HTML. Below is a list of all the available BBCodes and instructions on how to use them. Administrators have the ability to enable or disable BBCode. You can tell if BBCode is enabled or disabled out in the left margin whenever you post a message or edit your signature.',
+'BBCode info'			=>	'BBCode is a collection of tags that are used to change the look of text in this forum. Below you can find all the available BBCodes and how to use them. Administrators have the ability to disable BBCode. You can tell if BBCode is disabled whenever you post a message or edit your signature.',
 
 'Text style'			=>	'Text style',
 'Text style info'		=>	'The following tags change the appearance of text:',
@@ -331,29 +275,21 @@ $lang = array(
 'Red text'				=>	'Red text',
 'Blue text'				=>	'Blue text',
 'Heading text'			=>	'Heading text',
-'Deleted text'			=>	'Deleted text',
 'Inserted text'			=>	'Inserted text',
 'Sub text'				=>	'Subscript text',
 'Sup text'				=>	'Superscript text',
-'Emphasised text'		=>	'Emphasised text',
 'Left text'				=>	'Left text',
 'Center text'			=>	'Center text',
 'Right text'			=>	'Right text',
 'Justify text'			=>	'Justify text',
 
-'Links, images and video'  =>  'Links, images and video',
+'Multimedia'			=>  'Multimedia',
 'Links info'			=>	'You can create links to other documents or to email addresses using the following tags:',
-'This help page'		=>	'This help page',
 'My email address'		=>	'My email address',
 'Images info'			=>	'If you want to display an image you can use the img tag. The text appearing after the "=" sign in the opening tag is used for the alt attribute and should be included whenever possible.',
 'ModernBB bbcode test'  =>  'ModernBB BBCode Test',
 'Video info'			=>  'ModernBB supports embedding from DailyMotion, Vimeo and YouTube. With the structure as seen below, you can embed a video from one of those platforms. "(x,y)" represents width and heigth.',
 'Video link'			=>  'Put the link to the video here', 
-
-'Test topic'			=>	'Test topic',
-'Test post'				=>	'Test post',
-'Test forum'			=>	'Test forum',
-'Test user'				=>	'Test user',
 
 'Quotes'				=>	'Quotes',
 'Quotes info'			=>	'If you want to quote someone, you should use the quote tag.',
@@ -367,10 +303,6 @@ $lang = array(
 'Code text'				=>	'This is some code.',
 'produces code box'		=>	'produces a code box like this:',
 
-'Nested tags'			=>	'Nested tags',
-'Nested tags info'		=>	'BBCode can be nested to create more advanced formatting. For example:',
-'Bold, underlined text'	=>	'Bold, underlined text',
-
 'Lists'					=>	'Lists',
 'List info'				=>	'To create a list you can use the list tag. You can create 3 types of lists using the list tag.',
 'List text 1'			=>	'Example list item 1.',
@@ -380,7 +312,6 @@ $lang = array(
 'produces decimal list'	=>	'produces a numbered list.',
 'produces alpha list'	=>	'produces an alphabetically labelled list.',
 
-'Smilies'				=>	'Smilies',
 'Smilies info'			=>	'If you like (and if it is enabled), the forum can convert a series of smilies to images representations of that smiley. This forum recognizes the following smilies and replaces them with images:',
 
 // Language for index.php
@@ -394,30 +325,19 @@ $lang = array(
 'No of topics'	=>	'Total topics: %s',
 'No of post'	=>	'Total posts: %s',
 'Online'		=>	'Online:', // As in "Online: User A, User B etc."
-'Board info'	=>	'Board information',
 'Board stats'	=>	'Board statistics',
-'User info'		=>	'User information',
 
 // Language for login.php
 'Wrong user/pass'			=>	'Wrong username and/or password.',
 'Forgotten pass'			=>	'Forgotten password',
-'Login redirect'			=>	'Logged in successfully. Redirecting …',
-'Logout redirect'			=>	'Logged out. Redirecting …',
 'No email match'			=>	'There is no user registered with the email address',
 'Request pass'				=>	'Request password',
-'Request pass legend'		=>	'Enter the email address with which you registered',
-'Request pass info'			=>	'A new password together with a link to activate the new password will be sent to that address.',
-'Not registered'			=>	'Register',
 'Remember me'				=>	'Remember me',
 'New password errors'		=>	'Password request error',
 'New passworderrors info'	=>	'The following error needs to be corrected before a new password can be sent:',
 
 'Forget mail'				=>	'An email has been sent to the specified address with instructions on how to change your password. If it does not arrive you can contact the forum administrator at',
-'Email flood'				=>  'This account has already requested a password reset in the past hour. Please wait %s minutes before requesting a new password again.',
-
-// Language for various scripts
-'Mark read redirect'			=>	'All topics and forums have been marked as read. Redirecting …',
-'Mark forum read redirect'		=>	'All topics in the specified forum have been marked as read. Redirecting …',
+'Password request flood'	=>  'This account has already requested a password reset in the past hour. Please wait %s minutes before requesting a new password again.',
 
 // Send email
 'Form email disabled'			=>	'The user you are trying to send an email to has disabled form email.',
@@ -425,23 +345,17 @@ $lang = array(
 'No email message'				=>	'You must enter a message.',
 'Too long email message'		=>	'Messages cannot be longer than 65535 characters (64 KB).',
 'Email flood'					=>  'At least %s seconds have to pass between sent emails. Please wait %s seconds and try sending again.',
-'Email sent redirect'			=>	'Email sent. Redirecting …',
 'Send email to'					=>	'Send email to',
-'Email subject'					=>	'Subject',
-'Email message'					=>	'Message',
 
 // Report
 'No reason'						=>	'You must enter a reason.',
 'Reason too long'				=>	'Your message must be under 65535 bytes (~64kb).',
 'Report flood'					=>  'At least %s seconds have to pass between reports. Please wait %s seconds and try sending again.',
-'Report redirect'				=>	'Post reported. Redirecting …',
 'Report post'					=>	'Report post',
 'Reason'						=>	'Reason',
 'Reason desc'					=>	'Please enter a short reason why you are reporting this post',
 
 // Subscriptions
-'Subscribe redirect'			=>	'Your subscription has been added. Redirecting …',
-'Unsubscribe redirect'			=>	'Your subscription has been removed. Redirecting …',
 'Not subscribed topic'			=>	'You\re not subscribed to this topic.',
 
 // General forum and topic moderation
@@ -449,48 +363,29 @@ $lang = array(
 'Select'						=>	'Select', // the header of a column of checkboxes
 'Move'							=>	'Move',
 'Split'							=>	'Split',
-'Delete'						=>	'Delete',
 'Merge'							=>	'Merge',
 
 // Moderate forum
 'Open'							=>	'Open',
 'Close'							=>	'Close',
-'Move topic'					=>	'Move topic',
 'Move topics'					=>	'Move topics',
-'Move legend'					=>	'Select destination of move',
 'Move to'						=>	'Move to',
 'Nowhere to move'				=>	'There are no forums into which you can move topics.',
 'Leave redirect'				=>	'Leave redirect topic(s)',
-'Move topic redirect'			=>	'Topic moved. Redirecting …',
-'Move topics redirect'			=>	'Topics moved. Redirecting …',
-'Confirm delete legend'			=>	'Please confirm deletion',
 'Delete topics'					=>	'Delete topics',
 'Delete topics comply'			=>	'Are you sure you want to delete the selected topics?',
-'Delete topics redirect'		=>	'Topics deleted. Redirecting …',
-'Open topic redirect'			=>	'Topic opened. Redirecting …',
-'Open topics redirect'			=>	'Topics opened. Redirecting …',
-'Close topic redirect'			=>	'Topic closed. Redirecting …',
-'Close topics redirect'			=>	'Topics closed. Redirecting …',
 'No topics selected'			=>	'You must select at least one topic for move/delete/open/close.',
 'Not enough topics selected'	=>	'You must select at least two topics for merge.',
-'Stick topic redirect'			=>	'Topic sticked. Redirecting …',
-'Unstick topic redirect'		=>	'Topic unsticked. Redirecting …',
 'Merge topics'					=>	'Merge topics',
-'Merge topics redirect'			=>	'Topics merged. Redirecting …',
-'Confirm merge legend'			=>	'Please confirm merge',
 'New subject'					=>	'New subject',
 
 // Split multiple posts in topic
-'Confirm split legend'			=>	'Please confirm split of selected posts and select destination of move.',
 'Split posts'					=>	'Split posts',
-'Split posts comply'			=>	'Are you sure you want to split the selected posts?',
-'Split posts redirect'			=>	'Posts have been split. Redirecting …',
 
 // Delete multiple posts in topic
 'Delete posts'					=>	'Delete posts',
 'Cannot select first'			=>	'First post cannot be selected for split/delete.',
 'Delete posts comply'			=>	'Are you sure you want to delete the selected posts?',
-'Delete posts redirect'			=>	'Posts deleted. Redirecting …',
 'No posts selected'				=>	'You must select at least one post for split/delete.',
 
 // Get host
@@ -512,10 +407,8 @@ $lang = array(
 
 // Posting
 'Post errors'		=>	'Post errors',
-'Post errors info'	=>	'The following errors need to be corrected before the message can be posted:',
 'Post preview'		=>	'Post preview',
 'Guest name'		=>	'Name', // For guests (instead of Username)
-'Post redirect'		=>	'Post entered. Redirecting …',
 'Post a reply'		=>	'Post a reply',
 'Post new topic'	=>	'Post new topic',
 'Hide smilies'		=>	'Never show smilies as icons for this post',
@@ -523,21 +416,16 @@ $lang = array(
 'Stay subscribed'	=>	'Stay subscribed to this topic',
 'Topic review'		=>	'Topic review (newest first)',
 'Flood start'		=>  'At least %s seconds have to pass between posts. Please wait %s seconds and try posting again.',
-'Preview'			=>	'Preview', // submit button to preview message
+'Preview'			=>	'Preview',
 
 // Edit post
-'Edit post legend'	=>	'Edit the post and submit changes',
 'Silent edit'		=>	'Silent edit (don\'t display "Edited by ..." in topic view)',
 'Edit post'			=>	'Edit post',
-'Edit redirect'		=>	'Post updated. Redirecting …',
 
 // Language for both profile.php and register.php
 'Email legend'				=>	'Enter a valid email address',
-'Email legend 2'			=>	'Enter and confirm a valid email address',
-'Localisation legend'		=>	'Set your localisation options',
 'Time zone'					=>	'Time zone',
-'Time zone info'			=>	'For the forum to display times correctly you must select your local time zone. If Daylight Savings Time is in effect you should also check the option provided which will advance times by 1 hour.',
-'DST'						=>	'Daylight Savings Time is in effect (advance time by 1 hour).',
+'DST'						=>	'Advance time by 1 hour for daylight saving.',
 'Time format'				=>	'Time format',
 'Date format'				=>	'Date format',
 'Default'					=>	'Default',
@@ -546,8 +434,6 @@ $lang = array(
 'Email setting 1'			=>	'Display your email address.',
 'Email setting 2'			=>	'Hide your email address but allow form email.',
 'Email setting 3'			=>	'Hide your email address and disallow form email.',
-'Privacy options legend'	=>	'Set your privacy options',
-'Confirm pass'				=>	'Confirm password',
 
 'Username too short'		=>	'Usernames must be at least 2 characters long. Please choose another (longer) username.',
 'Username too long'			=>	'Usernames must not be more than 25 characters long. Please choose another (shorter) username.',
@@ -565,30 +451,20 @@ $lang = array(
 'Bad ICQ'					=>	'You entered an invalid ICQ UIN. Please go back and correct.',
 
 // Language for profile.php
-// Navigation and sections
-'Section settings'				=>	'Settings',
 'Section personality'			=>	'Personality',
-'Section view' 					=>  'Profile',
 'Section admin'					=>	'Administration',
-'Section messaging'				=>	'Messaging',
 
 // Miscellaneous
 'Personal details legend'		=>	'Modify your personal and contact details',
 'Settings legend'				=>	'Enter your settings',
-'User activity'					=>	'User activity',
 'User tools'					=>	'User tools',
-'Paginate info'					=>	'Enter the number of topics and posts you wish to view on each page.',
-'View info'						=>  'This is what others see when they view your profile',
-'Private'						=>  'Private',
 'Unknown'          				=>  'Unknown',
 
 // Password stuff
 'Pass key bad'					=>	'The specified password activation key was incorrect or has expired. Please re-request a new password. If that fails, contact the forum administrator at',
 'Pass updated'					=>	'Your password has been updated. You can now login with your new password.',
-'Pass updated redirect'			=>	'Password updated. Redirecting …',
 'Wrong pass'					=>	'Wrong old password.',
 'Change pass'					=>	'Change password',
-'Change pass legend'			=>	'Enter and confirm your new password',
 'Old pass'						=>	'Old password',
 'New pass'						=>	'New password',
 'Confirm new pass'				=>	'Confirm new password',
@@ -598,7 +474,6 @@ $lang = array(
 'Email key bad'					=>	'The specified email activation key was incorrect or has expired. Please re-request change of email address. If that fails, contact the forum administrator at',
 'Email updated'					=>	'Your email address has been updated.',
 'Activate email sent'			=>	'An email has been sent to the specified address with instructions on how to activate the new email address. If it doesn\'t arrive you can contact the forum administrator at',
-'Email legend'					=>	'Enter your new email address',
 'Email instructions'			=>	'An email will be sent to your new address with an activation link. You must click the link in the email you receive to activate the new address.',
 'Change email'					=>	'Change email address',
 'New email'						=>	'New email',
@@ -616,30 +491,22 @@ $lang = array(
 'bytes'							=>	'bytes',
 'Move failed'					=>	'The server was unable to save the uploaded file. Please contact the forum administrator at',
 'Unknown failure'				=>	'An unknown error occurred. Please try again.',
-'Avatar upload redirect'		=>	'Avatar uploaded. Redirecting …',
-'Avatar deleted redirect'		=>	'Avatar deleted. Redirecting …',
 'Avatar desc'					=>	'An avatar is a small image that will be displayed under your username in your posts. It must not be any bigger than',
 'Upload avatar'					=>	'Upload avatar',
-'Upload avatar legend'			=>	'Enter an avatar file to upload',
 'Delete avatar'					=>	'Delete avatar', // only for admins
 'File'							=>	'File',
 'Upload'						=>	'Upload', // submit button
 
 // Form validation stuff
 'Forbidden title'				=>	'The title you entered contains a forbidden word. You must choose a different title.',
-'Profile redirect'				=>	'Profile updated. Redirecting …',
 
 // Profile display stuff
-'Users profile'					=>	'%s\'s profile',
-'Username info'					=>	'Username: %s',
 'Email info'					=>	'Email: %s',
-'Posts info'					=>	'Posts: %s',
-'Registered info'				=>	'Registered: %s',
-'Last post info'				=>	'Last post: %s',
 'Last visit info'				=>	'Last visit',
-'Show posts'					=>	'Show all posts',
-'Show topics'					=>	'Show all topics',
-'Show subscriptions'			=>	'Show all subscriptions',
+'Show posts'					=>	'Show posts',
+'Show topics'					=>	'Show topics',
+'Show subscriptions'			=>	'Show subscriptions',
+'Contact'						=>	'Contact',
 'Realname'						=>	'Real name',
 'Location'						=>	'Location',
 'Website'						=>	'Website',
@@ -650,20 +517,17 @@ $lang = array(
 'AOL IM'						=>	'AOL IM',
 'Yahoo'							=>	'Yahoo! Messenger',
 'Avatar'						=>	'Avatar',
-'Signature'						=>	'Signature',
 'Sig max size'					=>	'Max length: %s characters / Max lines: %s',
 'Avatar legend'					=>	'Set your avatar display options',
 'Avatar info'					=>	'An avatar is a small image that will be displayed with all your posts. You can upload an avatar by clicking the link below.',
 'Change avatar'					=>	'Change avatar',
 'Signature legend'				=>	'Compose your signature',
-'Signature info'				=>	'A signature is a small piece of text that is attached to your posts. In it, you can enter just about anything you like. Perhaps you would like to enter your favourite quote or your star sign. It\'s up to you! In your signature you can use BBCode if it is allowed in this particular forum. You can see the features that are allowed/enabled listed below whenever you edit your signature.',
+'Signature info'				=>	'A signature is a small piece of text that is attached to your posts. In it, you can enter just about anything you like.',
 'Sig preview'					=>	'Current signature preview:',
 'No sig'						=>	'No signature currently stored in profile.',
 'Signature quote/code/list/h'	=>	'The quote, code, list, and heading BBCodes are not allowed in signatures.',
-'Topics per page'				=>	'Topics',
 'Posts per page'				=>	'Posts',
-'Leave blank'					=>	'Leave blank to use forum default.',
-'Subscription legend'			=>	'Set your subscription options',
+'Leave blank'					=>	'Leave blank to use default',
 'Notify full'					=>	'Include a plain text version of new posts in subscription notification emails.',
 'Auto notify full'				=>	'Automatically subscribe to every topic you post in.',
 'Show smilies'					=>	'Show smilies as graphic icons.',
@@ -674,9 +538,7 @@ $lang = array(
 'Style'							=>	'Style',
 'Backstage style'				=>	'Backstage style',
 'Admin note'					=>	'Admin note',
-'Pagination legend'				=>	'Enter your pagination options',
 'Post display'					=>	'Post display',
-'Instructions'					=>	'When you update your profile, you will be redirected back to this page.',
 
 // Administration stuff
 'Group membership legend'		=>	'Choose user group',
@@ -687,32 +549,23 @@ $lang = array(
 'Delete ban legend'				=>	'Delete or ban user',
 'Delete user'					=>	'Delete user',
 'Ban user'						=>	'Ban user',
-'Confirm delete legend'			=>	'Important: read before deleting user',
 'Confirm delete user'			=>	'Confirm delete user',
 'Confirmation info'				=>	'Please confirm that you want to delete the user', // the username will be appended to this string
 'Delete warning'				=>	'Warning! Deleted users and/or posts cannot be restored. If you choose not to delete the posts made by this user, the posts can only be deleted manually at a later time.',
-'Delete posts'					=>	'Delete any posts and topics this user has made',
-'Delete'						=>	'Delete', // submit button (confirm user delete)
-'User delete redirect'			=>	'User deleted. Redirecting …',
-'Group membership redirect'		=>	'Group membership saved. Redirecting …',
-'Update forums redirect'		=>	'Forum moderator rights updated. Redirecting …',
-'Ban redirect'					=>	'Redirecting …',
+'Delete all posts'				=>	'Delete any posts and topics this user has made',
 'No delete admin message'		=>	'Administrators cannot be deleted. In order to delete this user, you must first move him/her to a different user group.',
 
 // Language for register.php
 'No new regs'				=>	'This forum is not accepting new registrations.',
-'Reg cancel redirect'		=>	'Registration cancelled. Redirecting …',
 'Forum rules'				=>	'Forum rules',
 'Rules legend'				=>	'You must agree to the following in order to register',
 'Registration flood'		=>	'A new user was registered with the same IP address as you within the last hour. To prevent registration flooding, at least an hour has to pass between registrations from the same IP. Sorry for the inconvenience.',
 'Agree'						=>	'Agree',
 'Cancel'					=>	'Cancel',
-'Register'					=>	'Register',
 'Register legend'			=>	'Enter the requested data',
 
 // Form validation stuff (some of these are also used in post.php)
 'Registration errors'		=>	'Registration errors',
-'Registration errors info'	=>	'The following errors need to be corrected before you can register:',
 'Username censor'			=>	'The username you entered contains one or more censored words. Please choose a different username.',
 'Username dupe 1'			=>	'Someone is already registered with the username',
 'Username dupe 2'			=>	'The username you entered is too similar. The username must differ from that by at least one alphanumerical character (a-z or 0-9). Please choose a different username.',
@@ -720,14 +573,10 @@ $lang = array(
 
 // Registration email stuff
 'Reg email'					=>	'Thank you for registering. Your password has been sent to the specified address. If it doesn\'t arrive you can contact the forum administrator at',
-'Reg complete'				=>	'Registration complete. Logging in and redirecting …',
 
 // Register info
-'Desc'						=>	'Registration will grant you access to a number of features and capabilities. These functions include the ability to edit and delete posts, design your own signature that accompanies your posts and much more. If you have any questions regarding this forum you should ask an administrator. Below is a form you must fill out in order to register. Once you are registered you should visit your profile and review the different settings you can change.',
 'Username legend'			=>	'Enter a username between 2 and 25 characters long',
-'Pass legend'				=>	'Enter and confirm your chosen password',
-'Email info'				=>	'You must enter a valid email address as your randomly generated password will be sent to that address.',
-'Confirm email'				=>	'Confirm email address',
+'Email help info'			=>	'You must enter a valid email address as your randomly generated password will be sent to that address.',
 'If human'					=>	'If you are human please leave this field blank!',
 'Spam catch'				=>	'Unfortunately it looks like your request is spam. If you feel this is a mistake, please direct any inquiries to the forum administrator at',
 
@@ -735,14 +584,10 @@ $lang = array(
 'User search'						=>	'User search',
 'No search permission'				=>	'You do not have permission to use the search feature.',
 'Search flood'						=>  'At least %s seconds have to pass between searches. Please wait %s seconds and try searching again.',
-'Search'							=>	'Search',
 'Search criteria legend'			=>	'Enter your search criteria',
 'Search info'						=>	'To search by keyword, enter a term or terms to search for. Separate terms with spaces. Use AND, OR and NOT to refine your search. To search by author enter the username of the author whose posts you wish to search for. Use wildcard character * for partial matches.',
 'Keyword search'					=>	'Keyword search',
 'Author search'						=>	'Author search',
-'Search in legend'					=>	'Select where to search',
-'Search multiple forums info'		=>	'If no forums are selected, all forums will be searched.',
-'Forum search'						=>	'Forum',
 'All forums'						=>	'All forums',
 'Search in'							=>	'Search in',
 'Message and subject'				=>	'Message text and topic subject',
@@ -750,35 +595,20 @@ $lang = array(
 'Topic only'						=>	'Topic subject only',
 'Sort by'							=>	'Sort by',
 'Sort order'						=>	'Sort order',
-'Search results legend'				=>	'Select how to view search results',
 'Search results info'				=>	'You can choose how you wish to sort and show your results.',
 'Sort by post time'					=>	'Post time',
 'Sort by author'					=>	'Author',
-'Sort by subject'					=>	'Subject',
-'Sort by forum'						=>	'Forum',
 'Ascending'							=>	'Ascending',
 'Descending'						=>	'Descending',
 'Show as'							=>	'Show as',
-'Show as topics'					=>	'Topics',
 'Show as posts'						=>	'Posts',
 'Advanced search'					=>	'Advanced search',
 
 // Results
-'Search'							=>	'Search',
 'Search results'					=>	'Search results',
-'Quick search show_new'				=>	'New',
-'Quick search show_recent'			=>	'Active',
-'Quick search show_unanswered'		=>	'Unanswered',
-'Quick search show_replies'			=>	'Posted',
 'Quick search show_user_topics'		=>	'Topics by %s',
 'Quick search show_user_posts'		=>	'Posts by %s',
 'Quick search show_subscriptions'	=>	'Subscribed by %s',
-'By keywords show as topics'		=>	'Topics with posts containing \'%s\'',
-'By keywords show as posts'			=>	'Posts containing \'%s\'',
-'By user show as topics'			=>	'Topics with posts by %s',
-'By user show as posts'				=>	'Posts by %s',
-'By both show as topics'			=>	'Topics with posts containing \'%s\', by %s',
-'By both show as posts'				=>	'Posts containing \'%s\', by %s',
 'No terms'							=>	'You have to enter at least one keyword and/or an author to search for.',
 'No hits'							=>	'Your search returned no hits.',
 'No user posts'						=>	'There are no posts by this user in this forum.',
@@ -798,45 +628,31 @@ $lang = array(
 'Note'				=>	'Note:', // Admin note
 'Posts'				=>	'Posts:',
 'Replies'			=>	'Replies:',
-'Website'			=>	'Website',
-'Guest'				=>	'Guest',
-'Online'			=>	'Online',
-'Offline'			=>	'Offline',
 'Last edit'			=>	'Last edited by',
 'Report'			=>	'Report',
-'Delete'			=>	'Delete',
 'Edit'				=>	'Edit',
 'Quote'				=>	'Quote',
-'Is subscribed'		=>	'You are subscribed to this topic',
+'Is subscribed'		=>	'You are subscribed',
 'Unsubscribe'		=>	'Unsubscribe',
-'Subscribe'			=>	'Subscribe to this topic',
+'Subscribe'			=>	'Subscribe',
 'Quick post'		=>	'Quick post',
-'Mod controls'		=>	'Moderator controls',
 'New icon'			=>	'New post',
 'Re'				=>	'Re:',
-'Preview'			=>	'Preview',
 
 // Language for userlist.php
-'User find legend'	=>	'Find and sort users',
-'User search info'	=>	'Enter a username to search for and/or a user group to filter by. The username field can be left blank. Use the wildcard character * for partial matches.',
+'User search info'	=>	'Enter a username to search for and/or a user group to filter by. Use the wildcard character * for partial matches.',
 'User group'		=>	'User group',
 'No of posts'		=>	'Number of posts',
 'All users'			=>	'All groups',
 
 // Language for viewforum.php
-'Post topic'	=>	'Post new topic',
 'Views'			=>	'Views',
 'Moved'			=>	'Moved',
 'Sticky'		=>	'Sticky',
 'Closed'		=>	'Closed',
 'Empty forum'	=>	'Forum is empty.',
-'Mod controls'	=>	'Moderator controls',
-'Is subscribed'	=>	'You are subscribed to this forum',
-'Unsubscribe'	=>	'Unsubscribe',
-'Subscribe'		=>	'Subscribe to this forum',
 
-/////////////////////////////////////////////////// Language for Backstage ///////////////////////////////////////////////////
-
+// Language for Backstage
 // Language for backstage.php
 'Update settings head'		=>	'Update settings',
 'Index update check'		=>	'When enabled, every time you visit the Backstage index, ModernBB will check for updates. When this feature is disabled, you won\'t see any update message on the index.',
@@ -852,28 +668,20 @@ $lang = array(
 'Invalid e-mail message'	=>	'The email address (e.g. user@domain.com) or partial email address domain (e.g. domain.com) you entered is invalid.',
 'Invalid date message'		=>	'You entered an invalid expire date.',
 'Invalid date reasons'		=>	'The format should be YYYY-MM-DD and the date must be at least one day in the future.',
-'Ban added redirect'		=>	'Ban added. Redirecting …' ,
-'Ban edited redirect'		=>	'Ban edited. Redirecting …',
-'Ban removed redirect'		=>	'Ban removed. Redirecting …',
 
 'New ban head'				=>	'Add ban',
 'Username help'				=>	'The username to ban (case-insensitive).',
 'Username advanced help'	=>	'The username to ban. The next page will let you enter a custom IP and email. If you want to ban a specific IP/IP-range or email, leave it blank.',
 
 'Ban search head'			=>	'Ban search',
-'Ban search subhead'		=>	'Enter search criteria',
 'Ban search info'			=>	'Search for bans in the database. You can enter one or more terms to search for. Wildcards in the form of asterisks (*) are accepted. To show all bans leave all fields empty.',
 'Date help'					=>	'(yyyy-mm-dd)',
-'Message label'				=>	'Message',
 'Expire after label'		=>	'Expire after',
 'Expire before label'		=>	'Expire before',
 'Order by label'			=>	'Order by',
-'Order by username'			=>	'Username',
 'Order by ip'				=>	'IP',
 'Order by e-mail'			=>	'Email',
 'Order by expire'			=>	'Expire date',
-'Ascending'					=>	'Ascending',
-'Descending'				=>	'Descending',
 'Submit search'				=>	'Submit search',
 
 'E-mail label'				=>	'Email',
@@ -891,28 +699,20 @@ $lang = array(
 'Expire date help'			=>	'The date when this ban should be automatically removed (format: yyyy-mm-dd). Leave blank to remove manually.',
 
 'Results head'				=>	'Search Results',
-'Results username head'		=>	'Username',
 'Results e-mail head'		=>	'Email',
 'Results IP address head'	=>	'IP/IP-ranges',
 'Results expire head'		=>	'Expires',
-'Results message head'		=>	'Message',
 'Results banned by head'	=>	'Banned by',
 'Results actions head'		=>	'Actions',
 'No match'					=>	'No match',
-'Unknown'					=>	'Unknown',
 
-// Language for categories.php
-'Must enter name message'		=>	'You must enter a name for the category',
-'Category added redirect'		=>	'Category added. Redirecting …',
-'Category deleted redirect'		=>	'Category deleted. Redirecting …',
-'Delete category head'			=>	'Delete category (together with all forums and posts it contains)',
+// Language for board.php
+'Must enter name message'		=>	'You must enter a name',
 'Confirm delete cat head'		=>	'Confirm delete category',
 'Confirm delete cat info'		=>	'Are you sure that you want to delete the category <strong>%s</strong>?',
 'Delete category warn'			=>	'Deleting a category will delete all forums and posts (if any) in this category!',
 'Must enter integer message'	=>	'Position must be a positive integer value.',
-'Categories updated redirect'	=>	'Categories updated. Redirecting …',
 'Add categories head'			=>	'Add categories',
-'Add new submit'				=>	'Add new',
 'Add category help'				=>	'The name of the new category you want to add.',
 'Delete categories head'		=>	'Delete categories',
 'Delete category help'			=>	'Select the category you want to delete.',
@@ -920,11 +720,10 @@ $lang = array(
 'Category position label'		=>	'Position',
 'Category name label'			=>	'Name',
 
+// Checked until this line
+
 // Language fox censoring.php
 'Must enter word message'	=>	'You must enter a word to censor.',
-'Word updated redirect'		=>	'Censor word updated. Redirecting …',
-'Word added redirect'		=>	'Censor word added. Redirecting …',
-'Word removed redirect'		=>	'Censor word removed. Redirecting …',
 'Censoring head'			=>	'Censoring',
 'Add word subhead'			=>	'Add word',
 'Add word info'				=>	'Enter a word that you want to censor and the replacement text for this word. Wildcards are accepted (i.e. *some* would match somewhere and lonesome). Censor words also affect usernames. New users will not be able to register with usernames containing any censored words. The search is case insensitive.',
@@ -974,21 +773,18 @@ $lang = array(
 // Language for display.php, options.php, email.php and features.php
 'Bad HTTP Referer message'			=>	'Bad HTTP_REFERER. If you have moved these forums from one location to another or switched domains, you need to update the Base URL manually in the database (look for o_base_url in the config table) and then clear the cache by deleting all .php files in the /cache directory.',
 'Must enter title message'			=>	'You must enter a board title.',
-'Invalid e-mail message'			=>	'The admin email address you entered is invalid.',
 'Invalid webmaster e-mail message'	=>	'The webmaster email address you entered is invalid.',
 'SMTP passwords did not match'		=>	'You need to enter the SMTP password twice exactly the same to change it.',
 'Enter announcement here'			=>	'Enter your announcement here.',
 'Enter rules here'					=>	'Enter your rules here.',
 'Default maintenance message'		=>	'The forums are temporarily down for maintenance. Please try again in a few minutes.',
 'Timeout error message'				=>	'The value of "Timeout online" must be smaller than the value of "Timeout visit".',
-'Options updated redirect'			=>	'Settings updated. Redirecting …',
 
 // Language for display.php
 'General appearance'				=>	'Global appearance',
 'Header appearance'					=>	'Header appearance',
 'Footer appearance'					=>	'Footer appearance',
 'Display head'						=>	'Display settings',
-'Default style label'				=>	'Default style',
 'Default style help'				=>	'The default style for guests and users who haven\'t changed from the default in their profile.',
 'Version number help'				=>	'Show ModernBB version number in footer.',
 'Info in posts help'				=>	'Show information about the poster under the username in topic view. The information affected is location, post count and the contact links.',
@@ -998,8 +794,7 @@ $lang = array(
 'Clickable links help'				=>	'Convert URLs automatically to clickable hyperlinks.',
 'Topic review label'				=>	'Topic review',
 'Topic review help'					=>	'Maximum number of posts to display when posting. Set to 0 to disable.',
-'Topics per page label'				=>	'Topics per page',
-'Topics per page help'				=>	'The default number of topics to display per page in a forum. Users can personalize this setting.',
+-'Topics per page help'				=>	'The default number of topics to display per page in a forum. Users can personalize this setting.',
 'Posts per page label'				=>	'Posts per page',
 'Posts per page help'				=>	'The default number of posts to display per page in a topic. Users can personalize this setting.',
 'Indent label'						=>	'Indent size',
@@ -1044,13 +839,11 @@ $lang = array(
 
 // Language for features.php
 'Features head'						=>	'Features settings',
-'Features subhead'					=>	'Features',
 'General'							=>	'General',
 'Topics and posts'					=>	'Topics and posts',
 'User features'						=>	'User features',
 'Others'							=>	'Search all forums',
 'Advanced'							=>	'Advanced',
-'Quick post label'					=>	'Quick post',
 'Quick post help'					=>	'When enabled, ModernBB will add a quick post form at the bottom of topics, so users can post directly from the topic view.',
 'Users online label'				=>	'Users online',
 'Users online help'					=>	'Display info on the index page about guests and registered users currently browsing the board.',
@@ -1067,13 +860,14 @@ $lang = array(
 'Search all label'					=>	'Search all forums',
 'Search all help'					=>	'When disabled, searches will only be allowed in one forum at a time. Disable if server load is high due to excessive searching.',
 
+'First run'							=>	'First run',
+'General settings'					=>	'General settings',
+'Show first run label'				=>	'Show the first run panel when an user logs in for the first time.',
+'Show guests label'					=>	'Show the first run panel to guests with login field and registration button.',
+'Welcome text'						=>	'Welcome text',
+'First run help message'			=>	'The introduction to the forum displayed in the middle of the first run panel. No BBCode or HTML allowed.',
+
 // Language for forums.php
-'Forum added redirect'		=>	'Forum added. Redirecting …',
-'Forum deleted redirect'	=>	'Forum deleted. Redirecting …',
-'Forums updated redirect'	=>	'Forums updated. Redirecting …',
-'Forum updated redirect'	=>	'Forum updated. Redirecting …',
-'Perms reverted redirect'	=>	'Permissions reverted to defaults. Redirecting …',
-'Must enter name message'	=>	'You must enter a forum name.',
 'Must be integer message'	=>	'Position must be a positive integer value.',
 'New forum'					=>	'New forum',
 
@@ -1082,9 +876,6 @@ $lang = array(
 'Add forum help'			=>	'Select the category to which you wish to add a forum and give it a name.',
 'No categories exist'		=>	'No categories exist, you\'ll have to create new categories before you can add a new forum.',
 'Edit forums head'			=>	'Edit forums',
-'Forum label'				=>	'Forum',
-'Edit link'					=>	'Edit',
-'Delete link'				=>	'Delete',
 'Update positions'			=>	'Update positions',
 'Confirm delete head'		=>	'Confirm delete forum',
 'Confirm delete forum info'	=>	'Are you sure that you want to delete the forum <strong>%s</strong>?',
@@ -1097,9 +888,7 @@ $lang = array(
 'Forum description label'	=>	'Description (HTML)',
 'Category label'			=>	'Category',
 'Sort by label'				=>	'Sort topics by',
-'Last post'					=>	'Last post',
 'Topic start'				=>	'Topic start',
-'Subject'					=>	'Subject',
 'User groups'				=>	'User groups',
 'Redirect label'			=>	'Redirect URL',
 'Group permissions subhead'	=>	'Edit group permissions',
@@ -1112,11 +901,7 @@ $lang = array(
 // Language used in groups.php
 'Must enter title message'		=>	'You must enter a group title.',
 'Title already exists message'	=>	'There is already a group with the title <strong>%s</strong>.',
-'Default group redirect'		=>	'Default group set. Redirecting …',
 'Cannot remove default message'	=>	'The default group cannot be removed. In order to delete this group, you must first setup a different group as the default.',
-'Group removed redirect'		=>	'Group removed. Redirecting …',
-'Group added redirect'			=>	'Group added. Redirecting …',
-'Group edited redirect'			=>	'Group edited. Redirecting …',
 
 'Add group subhead'				=>	'Add new group',
 'New group label'				=>	'Base new group on',
@@ -1126,8 +911,6 @@ $lang = array(
 'Existing groups head'			=>	'Existing groups',
 'Edit groups subhead'			=>	'Edit/delete groups',
 'Edit groups info'				=>	'The pre-defined groups Guests, Administrators, Moderators and Members cannot be removed. However, they can be edited. Please note that in some groups, some options are unavailable (e.g. the <em>edit posts</em> permission for guests). Administrators always have full permissions.',
-'Edit link'						=>	'Edit',
-'Delete link'					=>	'Delete',
 'Group delete head'				=>	'Group delete',
 'Confirm delete subhead'		=>	'Confirm delete group',
 'Confirm delete info'			=>	'Are you sure that you want to delete the group <strong>%s</strong>?',
@@ -1164,9 +947,7 @@ $lang = array(
 'Post topics help'				=>	'Allow users in this group to post new topics.',
 'Edit posts label'				=>	'Edit posts',
 'Edit posts help'				=>	'Allow users in this group to edit their own posts.',
-'Delete posts label'			=>	'Delete posts',
 'Delete posts help'				=>	'Allow users in this group to delete their own posts.',
-'Delete topics label'			=>	'Delete topics',
 'Delete topics help'			=>	'Allow users in this group to delete their own topics (including any replies).',
 'Set own title label'			=>	'Set own user title',
 'Set own title help'			=>	'Allow users in this group to set their own user title.',
@@ -1191,12 +972,16 @@ $lang = array(
 'Backup head'						=>	'Back-up',
 'Backup info'						=>	'Create new database backup.',
 'Backup button'						=>	'Create new backup',
-'Reports head'						=>	'New reports',
+'New reports head'					=>	'New reports',
 'Statistics head'					=>	'Statistics',
 'Updates'							=>	'Updates',
 'View all'							=>	'View all',
 'posts'								=>	'posts',
+'replies'							=>	'replies',
+'reply'								=>	'reply',
 'topics'							=>	'topics',
+'views'								=>	'views',
+'view'								=>	'view',
 'users'								=>	'users',
 
 'Not available'						=>	'Not available',
@@ -1227,7 +1012,6 @@ $lang = array(
 // Reports
 'Reported by'						=>	'By',
 'Date and time'						=>	'Date and time',
-'Message'							=>	'Message',
 'No new reports'					=>	'There are no new reports.',
 'NA'								=>	'N/A',
 
@@ -1251,7 +1035,6 @@ $lang = array(
 'Posts must be integer message'	=>	'Posts per cycle must be a positive integer value.',
 'Days must be integer message'	=>	'Days to prune must be a positive integer value.',
 'No old topics message'			=>	'There are no topics that are %s days old. Please decrease the value of "Days old" and try again.',
-'Posts pruned redirect'			=>	'Posts pruned. Redirecting …',
 'Prune head'					=>	'Prune',
 'Prune subhead'					=>	'Prune old posts',
 'Days old label'				=>	'Days old',
@@ -1259,7 +1042,6 @@ $lang = array(
 'Prune sticky label'			=>	'Prune sticky topics',
 'Prune sticky help'				=>	'When enabled, sticky topics will also be pruned.',
 'Prune from label'				=>	'Prune from forum',
-'All forums'					=>	'All forums',
 'Prune from help'				=>	'The forum from which you want to prune posts.',
 'Prune info'					=>	'Use this feature with caution. <strong>Pruned posts can never be recovered.</strong> For best performance, you should put the forum in %s during pruning.',
 'Prune users info'				=>	'Use this feature with caution. <strong>Pruned users can never be recovered.</strong> For best performance, you should put the forum in %s during pruning.',
@@ -1289,8 +1071,6 @@ $lang = array(
 
 // Essentials section
 'Essentials subhead'				=>	'Essentials',
-'Board title label'					=>	'Board title',
-'Board desc label'					=>	'Board description',
 'Board desc help'					=>	'In a few words, explain what this site is about. HTML is enabled.',
 'Base URL label'					=>	'ModernBB Address (URL)',
 'Base URL problem'					=>  'Your installation does not support automatic conversion of internationalized domain names. As your base URL contains special characters, you <strong>must</strong> use an online converter.',
@@ -1298,7 +1078,6 @@ $lang = array(
 'Timezone help'						=>	'Choose a city in the same timezone as you. Users can change this setting in their profile.',
 'DST label'							=>	'Adjust for DST',
 'DST help'							=>	'Check if daylight savings is in effect (advances times by 1 hour).',
-'Language label'					=>	'Default language',
 'Language help'						=>	'The default language for guests and users who haven\'t changed from the default. Update this when removing a language pack.',
 
 // Essentials section timezone options
@@ -1345,17 +1124,13 @@ $lang = array(
 
 // Timeout Section
 'Timeouts subhead'					=>	'Time and timeouts',
-'Time format label'					=>	'Time format',
 'PHP manual'						=>	'PHP manual',
 'Time format help'					=>	'Current format: %s. See %s for formatting options.',
-'Date format label'					=>	'Date format',
 'Date format help'					=>	'Current format: %s. See %s for formatting options.',
 'Visit timeout label'				=>	'Visit timeout',
 'Visit timeout help'				=>	'Number of seconds a user must be idle before his/hers last visit data is updated.',
 'Online timeout label'				=>	'Online timeout',
 'Online timeout help'				=>	'Number of seconds a user must be idle before being removed from the online users list.',
-'Redirect time label'				=>	'Redirect time',
-'Redirect time help'				=>	'Number of seconds to wait when redirecting. If set to 0, no redirect page will be displayed (not recommended).',
 
 // Feeds section
 'Feed subhead'						=>	'Syndication',
@@ -1420,7 +1195,6 @@ $lang = array(
 'Announcement message help'			=>	'This text will not be parsed like regular posts and thus may contain HTML.',
 
 // Maintenance Section
-'Maintenance subhead'				=>	'Maintenance',
 'Maintenance mode label'			=>	'Maintenance mode',
 'Maintenance mode help'				=>	'When enabled, the board will only be available to administrators. This should be used if the board needs to be taken down temporarily for maintenance. <strong>Do not log out when the board is in maintenance mode. You will not be able to login again.</strong>',
 'Maintenance message label'			=>	'Maintenance message',
@@ -1428,10 +1202,8 @@ $lang = array(
 
 // Language for permissions.php
 'All caps'					=>	'All caps',
-'Perms updated redirect'	=>	'Permissions updated. Redirecting …',
 'Permissions head'			=>	'Permissions',
 'Posting subhead'			=>	'Posting',
-'BBCode label'				=>	'BBCode',
 'BBCode help'				=>	'Allow BBCode in posts (recommended).',
 'Image tag help'			=>	'Allow the BBCode [img][/img] tag in posts.',
 'All caps message help'		=>	'Allow a message to contain only capital letters.',
@@ -1453,9 +1225,6 @@ $lang = array(
 'Must be integer message'	=>	'Minimum posts must be a positive integer value.',
 'Dupe min posts message'	=>	'There is already a rank with a minimun posts value of %s.',
 'Must enter title message'	=>	'You must enter a rank title.',
-'Rank added redirect'		=>	'Rank added. Redirecting …',
-'Rank updated redirect'		=>	'Rank updated. Redirecting …',
-'Rank removed redirect'		=>	'Rank removed. Redirecting …',
 'Ranks head'				=>	'Ranks',
 'Add rank subhead'			=>	'Add rank',
 'Add rank info'				=>	'Enter a rank and the minimum number of posts a user must have made to attain the rank. Different ranks cannot have the same value for minimum posts. If a title is set for a user, the title will be displayed instead of any rank.',
@@ -1468,14 +1237,11 @@ $lang = array(
 'No ranks in list'			=>	'No ranks in list',
 
 // Language for reports.php
-'Report zapped redirect'	=>	'Report marked as read. Redirecting …',
-'New reports head'			=>	'New reports',
 'Deleted user'				=>	'Deleted user',
 'Deleted'					=>	'Deleted',
 'Post ID'					=>	'Post #%s',
 'Reported by'				=>	'Reported by',
 'Date and time'				=>	'Date and time',
-'Message'					=>	'Message',
 'Actions'					=>	'Actions',
 'Zap'						=>	'Mark as read',
 'No new reports'			=>	'There are no new reports.',
@@ -1526,101 +1292,55 @@ $lang = array(
 'New group label'			=>	'New group',
 'New group help'			=>	'Select the group to which the selected users will be moved. For security reasons, it is not possible to move multiple users to the administrator group.',
 'Invalid group message'		=>	'Invalid group ID.',
-'Users move redirect'		=>	'User group changed. Redirecting …',
 'Delete users'				=>	'Delete users',
-'Confirm delete legend'		=>	'Important: read before deleting users',
 'Confirm delete info'		=>	'Please confirm that you want to delete these users.',
-'Delete posts'				=>	'Delete any posts and topics these users have made.',
-'Delete warning'			=>	'Warning! Deleted users and/or posts cannot be restored. If you choose not to delete the posts made by these users, the posts can only be deleted manually at a later time.',
-'Users delete redirect'		=>	'Users deleted. Redirecting …',
 'Ban users'					=>	'Ban users',
-'Message expiry subhead'	=>	'Ban message and expiry',
-'Ban message label'			=>	'Ban message',
-'Ban message help'			=>	'A message that will be displayed to the banned users when they visit the board.',
-'Expire date label'			=>	'Expire date',
-'Expire date help'			=>	'The date when these bans should be automatically removed (format: yyyy-mm-dd). Leave blank to remove manually.',
 'Ban IP label'				=>	'Ban IP addresses',
 'Ban IP help'				=>	'Also ban the IP addresses of the banned users to make registering a new account more difficult for them.',
-'Invalid date message'		=>	'You entered an invalid expire date.',
-'Invalid date reasons'		=>	'The format should be YYYY-MM-DD and the date must be at least one day in the future.',
-'Users banned redirect'		=>	'Users banned. Redirecting …',
 
-'User search head'			=>	'User search',
 'User search subhead'		=>	'Enter search criteria',
-'User search info'			=>	'Search for users in the database. You can enter one or more terms to search for. Wildcards in the form of asterisks (*) are accepted.',
-'Username label'			=>	'Username',
 'E-mail address label'		=>	'Email address',
-'Title label'				=>	'Title',
 'Real name label'			=>	'Real name',
-'Website label'				=>	'Website',
-'Jabber label'				=>	'Jabber',
-'ICQ label'					=>	'ICQ',
-'MSN label'					=>	'Microsoft Account',
-'AOL label'					=>	'AOL IM',
-'Yahoo label'				=>	'Yahoo Messenger',
-'Location label'			=>	'Location',
-'Signature label'			=>	'Signature',
-'Admin note label'			=>	'Admin note',
+'Signature'					=>	'Signature',
 'Posts more than label'		=>	'Number of posts greater than',
 'Posts less than label'		=>	'Number of posts less than',
 'Last post after label'		=>	'Last post is after',
-'Date help'					=>	'(yyyy-mm-dd hh:mm:ss)',
 'Last post before label'	=>	'Last post is before',
 'Last visit after label'	=>	'Last visit is after',
 'Last visit before label'	=>	'Last visit is before',
 'Registered after label'	=>	'Registered after',
 'Registered before label'	=>	'Registered before',
-'Order by label'			=>	'Order by',
-'Order by username'			=>	'Username',
-'Order by e-mail'			=>	'Email',
 'Order by posts'			=>	'Number of posts',
-'Order by last post'		=>	'Last post',
 'Order by last visit'		=>	'Last visit',
 'Order by registered'		=>	'Registered',
-'Ascending'					=>	'Ascending',
-'Descending'				=>	'Descending',
-'User group label'			=>	'User group',
 'All groups'				=>	'All groups',
 'Unverified users'			=>	'Unverified users',
-'Submit search'				=>	'Submit search',
 'IP search head'			=>	'IP search',
 'IP address label'			=>	'IP address',
 'IP address help'			=>	'The IP address to search for in the post database.',
 'Find IP address'			=>	'Find IP address',
 
-'Results head'				=>	'Search Results',
-'Results username head'		=>	'Username',
-'Results e-mail head'		=>	'Email',
 'Results title head'		=>	'Title/Status',
 'Results posts head'		=>	'Posts',
-'Results admin note head'	=>	'Admin note',
-'Results actions head'		=>	'Actions',
-'Results IP address head'	=>	'IP address',
 'Results last used head'	=>	'Last used',
 'Results times found head'	=>	'Times found',
 'Results action head'		=>	'Action',
 'Results find more link'	=>	'Find more users for this ip',
 'Results no posts found'	=>	'There are currently no posts by that user in the forum.',
-'Select'					=>	'Select',
 'Select all'				=>	'Select all',
 'Unselect all'				=>	'Unselect all',
 'Ban'						=>	'Ban',
-'Delete'					=>	'Delete',
 'Change group'				=>	'Change group',
 'Bad IP message'			=>	'The supplied IP address is not correctly formatted.',
 'Results view IP link'		=>	'IP stats',
-'Results guest'				=>	'Guest',
 'Results no IP found'		=>	'The supplied IP address could not be found in the database.',
-'No match'					=>	'No match',
 
 // Create new user
 'Add user head'				=>	'Add user',
 'Random password info'		=>	'Generate a random password, this will be emailed to the above address. When checked, leave "Password" empty.',
-'Password'					=>	'Password',
 
 // Common language used in /backstage/
 // Main menu
-'Dashboard'				=>	'Backstage',
 'Content'				=>	'Content',
 'Forums'				=>	'Forums',
 'Forum settings'		=>	'Forum settings',
@@ -1636,22 +1356,14 @@ $lang = array(
 'Bans'					=>	'Bans',
 'Settings'				=>	'Settings',
 'Global'				=>	'Global',
-'Appearance'			=>	'Appearance',
-'Features'				=>	'Features',
 'Registration'			=>	'Registration',
 'Email'					=>	'Email',
-'Maintenance'			=>	'Maintenance',
 'Database'				=>	'Database management',
-'Backstage settings'	=>	'Backstage',
+'Backstage settings'	=>	'Backstage settings',
 'Extensions'			=>	'Extensions',
 
 // User menu
-'Welcome'				=>	'Welcome',
-'Profile'				=>	'Profile',
-'Forum'					=>	'Forum',
-'Support'				=>	'Support',
 'Documentation'			=>	'Documentation',
-'Logout'				=>	'Logout',
 
 // Others
 'Prune'					=>	'Prune',
@@ -1666,15 +1378,12 @@ $lang = array(
 // General actions and more
 'Admin'					=>	'Admin',
 'Go back'				=>	'Go back',
-'Delete'				=>	'Delete',
 'Update'				=>	'Update',
 'Add'					=>	'Add',
-'Edit'					=>	'Edit',
 'Remove'				=>	'Remove',
 'Yes'					=>	'Yes',
 'No'					=>	'No',
 'Save changes'			=>	'Save changes',
-'Save'					=>	'Save',
 'here'					=>	'here',
 'Action'				=>	'Action',
 'None'					=>	'None',

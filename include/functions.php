@@ -7,7 +7,7 @@
  * License: http://opensource.org/licenses/MIT MIT
  */
 
-include FORUM_ROOT.'include/srand.php'; 
+include FORUM_ROOT.'include/srand.php';
 
 //
 // Return current timestamp (with microseconds) as a float
@@ -238,23 +238,23 @@ function get_base_url($support_https = false)
 
 
 //
-// Fetch admin IDs  
-//  
-function get_admin_ids()  
-{  
-	if (file_exists(FORUM_CACHE_DIR.'cache_admins.php'))  
-		include FORUM_CACHE_DIR.'cache_admins.php';  
-	
-	if (!defined('FORUM_ADMINS_LOADED'))  
-	{  
-		if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))  
-			require FORUM_ROOT.'include/cache.php';  
-		
-		generate_admins_cache();  
-		require FORUM_CACHE_DIR.'cache_admins.php';  
+// Fetch admin IDs
+//
+function get_admin_ids()
+{
+	if (file_exists(FORUM_CACHE_DIR.'cache_admins.php'))
+		include FORUM_CACHE_DIR.'cache_admins.php';
+
+	if (!defined('FORUM_ADMINS_LOADED'))
+	{
+		if (!defined('FORUM_CACHE_FUNCTIONS_LOADED'))
+			require FORUM_ROOT.'include/cache.php';
+
+		generate_admins_cache();
+		require FORUM_CACHE_DIR.'cache_admins.php';
 	}
-	
-	return $luna_admins;  
+
+	return $luna_admins;
 }
 
 //
@@ -361,9 +361,9 @@ function luna_setcookie($user_id, $password_hash, $expire)
 //
 function forum_setcookie($name, $value, $expire)
 {
-	global $cookie_path, $cookie_domain, $cookie_secure, $luna_config;  
-  
-	if ($expire - time() - $luna_config['o_timeout_visit'] < 1)  
+	global $cookie_path, $cookie_domain, $cookie_secure, $luna_config;
+
+	if ($expire - time() - $luna_config['o_timeout_visit'] < 1)
 		$expire = 0;
 
 	// Enable sending of a P3P header
@@ -456,7 +456,7 @@ function check_username($username, $exclude_id = null)
 
 	// Include UTF-8 function
 	require_once FORUM_ROOT.'include/utf8/strcasecmp.php';
-	
+
 	// Convert multiple whitespace characters into one (to prevent people from registering with indistinguishable usernames)
 	$username = preg_replace('%\s+%s', ' ', $username);
 
@@ -540,15 +540,15 @@ function generate_profile_menu($page = '')
 	global $lang, $luna_config, $luna_user, $id;
 
 ?>
-<div class="col-sm-2 profile-nav">
-    <div class="list-group">
-        <a class="<?php if ($page == 'view') echo 'active'; ?> list-group-item" href="profile.php?section=view&amp;id=<?php echo $id ?>"><?php echo $lang['Section view'] ?></a>
+<div class="list-group">
+    <a class="<?php if ($page == 'view') echo 'active'; ?> list-group-item" href="profile.php?section=view&amp;id=<?php echo $id ?>"><?php echo $lang['Profile'] ?></a>
+    <?php if ($luna_user['id'] = $id && !$luna_user['is_guest'] || ($luna_user['g_id'] == FORUM_ADMIN || ($luna_user['g_moderator'] == '1' && $luna_user['g_mod_ban_users'] == '1'))): ?>
         <a class="<?php if ($page == 'personality') echo 'active'; ?> list-group-item" href="profile.php?section=personality&amp;id=<?php echo $id ?>"><?php echo $lang['Section personality'] ?></a>
-        <a class="<?php if ($page == 'settings') echo 'active'; ?> list-group-item" href="profile.php?section=settings&amp;id=<?php echo $id ?>"><?php echo $lang['Section settings'] ?></a>
-		<?php if ($luna_user['g_id'] == FORUM_ADMIN || ($luna_user['g_moderator'] == '1' && $luna_user['g_mod_ban_users'] == '1')): ?>
+        <a class="<?php if ($page == 'settings') echo 'active'; ?> list-group-item" href="profile.php?section=settings&amp;id=<?php echo $id ?>"><?php echo $lang['Settings'] ?></a>
+        <?php if ($luna_user['g_id'] == FORUM_ADMIN || ($luna_user['g_moderator'] == '1' && $luna_user['g_mod_ban_users'] == '1')): ?>
             <a class="<?php if ($page == 'admin') echo 'active'; ?> list-group-item" href="profile.php?section=admin&amp;id=<?php echo $id ?>"><?php echo $lang['Section admin'] ?></a>
-		<?php endif; ?>
-    </div>
+        <?php endif; ?>
+    <?php endif; ?>
 </div>
 <?php
 
@@ -590,7 +590,7 @@ function generate_avatar_markup($user_id)
 function generate_page_title($page_title, $p = null)
 {
 	global $luna_config, $lang;
-	
+
 	if (!is_array($page_title))
 		$page_title = array($page_title);
 
@@ -1026,18 +1026,22 @@ function message($message, $no_back_link = false, $http_status = null)
 
 ?>
 
-<div id="msg" class="block">
-	<h2><span><?php echo $lang['Info'] ?></span></h2>
-	<div class="box">
-		<div class="inbox">
-			<p><?php echo $message ?></p>
-<?php if (!$no_back_link): ?>			<p><a href="javascript: history.go(-1)"><?php echo $lang['Go back'] ?></a></p>
-<?php endif; ?>		</div>
-	</div>
+<div>
+	<h2><?php echo $lang['Info'] ?></h2>
+	<p><?php echo $message ?></p>
+	<?php if (!$no_back_link): ?>
+		<p><a href="javascript: history.go(-1)"><?php echo $lang['Go back'] ?></a></p>
+	<?php endif; ?>
 </div>
 <?php
-
-	require FORUM_ROOT.'footer.php';
+	if( FORUM_ACTIVE_PAGE === 'admin' )
+	{
+		require FORUM_ROOT .'backstage/footer.php';
+	}
+	else
+	{
+		require FORUM_ROOT.'footer.php';
+	}
 }
 
 
@@ -1098,21 +1102,21 @@ function forum_number_format($number, $decimals = 0)
 //
 function random_key($len, $readable = false, $hash = false)
 {
-	$key = secure_random_bytes($len); 
+	$key = secure_random_bytes($len);
 
-	if ($hash)  
+	if ($hash)
 		return substr(bin2hex($key), 0, $len);
-	else if ($readable)  
+	else if ($readable)
 	{
 		$chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-	     
+
 		$result = '';
 		for ($i = 0; $i < $len; ++$i)
 			$result .= substr($chars, (ord($key[$i]) % strlen($chars)), 1);
 
 		return $result;
 	}
-		
+
 	return $key;
 }
 
@@ -1406,9 +1410,9 @@ function maintenance_message()
 //
 // Display $message and redirect user to $destination_url
 //
-function redirect($destination_url, $message)
+function redirect($destination_url)
 {
-	global $db, $luna_config, $lang, $luna_user;
+	global $db;
 
 	// Prefix with base_url (unless there's already a valid URI)
 	if (strpos($destination_url, 'http://') !== 0 && strpos($destination_url, 'https://') !== 0 && strpos($destination_url, '/') !== 0)
@@ -1417,127 +1421,11 @@ function redirect($destination_url, $message)
 	// Do a little spring cleaning
 	$destination_url = preg_replace('%([\r\n])|(\%0[ad])|(;\s*data\s*:)%i', '', $destination_url);
 
-	// If the delay is 0 seconds, we might as well skip the redirect all together
-	if ($luna_config['o_redirect_delay'] == '0')
-	{
-		$db->end_transaction();
-		$db->close();
-
-		header('Location: '.str_replace('&amp;', '&', $destination_url));
-		exit;
-	}
-
-	// Send no-cache headers
-	header('Expires: Thu, 21 Jul 1977 07:30:00 GMT'); // When yours truly first set eyes on this world! :)
-	header('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT');
-	header('Cache-Control: post-check=0, pre-check=0', false);
-	header('Pragma: no-cache'); // For HTTP/1.0 compatibility
-
-	// Send the Content-type header in case the web server is setup to send something else
-	header('Content-type: text/html; charset=utf-8');
-
-	if (file_exists(FORUM_ROOT.'style/'.$luna_user['style'].'/redirect.tpl'))
-	{
-		$tpl_file = FORUM_ROOT.'style/'.$luna_user['style'].'/redirect.tpl';
-		$tpl_inc_dir = FORUM_ROOT.'style/'.$luna_user['style'].'/';
-	}
-	else
-	{
-		$tpl_file = FORUM_ROOT.'include/template/redirect.tpl';
-		$tpl_inc_dir = FORUM_ROOT.'include/user/';
-	}
-
-	$tpl_redir = file_get_contents($tpl_file);
-
-	// START SUBST - <luna_include "*">
-	preg_match_all('%<luna_include "([^/\\\\]*?)\.(php[45]?|inc|html?|txt)">%i', $tpl_redir, $luna_includes, PREG_SET_ORDER);
-
-	foreach ($luna_includes as $cur_include)
-	{
-		ob_start();
-
-		// Allow for overriding user includes, too.
-		if (file_exists($tpl_inc_dir.$cur_include[1].'.'.$cur_include[2]))
-			require $tpl_inc_dir.$cur_include[1].'.'.$cur_include[2];
-		else if (file_exists(FORUM_ROOT.'include/user/'.$cur_include[1].'.'.$cur_include[2]))
-			require FORUM_ROOT.'include/user/'.$cur_include[1].'.'.$cur_include[2];
-		else
-			error(sprintf($lang['Pun include error'], htmlspecialchars($cur_include[0]), basename($tpl_file)));
-
-		$tpl_temp = ob_get_contents();
-		$tpl_redir = str_replace($cur_include[0], $tpl_temp, $tpl_redir);
-		ob_end_clean();
-	}
-	// END SUBST - <luna_include "*">
-
-
-	// START SUBST - <luna_language>
-	$tpl_redir = str_replace('<luna_language>', $lang['lang_identifier'], $tpl_redir);
-	// END SUBST - <luna_language>
-
-
-	// START SUBST - <luna_content_direction>
-	$tpl_redir = str_replace('<luna_content_direction>', $lang['lang_direction'], $tpl_redir);
-	// END SUBST - <luna_content_direction>
-
-
-	// START SUBST - <luna_head>
-	ob_start();
-
-	$page_title = array(luna_htmlspecialchars($luna_config['o_board_title']), $lang['Redirecting']);
-
-?>
-<meta http-equiv="refresh" content="<?php echo $luna_config['o_redirect_delay'] ?>;URL=<?php echo $destination_url ?>" />
-<title><?php echo generate_page_title($page_title) ?></title>
-<link rel="stylesheet" type="text/css" href="style/<?php echo $luna_user['style'].'.css' ?>" />
-<?php
-
-	$tpl_temp = trim(ob_get_contents());
-	$tpl_redir = str_replace('<luna_head>', $tpl_temp, $tpl_redir);
-	ob_end_clean();
-	// END SUBST - <luna_head>
-
-
-	// START SUBST - <luna_redir_main>
-	ob_start();
-
-?>
-<div class="block">
-	<h2><?php echo $lang['Redirecting'] ?></h2>
-	<div class="box">
-		<div class="inbox">
-			<p><?php echo $message.'<br /><br /><a href="'.$destination_url.'">'.$lang['Click redirect'].'</a>' ?></p>
-		</div>
-	</div>
-</div>
-<?php
-
-	$tpl_temp = trim(ob_get_contents());
-	$tpl_redir = str_replace('<luna_redir_main>', $tpl_temp, $tpl_redir);
-	ob_end_clean();
-	// END SUBST - <luna_redir_main>
-
-
-	// START SUBST - <luna_footer>
-	ob_start();
-
-	// End the transaction
 	$db->end_transaction();
-
-	// Display executed queries (if enabled)
-	if (defined('FORUM_SHOW_QUERIES'))
-		display_saved_queries();
-
-	$tpl_temp = trim(ob_get_contents());
-	$tpl_redir = str_replace('<luna_footer>', $tpl_temp, $tpl_redir);
-	ob_end_clean();
-	// END SUBST - <luna_footer>
-
-
-	// Close the db connection (and free up any result data)
 	$db->close();
 
-	exit($tpl_redir);
+	header('Location: '.str_replace('&amp;', '&', $destination_url));
+	exit;
 }
 
 
@@ -2077,7 +1965,7 @@ function url_valid($url)
 //
 function ucp_preg_replace($pattern, $replace, $subject, $callback = false)
 {
-	if($callback) 
+	if($callback)
 		$replaced = preg_replace_callback($pattern, create_function('$matches', 'return '.$replace.';'), $subject);
 	else
 		$replaced = preg_replace($pattern, $replace, $subject);
@@ -2180,18 +2068,16 @@ function display_saved_queries()
 
 ?>
 
-<div id="debug" class="blocktable">
-	<h2><span><?php echo $lang['Debug table'] ?></span></h2>
-	<div class="box">
-		<div class="inbox">
-			<table cellspacing="0">
-			<thead>
-				<tr>
-					<th class="tcl" scope="col"><?php echo $lang['Query times'] ?></th>
-					<th class="tcr" scope="col"><?php echo $lang['Query'] ?></th>
-				</tr>
-			</thead>
-			<tbody>
+<div id="debug">
+	<h2><?php echo $lang['Debug table'] ?>></h2>
+	<table class="table table-bordered table-hover">
+	<thead>
+		<tr>
+			<th class="tcl" scope="col"><?php echo $lang['Query times'] ?></th>
+			<th class="tcr" scope="col"><?php echo $lang['Query'] ?></th>
+		</tr>
+	</thead>
+	<tbody>
 <?php
 
 	$query_time_total = 0.0;
@@ -2200,22 +2086,20 @@ function display_saved_queries()
 		$query_time_total += $cur_query[1];
 
 ?>
-				<tr>
-					<td class="tcl"><?php echo ($cur_query[1] != 0) ? $cur_query[1] : '&#160;' ?></td>
-					<td class="tcr"><?php echo luna_htmlspecialchars($cur_query[0]) ?></td>
-				</tr>
+		<tr>
+			<td class="tcl"><?php echo ($cur_query[1] != 0) ? $cur_query[1] : '&#160;' ?></td>
+			<td class="tcr"><?php echo luna_htmlspecialchars($cur_query[0]) ?></td>
+		</tr>
 <?php
 
 	}
 
 ?>
-				<tr>
-					<td class="tcl" colspan="2"><?php printf($lang['Total query time'], $query_time_total.' s') ?></td>
-				</tr>
-			</tbody>
-			</table>
-		</div>
-	</div>
+		<tr>
+			<td class="tcl" colspan="2"><?php printf($lang['Total query time'], $query_time_total.' s') ?></td>
+		</tr>
+	</tbody>
+	</table>
 </div>
 <?php
 

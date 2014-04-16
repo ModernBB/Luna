@@ -36,7 +36,6 @@ if (isset($_POST['form_sent']))
 		'date_format'			=> luna_trim($_POST['form']['date_format']),
 		'timeout_visit'			=> (intval($_POST['form']['timeout_visit']) > 0) ? intval($_POST['form']['timeout_visit']) : 1,
 		'timeout_online'		=> (intval($_POST['form']['timeout_online']) > 0) ? intval($_POST['form']['timeout_online']) : 1,
-		'redirect_delay'		=> (intval($_POST['form']['redirect_delay']) >= 0) ? intval($_POST['form']['redirect_delay']) : 0,
 		'feed_type'				=> intval($_POST['form']['feed_type']),
 		'feed_ttl'				=> intval($_POST['form']['feed_ttl']),
 		'report_method'			=> intval($_POST['form']['report_method']),
@@ -139,7 +138,7 @@ if (isset($_POST['form_sent']))
 	generate_config_cache();
 	clear_feed_cache();
 
-	redirect('backstage/settings.php', $lang['Options updated redirect']);
+	redirect('backstage/settings.php');
 }
 
 $page_title = array(luna_htmlspecialchars($luna_config['o_board_title']), $lang['Admin'], $lang['Options']);
@@ -158,13 +157,13 @@ generate_admin_menu('global');
             <input type="hidden" name="form_sent" value="1" />
             <fieldset>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label"><?php echo $lang['Board title label'] ?></label>
+                    <label class="col-sm-2 control-label"><?php echo $lang['Board title'] ?></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name="form[board_title]" maxlength="255" value="<?php echo luna_htmlspecialchars($luna_config['o_board_title']) ?>" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label"><?php echo $lang['Board desc label'] ?></label>
+                    <label class="col-sm-2 control-label"><?php echo $lang['Board description'] ?></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name="form[board_desc]" maxlength="255" value="<?php echo luna_htmlspecialchars($luna_config['o_board_desc']) ?>" />
                         <span class="help-block"><?php echo $lang['Board desc help'] ?></span>
@@ -177,7 +176,7 @@ generate_admin_menu('global');
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label"><?php echo $lang['Language label'] ?></label>
+                    <label class="col-sm-2 control-label"><?php echo $lang['Default language'] ?></label>
                     <div class="col-sm-10">
                         <select class="form-control" name="form[default_lang]">
 <?php
@@ -213,14 +212,14 @@ generate_admin_menu('global');
         <div class="panel-body">
             <fieldset>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label"><?php echo $lang['Time format label'] ?></label>
+                    <label class="col-sm-2 control-label"><?php echo $lang['Time format'] ?></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name="form[time_format]" maxlength="25" value="<?php echo luna_htmlspecialchars($luna_config['o_time_format']) ?>" />
                         <span class="help-block"><?php printf($lang['Time format help'], gmdate($luna_config['o_time_format'], $timestamp), '<a href="http://www.php.net/manual/en/function.date.php">'.$lang['PHP manual'].'</a>') ?></span>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label"><?php echo $lang['Date format label'] ?></label>
+                    <label class="col-sm-2 control-label"><?php echo $lang['Date format'] ?></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name="form[date_format]" maxlength="25" value="<?php echo luna_htmlspecialchars($luna_config['o_date_format']) ?>" />
                         <span class="help-block"><?php printf($lang['Date format help'], gmdate($luna_config['o_date_format'], $timestamp), '<a href="http://www.php.net/manual/en/function.date.php">'.$lang['PHP manual'].'</a>') ?></span>
@@ -292,13 +291,6 @@ generate_admin_menu('global');
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name="form[timeout_online]" maxlength="5" value="<?php echo $luna_config['o_timeout_online'] ?>" />
                         <span class="help-block"><?php echo $lang['Online timeout help'] ?></span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"><?php echo $lang['Redirect time label'] ?></label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="form[redirect_delay]" maxlength="3" value="<?php echo $luna_config['o_redirect_delay'] ?>" />
-                        <span class="help-block"><?php echo $lang['Redirect time help'] ?></span>
                     </div>
                 </div>
             </fieldset>

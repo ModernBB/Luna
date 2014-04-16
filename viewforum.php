@@ -59,7 +59,7 @@ switch ($cur_forum['sort_by'])
 
 // Can we or can we not post new topics?
 if (($cur_forum['post_topics'] == '' && $luna_user['g_post_topics'] == '1') || $cur_forum['post_topics'] == '1' || $is_admmod)
-	$post_link = "\t\t\t".'<a class="btn btn-primary btn-post pull-right" href="post.php?fid='.$id.'">'.$lang['Post topic'].'</a>'."\n";
+	$post_link = "\t\t\t".'<a class="btn btn-primary btn-post pull-right" href="post.php?fid='.$id.'">'.$lang['Post new topic'].'</a>'."\n";
 else
 	$post_link = '';
 
@@ -103,24 +103,23 @@ require FORUM_ROOT.'header.php';
 
 ?>
 <h2><?php echo luna_htmlspecialchars($cur_forum['forum_name']) ?></h2>
-<ol class="breadcrumb">
-    <li><a href="index.php"><?php echo $lang['Index'] ?></a></li>
-    <li class="active"><a href="viewforum.php?id=<?php echo $id ?>"><?php echo luna_htmlspecialchars($cur_forum['forum_name']) ?></a></li>
-</ol>
-<div class="pagepost">
-    <ul class="pagination">
-        <?php echo $paging_links ?>
-    </ul>
-    <?php echo $post_link ?>
+<div class="row row-nav">
+	<div class="col-sm-6">
+		<div class="btn-group btn-breadcrumb">
+			<a class="btn btn-primary" href="index.php"><span class="glyphicon glyphicon-home"></span></a>
+			<a class="btn btn-primary" href="viewforum.php?id=<?php echo $id ?>"><?php echo luna_htmlspecialchars($cur_forum['forum_name']) ?></a>
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<?php echo $post_link ?>
+		<ul class="pagination">
+			<?php echo $paging_links ?>
+		</ul>
+	</div>
 </div>
 <div class="forum-box">
     <div class="row forum-header">
-        <div class="col-xs-7"><?php echo $lang['Topic'] ?></div>
-        <div class="col-xs-1 hidden-xs"><p class="text-center"><?php echo $lang['Replies forum'] ?></p></div>
-        <?php if ($luna_config['o_topic_views'] == '1'): ?>
-            <div class="col-xs-1 hidden-xs"><p class="text-center"><?php echo $lang['Views'] ?></p></div>
-        <?php endif; ?>
-        <div class="col-xs-3"><?php echo $lang['Last post'] ?></div>
+        <div class="col-xs-12"><?php echo $lang['Topic'] ?></div>
     </div>
 <?php
 
@@ -150,7 +149,7 @@ if ($db->num_rows($result))
 		if (is_null($cur_topic['moved_to']))
 			$last_post = '<a href="viewtopic.php?pid='.$cur_topic['last_post_id'].'#p'.$cur_topic['last_post_id'].'">'.format_time($cur_topic['last_post']).'</a> <span class="byuser">'.$lang['by'].' '.luna_htmlspecialchars($cur_topic['last_poster']).'</span>';
 		else
-			$last_post = '- - -';
+			$last_post = '';
 
 		if ($luna_config['o_censoring'] == '1')
 			$cur_topic['subject'] = censor_words($cur_topic['subject']);
@@ -163,15 +162,15 @@ if ($db->num_rows($result))
 
 		if ($cur_topic['moved_to'] != 0)
 		{
-			$subject = '<a href="viewtopic.php?id='.$cur_topic['moved_to'].'">'.luna_htmlspecialchars($cur_topic['subject']).'</a> <span class="byuser">'.$lang['by'].' '.luna_htmlspecialchars($cur_topic['poster']).'</span>';
+			$subject = '<a href="viewtopic.php?id='.$cur_topic['moved_to'].'">'.luna_htmlspecialchars($cur_topic['subject']).'</a> <br /><span class="byuser">'.$lang['by'].' '.luna_htmlspecialchars($cur_topic['poster']).'</span>';
 			$status_text[] = '<span class="label label-info">'.$lang['Moved'].'</span>';
 			$item_status .= ' imoved';
 		}
 		else if ($cur_topic['closed'] == '0')
-			$subject = '<a href="viewtopic.php?id='.$cur_topic['id'].'">'.luna_htmlspecialchars($cur_topic['subject']).'</a> <span class="byuser">'.$lang['by'].' '.luna_htmlspecialchars($cur_topic['poster']).'</span>';
+			$subject = '<a href="viewtopic.php?id='.$cur_topic['id'].'">'.luna_htmlspecialchars($cur_topic['subject']).'</a> <br /><span class="byuser">'.$lang['by'].' '.luna_htmlspecialchars($cur_topic['poster']).'</span>';
 		else
 		{
-			$subject = '<a href="viewtopic.php?id='.$cur_topic['id'].'">'.luna_htmlspecialchars($cur_topic['subject']).'</a> <span class="byuser">'.$lang['by'].' '.luna_htmlspecialchars($cur_topic['poster']).'</span>';
+			$subject = '<a href="viewtopic.php?id='.$cur_topic['id'].'">'.luna_htmlspecialchars($cur_topic['subject']).'</a> <br /><span class="byuser">'.$lang['by'].' '.luna_htmlspecialchars($cur_topic['poster']).'</span>';
 			$status_text[] = '<span class="label label-danger">'.$lang['Closed'].'</span>';
 			$item_status .= ' iclosed';
 		}
@@ -202,22 +201,31 @@ if ($db->num_rows($result))
 			$subject .= !empty($subject_new_posts) ? ' '.$subject_new_posts : '';
 			$subject .= !empty($subject_multipage) ? ' '.$subject_multipage : '';
 		}
+	
+		if (forum_number_format($cur_topic['num_replies']) == '1') {
+			$replies_label = $lang['reply'];
+		} else {
+			$replies_label = $lang['replies'];
+		}
+		
+		if (forum_number_format($num_topics) == '1') {
+			$views_label = $lang['view'];
+		} else {
+			$views_label = $lang['views'];
+		}
 
 ?>
     <div class="row topic-row <?php echo $item_status ?>">
-        <div class="col-xs-7">
-            <div class="<?php echo $icon_type ?>"><div class="nosize"><?php echo forum_number_format($topic_count + $start_from) ?></div></div>
+        <div class="col-sm-6 col-xs-6">
+            <div class="<?php echo $icon_type ?>"><?php echo forum_number_format($topic_count + $start_from) ?></div>
             <div class="tclcon">
                 <div>
                     <?php echo $subject."\n" ?>
                 </div>
             </div>
         </div>
-        <div class="col-xs-1 hidden-xs"><p class="text-center"><?php echo (is_null($cur_topic['moved_to'])) ? forum_number_format($cur_topic['num_replies']) : '-' ?></p></div>
-        <?php if ($luna_config['o_topic_views'] == '1'): ?>
-            <div class="col-xs-1 hidden-xs"><p class="text-center"><?php echo (is_null($cur_topic['moved_to'])) ? forum_number_format($cur_topic['num_views']) : '-' ?></p></div>
-        <?php endif; ?>
-        <div class="col-xs-3"><?php echo $last_post ?></div>
+        <div class="col-sm-2 hidden-xs"><?php if (is_null($cur_topic['moved_to'])) { ?><b><?php echo forum_number_format($cur_topic['num_replies']) ?></b> <?php echo $replies_label ?><br /><b><?php echo forum_number_format($cur_topic['num_views']) ?></b> <?php echo $views_label ?><?php } ?></div>
+        <div class="col-sm-4 col-xs-6"><?php echo $last_post ?></div>
     </div>
 <?php
 
@@ -238,16 +246,21 @@ else
 ?>
 </div>
 
-<div class="pagepost">
-    <ul class="pagination">
-        <?php echo $paging_links ?>
-    </ul>
-	<?php echo $post_link ?>
+<div class="row">
+	<div class="col-sm-6">
+		<div class="btn-group btn-breadcrumb">
+			<a class="btn btn-primary" href="index.php"><span class="glyphicon glyphicon-home"></span></a>
+			<a class="btn btn-primary" href="viewforum.php?id=<?php echo $id ?>"><?php echo luna_htmlspecialchars($cur_forum['forum_name']) ?></a>
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<?php echo $post_link ?>
+		<ul class="pagination">
+			<?php echo $paging_links ?>
+		</ul>
+	</div>
 </div>
-<ol class="breadcrumb">
-    <li><a href="index.php"><?php echo $lang['Index'] ?></a></li>
-    <li class="active"><a href="viewforum.php?id=<?php echo $id ?>"><?php echo luna_htmlspecialchars($cur_forum['forum_name']) ?></a></li>
-</ol>
+
 <?php
 
 $forum_id = $id;

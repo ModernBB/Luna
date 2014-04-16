@@ -23,7 +23,7 @@ if ($luna_config['o_regs_allow'] == '0')
 
 // User pressed the cancel button
 if (isset($_GET['cancel']))
-	redirect('index.php', $lang['Reg cancel redirect']);
+	redirect('index.php');
 
 
 else if ($luna_config['o_rules'] == '1' && !isset($_GET['agree']) && !isset($_POST['form_sent']))
@@ -250,13 +250,13 @@ if (isset($_POST['form_sent']))
 
 		luna_setcookie($new_uid, $password_hash, time() + $luna_config['o_timeout_visit']);
 
-		redirect('index.php', $lang['Reg complete']);
+		redirect('index.php');
 	}
 }
 
 
 $page_title = array(luna_htmlspecialchars($luna_config['o_board_title']), $lang['Register']);
-$required_fields = array('req_user' => $lang['Username'], 'req_password1' => $lang['Password'], 'req_password2' => $lang['Confirm pass'], 'req_email1' => $lang['Email'], 'req_email2' => $lang['Email'].' 2');
+$required_fields = array('req_user' => $lang['Username'], 'req_password1' => $lang['Password'], 'req_password2' => $lang['Confirm password'], 'req_email1' => $lang['Email'], 'req_email2' => $lang['Email'].' 2');
 $focus_element = array('register', 'req_user');
 $page_head = array('<style type="text/css">#register label.usernamefield { display: none }</style>');
 define('FORUM_ACTIVE_PAGE', 'register');
@@ -312,7 +312,7 @@ if (!empty($errors))
                     <div class="col-sm-10">
 						<input type="text" class="form-control" name="req_email1" value="<?php if (isset($_POST['req_email1'])) echo luna_htmlspecialchars($_POST['req_email1']); ?>" maxlength="80" />
                         <?php if ($luna_config['o_regs_verify'] == '1'): ?><input type="text" class="form-control" name="req_email2" value="<?php if (isset($_POST['req_email2'])) echo luna_htmlspecialchars($_POST['req_email2']); ?>" maxlength="80" /><?php endif; ?>
-                        <?php if ($luna_config['o_regs_verify'] == '1'): ?><span class="help-block"><?php echo $lang['Email info'] ?></span><?php endif; ?>
+                        <?php if ($luna_config['o_regs_verify'] == '1'): ?><span class="help-block"><?php echo $lang['Email help info'] ?></span><?php endif; ?>
                     </div>
                 </div>
 <?php

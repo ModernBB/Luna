@@ -59,7 +59,7 @@ if (isset($_POST['delete']))
 		delete_topic($cur_post['tid']);
 		update_forum($cur_post['fid']);
 
-		redirect('viewforum.php?id='.$cur_post['fid'], $lang['Topic del redirect']);
+		redirect('viewforum.php?id='.$cur_post['fid']);
 	}
 	else
 	{
@@ -71,7 +71,7 @@ if (isset($_POST['delete']))
 		$result = $db->query('SELECT id FROM '.$db->prefix.'posts WHERE topic_id='.$cur_post['tid'].' AND id < '.$id.' ORDER BY id DESC LIMIT 1') or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
 		$post_id = $db->result($result);
 
-		redirect('viewtopic.php?pid='.$post_id.'#p'.$post_id, $lang['Post del redirect']);
+		redirect('viewtopic.php?pid='.$post_id.'#p'.$post_id);
 	}
 }
 
@@ -84,12 +84,12 @@ require FORUM_ROOT.'include/parser.php';
 $cur_post['message'] = parse_message($cur_post['message'], $cur_post['hide_smilies']);
 
 ?>
-<ul class="breadcrumb">
-    <li><a href="index.php"><?php echo $lang['Index'] ?></a></li>
-    <li><a href="viewforum.php?id=<?php echo $cur_post['fid'] ?>"><?php echo luna_htmlspecialchars($cur_post['forum_name']) ?></a></li>
-    <li><a href="viewtopic.php?pid=<?php echo $id ?>#p<?php echo $id ?>"><?php echo luna_htmlspecialchars($cur_post['subject']) ?></a></li>
-    <li class="active"><?php echo $lang['Delete post'] ?></li>
-</ul>
+<div class="btn-group btn-breadcrumb">
+    <a class="btn btn-primary" href="index.php"><span class="glyphicon glyphicon-home"></span></a>
+    <a class="btn btn-primary" href="viewforum.php?id=<?php echo $cur_post['fid'] ?>"><?php echo luna_htmlspecialchars($cur_post['forum_name']) ?></a>
+    <a class="btn btn-primary" href="viewtopic.php?pid=<?php echo $id ?>#p<?php echo $id ?>"><?php echo luna_htmlspecialchars($cur_post['subject']) ?></a>
+    <a class="btn btn-primary" href="#"><?php echo $lang['Delete post'] ?></a>
+</div>
 
 <div class="panel panel-default">
     <div class="panel-heading">

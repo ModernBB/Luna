@@ -50,7 +50,7 @@ else if ($action == 'markread')
 	// Reset tracked topics
 	set_tracked_topics(null);
 
-	redirect('index.php', $lang['Mark read redirect']);
+	redirect('index.php');
 }
 
 
@@ -68,7 +68,7 @@ else if ($action == 'markforumread')
 	$tracked_topics['forums'][$fid] = time();
 	set_tracked_topics($tracked_topics);
 
-	redirect('viewforum.php?id='.$fid, $lang['Mark forum read redirect']);
+	redirect('viewforum.php?id='.$fid);
 }
 
 
@@ -130,7 +130,7 @@ else if (isset($_GET['email']))
 
 		$db->query('UPDATE '.$db->prefix.'users SET last_email_sent='.time().' WHERE id='.$luna_user['id']) or error('Unable to update user', __FILE__, __LINE__, $db->error());
 
-		redirect(luna_htmlspecialchars($_POST['redirect_url']), $lang['Email sent redirect']);
+		redirect(luna_htmlspecialchars($_POST['redirect_url']));
 	}
 
 
@@ -165,7 +165,7 @@ else if (isset($_GET['email']))
 		$redirect_url .= '#p'.$matches[1];
 
 	$page_title = array(luna_htmlspecialchars($luna_config['o_board_title']), $lang['Send email to'].' '.luna_htmlspecialchars($recipient));
-	$required_fields = array('req_subject' => $lang['Email subject'], 'req_message' => $lang['Email message']);
+	$required_fields = array('req_subject' => $lang['Subject'], 'req_message' => $lang['Message']);
 	$focus_element = array('email', 'req_subject');
 	define('FORUM_ACTIVE_PAGE', 'index');
 	require FORUM_ROOT.'header.php';
@@ -180,9 +180,9 @@ else if (isset($_GET['email']))
         <fieldset class="postfield">
             <input type="hidden" name="form_sent" value="1" />
             <input type="hidden" name="redirect_url" value="<?php echo luna_htmlspecialchars($redirect_url) ?>" />
-            <label class="required hidden"><?php echo $lang['Email subject'] ?></label>
-            <input class="form-control" placeholder="<?php echo $lang['Email subject'] ?>" type="text" name="req_subject" maxlength="70" tabindex="1" />
-            <label class="required hidden"><?php echo $lang['Email message'] ?></label>
+            <label class="required hidden"><?php echo $lang['Subject'] ?></label>
+            <input class="form-control" placeholder="<?php echo $lang['Subject'] ?>" type="text" name="req_subject" maxlength="70" tabindex="1" />
+            <label class="required hidden"><?php echo $lang['Message'] ?></label>
             <textarea name="req_message" class="form-control" rows="10" tabindex="2"></textarea>
         </fieldset>
         <div class="panel-footer">
@@ -268,7 +268,7 @@ else if (isset($_GET['report']))
 
 		$db->query('UPDATE '.$db->prefix.'users SET last_report_sent='.time().' WHERE id='.$luna_user['id']) or error('Unable to update user', __FILE__, __LINE__, $db->error());
 
-		redirect('viewforum.php?id='.$forum_id, $lang['Report redirect']);
+		redirect('viewforum.php?id='.$forum_id);
 	}
 
 	// Fetch some info about the post, the topic and the forum
@@ -288,12 +288,12 @@ else if (isset($_GET['report']))
 	require FORUM_ROOT.'header.php';
 
 ?>
-<ul class="breadcrumb">
-    <li><a href="index.php"><?php echo $lang['Index'] ?></a></li>
-    <li><a href="viewforum.php?id=<?php echo $cur_post['fid'] ?>"><?php echo luna_htmlspecialchars($cur_post['forum_name']) ?></a></li>
-    <li><a href="viewtopic.php?pid=<?php echo $post_id ?>#p<?php echo $post_id ?>"><?php echo luna_htmlspecialchars($cur_post['subject']) ?></a></li>
-    <li class="active"><?php echo $lang['Report post'] ?></li>
-</ul>
+<div class="btn-group btn-breadcrumb">
+    <a class="btn btn-primary" href="index.php"><span class="glyphicon glyphicon-home"></span></a>
+    <a class="btn btn-primary" href="viewforum.php?id=<?php echo $cur_post['fid'] ?>"><?php echo luna_htmlspecialchars($cur_post['forum_name']) ?></a>
+    <a class="btn btn-primary" href="viewtopic.php?pid=<?php echo $id ?>#p<?php echo $id ?>"><?php echo luna_htmlspecialchars($cur_post['subject']) ?></a>
+    <a class="btn btn-primary" href="#"><?php echo $lang['Report post'] ?></a>
+</div>
 
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -341,7 +341,7 @@ else if ($action == 'subscribe')
 
 		$db->query('INSERT INTO '.$db->prefix.'topic_subscriptions (user_id, topic_id) VALUES('.$luna_user['id'].' ,'.$topic_id.')') or error('Unable to add subscription', __FILE__, __LINE__, $db->error());
 
-		redirect('viewtopic.php?id='.$topic_id, $lang['Subscribe redirect']);
+		redirect('viewtopic.php?id='.$topic_id);
 	}
 
 	if ($forum_id)
@@ -360,7 +360,7 @@ else if ($action == 'subscribe')
 
 		$db->query('INSERT INTO '.$db->prefix.'forum_subscriptions (user_id, forum_id) VALUES('.$luna_user['id'].' ,'.$forum_id.')') or error('Unable to add subscription', __FILE__, __LINE__, $db->error());
 
-		redirect('viewforum.php?id='.$forum_id, $lang['Subscribe redirect']);
+		redirect('viewforum.php?id='.$forum_id);
 	}
 }
 
@@ -386,7 +386,7 @@ else if ($action == 'unsubscribe')
 
 		$db->query('DELETE FROM '.$db->prefix.'topic_subscriptions WHERE user_id='.$luna_user['id'].' AND topic_id='.$topic_id) or error('Unable to remove subscription', __FILE__, __LINE__, $db->error());
 
-		redirect('viewtopic.php?id='.$topic_id, $lang['Unsubscribe redirect']);
+		redirect('viewtopic.php?id='.$topic_id);
 	}
 
 	if ($forum_id)
@@ -400,7 +400,7 @@ else if ($action == 'unsubscribe')
 
 		$db->query('DELETE FROM '.$db->prefix.'forum_subscriptions WHERE user_id='.$luna_user['id'].' AND forum_id='.$forum_id) or error('Unable to remove subscription', __FILE__, __LINE__, $db->error());
 
-		redirect('viewforum.php?id='.$forum_id, $lang['Unsubscribe redirect']);
+		redirect('viewforum.php?id='.$forum_id);
 	}
 }
 

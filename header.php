@@ -181,7 +181,7 @@ if ($luna_config['o_header_desc'] == 1) {
 $links = array();
 
 // Index should always be displayed
-if ($luna_config['o_show_userlist'] == '1')
+if ($luna_config['o_show_index'] == '1')
 	$links[] = '<li id="navindex"'.((FORUM_ACTIVE_PAGE == 'index') ? ' class="active"' : '').'><a href="index.php">'.$lang['Index'].'</a></li>';
 
 if ($luna_user['g_read_board'] == '1' && $luna_user['g_view_users'] == '1' && $luna_config['o_show_userlist'] == '1')
@@ -217,7 +217,7 @@ if ($luna_user['is_guest'])
 	$usermenu[] = '<li id="navlogin"'.((FORUM_ACTIVE_PAGE == 'login') ? ' class="active"' : '').'><a href="login.php">'.$lang['Login'].'</a></li>';
 } else {
 	$usermenu[] = '<li class="dropdown">';
-	$usermenu[] = '<a href="#" class="dropdown-toggle" data-toggle="dropdown">'.$lang['Welcome'].', '.(luna_htmlspecialchars($luna_user['username'])).' <b class="caret"></b></a>';
+	$usermenu[] = '<a href="#" class="dropdown-toggle" data-toggle="dropdown">'.(luna_htmlspecialchars($luna_user['username'])).' <b class="caret"></b></a>';
 	// Responsive menu
 	$usermenu[] = '<ul class="dropdown-menu">';
 	$usermenu[] = '<li><a href="profile.php?id='.$luna_user['id'].'">'.$lang['Profile'].'</a></li>';
@@ -264,7 +264,7 @@ if ($luna_config['o_menu_title'] == 1) {
 	$menu_title = '';
 }
 
-$tpl_temp = '<div class="navbar navbar-default">
+$tpl_temp = '<div class="navbar navbar-default navbar-static-top">
 	<div class="nav-inner">
 		'.$menu_title.'
 		<div class="navbar-header">
@@ -331,7 +331,7 @@ if ($luna_user['g_read_board'] == '1' && $luna_user['g_search'] == '1')
 
 
 // Generate all that jazz
-$tpl_temp = '<div id="brdwelcome" class="inbox">';
+$tpl_temp = '<div id="brdwelcome">';
 
 // The status information
 if (is_array($page_statusinfo))
