@@ -99,8 +99,4 @@ if (!defined('FORUM_USERS_INFO_LOADED'))
 	require FORUM_CACHE_DIR.'cache_users_info.php';
 }
 
-// Collect some statistics from the database
-$result = $db->query('SELECT SUM(num_topics), SUM(num_posts) FROM '.$db->prefix.'forums') or error('Unable to fetch topic/post count', __FILE__, __LINE__, $db->error());
-list($stats['total_topics'], $stats['total_posts']) = array_map('intval', $db->fetch_row($result));
-
 require get_view_path('index-show_stats.tpl.php');
