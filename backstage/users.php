@@ -14,7 +14,8 @@ define('FORUM_ROOT', '../');
 require FORUM_ROOT.'include/common.php';
 require FORUM_ROOT.'include/common_admin.php';
 
-if (!$luna_user['is_admmod']) {
+if (!$luna_user['is_admmod'])
+
     header("Location: ../login.php");
 }
 
@@ -889,7 +890,7 @@ else if (isset($_GET['find_user']))
 	$can_action = ($can_delete || $can_ban || $can_move) && $num_users > 0;
 
 	$page_title = array(luna_htmlspecialchars($luna_config['o_board_title']), $lang['Admin'], $lang['Users'], $lang['Results head']);
-	$page_head = array('js' => '<script type="text/javascript" src="common.js"></script>');
+	$page_head = array('js' => '<script type="text/javascript" src="../common.js"></script>');
 	define('FORUM_ACTIVE_PAGE', 'admin');
 	require FORUM_ROOT.'backstage/header.php';
 	generate_admin_menu('users');
