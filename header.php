@@ -177,7 +177,7 @@ $tpl_main = str_replace('<luna_desc>', '<div id="brddesc"><p>'.$luna_config['o_b
 // START SUBST - <luna_navlinks>
 $links = array();
 
-$result = $db->query('SELECT id, url, name, disp_position, disp FROM '.$db->prefix.'menu ORDER BY disp_position') or error('Unable to fetch menu items', __FILE__, __LINE__, $db->error());
+$result = $db->query('SELECT id, url, name, disp_position FROM '.$db->prefix.'menu ORDER BY disp_position') or error('Unable to fetch menu items', __FILE__, __LINE__, $db->error());
 
 if ($db->num_rows($result) > 0) {
 	while ($cur_item = $db->fetch_assoc($result)) {
