@@ -25,7 +25,7 @@ if (!defined('FORUM_FORM'))
 	$tpl_file = 'main.tpl';
 else
 	$tpl_file = 'form.tpl';
-	
+
 if (file_exists(FORUM_ROOT.'style/'.$luna_user['style'].'/templates/'.$tpl_file))
 {
 	$tpl_file = FORUM_ROOT.'style/'.$luna_user['style'].'/templates/'.$tpl_file;
@@ -177,11 +177,11 @@ $tpl_main = str_replace('<luna_desc>', '<div id="brddesc"><p>'.$luna_config['o_b
 // START SUBST - <luna_navlinks>
 $links = array();
 
-$result = $db->query('SELECT id, url, name, disp_position, disp FROM '.$db->prefix.'menu ORDER BY disp_position') or error('Unable to fetch menu items', __FILE__, __LINE__, $db->error());
+$result = $db->query('SELECT id, url, name, disp_position, visible FROM '.$db->prefix.'menu ORDER BY disp_position') or error('Unable to fetch menu items', __FILE__, __LINE__, $db->error());
 
 if ($db->num_rows($result) > 0) {
 	while ($cur_item = $db->fetch_assoc($result)) {
-		if ($cur_item['disp'] == '1') {
+		if ($cur_item['visible'] == '1') {
 			$links[] = '<li><a href="'.$cur_item['url'].'">'.$cur_item['name'].'</a></li>';
 		}
 	}
