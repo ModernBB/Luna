@@ -56,7 +56,7 @@ if (!defined('FORUM'))
 <div class="row">
 	<div class="col-xs-3">
 		<div class="list-group list-group-forum">
-			<?php draw_forum_list('index.php', $id) ?>
+			<?php draw_forum_list('viewforum.php', $id) ?>
 		</div>
 	</div>
 	<div class="col-xs-9">
