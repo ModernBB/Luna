@@ -2,7 +2,7 @@
 	<div class="modal-dialog modal-xs">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h4 class="modal-title">Login</h4>
+				<h4 class="modal-title"><?php echo $lang['Login'] ?></h4>
 			</div>
 			<div class="modal-body">
 				<form id="login" method="post" action="login.php?action=in" onsubmit="return process_form(this)">
@@ -17,7 +17,7 @@
 							</div>
 						</div>
 						<input class="btn btn-primary btn-block" type="submit" name="login" value="<?php echo $lang['Login'] ?>" tabindex="904" />
-						<a class="btn btn-default btn-block" href="register.php" tabindex="905">Register</a>
+						<a class="btn btn-default btn-block" href="register.php" tabindex="905"><?php echo $lang['Register'] ?></a>
 					</fieldset>
 				</form>
 			</div>
@@ -31,7 +31,7 @@
 	<div class="modal-dialog modal-xs">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h4 class="modal-title">Request password</h4>
+				<h4 class="modal-title"><?php echo $lang['Request pass'] ?></h4>
 			</div>
 			<div class="modal-body">
 				<form id="request_pass" method="post" action="login.php?action=forget_2" onsubmit="this.request_pass.disabled=true;if(process_form(this)){return true;}else{this.request_pass.disabled=false;return false;}">
@@ -47,7 +47,7 @@
 				</form>
 			</div>
 			<div class="modal-footer">
-				<a href="#" data-toggle="modal" data-target="#login" data-dismiss="modal">Back</a>
+				<a href="#" data-toggle="modal" data-target="#login" data-dismiss="modal"><?php echo $lang['Go back'] ?></a>
 			</div>
 		</div>
 	</div>
