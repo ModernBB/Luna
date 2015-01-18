@@ -108,6 +108,12 @@ $lang = array(
 // Stuff for the navigator (top of every page)
 
 //
+// Header
+//
+
+'Search in posts'					=>	'Search in posts',
+
+//
 // User menu
 //
 
@@ -171,6 +177,7 @@ $lang = array(
 'Extend profile'					=>	'Extend your details',
 'Get help'							=>	'Get help',
 'Do not show again'					=>	'Don\'t show again',
+'Search the board'					=>	'Search the board',
 
 //
 // For extern.php RSS feed
