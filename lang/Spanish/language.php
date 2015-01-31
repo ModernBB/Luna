@@ -7,7 +7,7 @@ $lang = array(
 //
 
 'lang_direction'					=>	'ltr', // ltr (Left-To-Right) or rtl (Right-To-Left)
-'lang_identifier'					=>	'en',
+'lang_identifier'					=>	'es',
 
 //
 // Number and date formatting
@@ -16,70 +16,70 @@ $lang = array(
 'lang_decimal_point'				=>	'.',
 'lang_thousands_sep'				=>	',',
 'lang_time'							=>	'H:i',
-'lang_date'							=>	'j M Y',
+'lang_date'							=>	'd/m/Y',
 
 //
 // Notices
 //
 
 'Bad request'						=>	'Bad request. The link you followed is incorrect, outdated or you\'re simply not allowed to hang around here.',
-'No view'							=>	'You do not have permission to view this page.',
+'No view'							=>	'No tienes permisos para ver esta página.',
 'Bad referrer'						=>	'Bad HTTP_REFERER. You were referred to this page from an unauthorized source. If the problem persists please make sure that \'Base URL\' is correctly set in Admin/Options and that you are visiting the forum by navigating to that URL. More information regarding the referrer check can be found in the Luna documentation.',
-'No permission'						=>	'You do not have permission to access this page.',
+'No permission'						=>	'No tienes permiso para acceder a esta página.',
 'No cookie'							=>	'You appear to have logged in successfully, however a cookie has not been set. Please check your settings and if applicable, enable cookies for this website.',
 'Pun include extension'				=>  'Unable to process user include %s from template %s. "%s" files are not allowed',  
 'Pun include directory'				=>  'Unable to process user include %s from template %s. Directory traversal is not allowed',  
 'Pun include error'					=>  'Unable to process user include %s from template %s. There is no such file in neither the template directory nor in the user include directory',  
-'Settings saved'					=>  'Your settings have been saved.',
-'User deleted'						=>  'The user has been deleted.',
-'User failed'                       =>  'Failed to create user, no password was given.',
-'User created'                      =>  'User created',
-'Cache cleared'						=>  'The cache files have been removed.',
+'Settings saved'					=>  'Los ajustes han sido guardados.',
+'User deleted'						=>  'El usuario ha sido borrado.',
+'User failed'                       =>  'Error al crear el usuario, no se ha introducido ninguna contraseña.',
+'User created'                      =>  'Usuario creado',
+'Cache cleared'						=>  'Los ficheros de la caché han sido eliminados.',
 
 //
 // Miscellaneous
 //
 
-'Announcement'						=>	'Announcement',
-'Options'							=>	'Global settings',
-'Features'							=>	'Features',
-'Submit'							=>	'Submit', // "Name" of submit buttons
-'Search'							=>	'Search',
-'Ban message'						=>	'You are banned from this forum.',
-'Ban message 2'						=>	'The ban expires at the end of',
-'Ban message 3'						=>	'The administrator or moderator that banned you left the following message:',
+'Announcement'						=>	'Anuncio',
+'Options'							=>	'Ajustes globales',
+'Features'							=>	'Características',
+'Submit'							=>	'Enviar', // "Name" of submit buttons
+'Search'							=>	'Buscar',
+'Ban message'						=>	'Estás expulsado de este foro.',
+'Ban message 2'						=>	'La expulsión expira al final de',
+'Ban message 3'						=>	'El administrador o moderador que te expulsó ha dejado el siguiente mensaje:',
 'Ban message 4'						=>	'Please direct any inquiries to the forum administrator at',
-'Never'								=>	'Never',
-'Today'								=>	'Today',
-'Yesterday'							=>	'Yesterday',
+'Never'								=>	'Nunca',
+'Today'								=>	'Hoy',
+'Yesterday'							=>	'Ayer',
 'Info'								=>	'Info', // A common table header
-'Maintenance'						=>	'Maintenance',
-'Invalid email'						=>	'The email address you entered is invalid.',
-'Required'							=>	'(Required)',
-'required field'					=>	'is a required field in this form.', // For javascript form validation
-'Last post'							=>	'Last post',
-'by'								=>	'by', // As in last post by some user
-'New posts'							=>	'New posts', // The link that leads to the first new post
-'New posts info'					=>	'Go to the first new post in this topic.', // The popup text for new posts links
-'Username'							=>	'Username',
-'Password'							=>	'Password',
-'Send email'						=>	'Send email',
-'Moderated by'						=>	'Moderated by',
-'Registered table'					=>	'Registered',
-'Subject'							=>	'Subject',
+'Maintenance'						=>	'Mantenimiento',
+'Invalid email'						=>	'El email que has introducido no es válido.',
+'Required'							=>	'(Requerido)',
+'required field'					=>	'es un campo requerido.', // For javascript form validation
+'Last post'							=>	'Último mensaje',
+'by'								=>	'por', // As in last post by some user
+'New posts'							=>	'Nuevos mensajes', // The link that leads to the first new post
+'New posts info'					=>	'Ir al primer mensaje nuevo en este tema.', // The popup text for new posts links
+'Username'							=>	'Usuario',
+'Password'							=>	'Contraseña',
+'Send email'						=>	'Enviar email',
+'Moderated by'						=>	'Moderado por',
+'Registered table'					=>	'Registrado',
+'Subject'							=>	'Asunto',
 'Start typing'                      =>  'Start typing...',
-'Message'							=>	'Message',
-'Topic'								=>	'Topic',
-'Forum'								=>	'Forum',
-'Posts table'						=>	'Posts',
-'Replies forum'						=>	'Replies',
-'Page'								=>	'Page %s',
+'Message'							=>	'Mensaje',
+'Topic'								=>	'Tema',
+'Forum'								=>	'Foro',
+'Posts table'						=>	'Mensajes',
+'Replies forum'						=>	'Respuestas',
+'Page'								=>	'Página %s',
 'BBCode'							=>	'BBCode',
-'img tag'							=>	'[img] tag',
+'img tag'							=>	'etiqueta [img]',
 'Smilies'							=>	'Smilies',
-'and'								=>	'and',
-'Image link'						=>	'image', // This is displayed (i.e. <image>) instead of images when "Show images" is disabled in the profile
-'wrote'								=>	'wrote', // For [quote]'s
+'and'								=>	'y',
+'Image link'						=>	'imagen', // This is displayed (i.e. <image>) instead of images when "Show images" is disabled in the profile
+'wrote'								=>	'escribió', // For [quote]'s
 'Mailer'							=>	'%s Mailer', // As in "MyForums Mailer" in the signature of outgoing emails
 'Spacer'							=>	'…', // Ellipsis for paginate
 
@@ -87,12 +87,12 @@ $lang = array(
 // Title
 //
 
-'Title'								=>	'Title',
-'Member'							=>	'Member',
-'Moderator'							=>	'Moderator',
-'Administrator'						=>	'Administrator',
-'Banned'							=>	'Banned',
-'Guest'								=>	'Guest',
+'Title'								=>	'Título',
+'Member'							=>	'Miembro',
+'Moderator'							=>	'Moderador',
+'Administrator'						=>	'Administrador',
+'Banned'							=>	'Expulsado',
+'Guest'								=>	'Invitado',
 
 //
 // Stuff for include/parser.php
@@ -111,73 +111,74 @@ $lang = array(
 // Header
 //
 
-'Search in posts'					=>	'Search in posts',
+'Search in posts'					=>	'Buscar en los mensajes',
 
 //
 // User menu
 //
 
-'Support'							=>	'Support',
-'Help'								=>	'Help',
-'Index'								=>	'Index',
-'User list'							=>	'User list',
-'Rules'								=>	'Rules',
-'Register'							=>	'Register',
-'Registered'						=>	'Registered since',
-'Login'								=>	'Login',
-'Profile'							=>	'Profile',
-'Logout'							=>	'Logout',
-'Backstage'							=>	'Backstage',
-'New posts header'					=>	'New',
-'Active topics'						=>	'Active',
-'Unanswered topics'					=>	'Unanswered',
+'Support'							=>	'Soporte',
+'Help'								=>	'Ayuda',
+'Index'								=>	'Inicio',
+'User list'							=>	'Usuarios',
+'Rules'								=>	'Reglas',
+'Register'							=>	'Registrarse',
+'Registered'						=>	'Registrado desde',
+'Login'								=>	'Iniciar Sesión',
+'Profile'							=>	'Perfil',
+'Logout'							=>	'Cerrar sesión',
+'Backstage'							=>	'Administración',
+'New posts header'					=>	'Nuevo',
+'Active topics'						=>	'Activo',
+'Unanswered topics'					=>	'Sin respuesta',
 'Posted topics'						=>	'Posted',
-'Show new posts'					=>	'Find topics with new posts since your last visit.',
-'Show active topics'				=>	'Find topics with recent posts.',
-'Show unanswered topics'			=>	'Find topics with no replies.',
-'Show posted topics'				=>	'Find topics you have posted to.',
-'Mark as read'						=>	'Mark as read',
+'Show new posts'					=>	'Buscar temas con nuevos mensajes desde tu última visita.',
+'Show active topics'				=>	'Buscar temas con mensajes recientes.',
+'Show unanswered topics'			=>	'Encontrar temas sin respuestas.',
+'Show posted topics'				=>	'Encontrar temas en los que has escrito.',
+'Mark as read'						=>	'Marcar como leído',
 'Title separator'					=>	' / ',
 
 //
 // Stuff for the page footer
 //
 
-'Moderate topic'					=>	'Moderate topic',
-'All'								=>	'Show all posts',
-'Move topic'						=>	'Move topic',
-'Open topic'						=>	'Open topic',
-'Close topic'						=>	'Close topic',
+'Moderate topic'					=>	'Moderar tema',
+'All'								=>	'Mostrar todos los mensajes',
+'Move topic'						=>	'Mover tema',
+'Open topic'						=>	'Abrir tema',
+'Close topic'						=>	'Cerrar tema',
 'Unstick topic'						=>	'Unstick topic',
-'Stick topic'						=>	'Stick topic',
-'Moderate forum'					=>	'Moderate forum',
-'Powered by'						=>	'Powered by %s',
-'Thanks'							=>	'Thanks for using %s',
+'Stick topic'						=>	'Fijar tema',
+'Moderate forum'					=>	'Moderar foro',
+'Powered by'						=>	'Potenciado por %s',
+'Thanks'							=>	'Gracias por usar %s',
+'Toggle Dropdown'					=>	'Toggle Dropdown',
 
 //
 // Debug information
 //
 
-'Debug table'						=>	'Debug information',
-'Querytime'							=>	'Generated in %1$s seconds, %2$s queries executed',
-'Memory usage'						=>	'Memory usage: %1$s',
+'Debug table'						=>	'Información de depuración',
+'Querytime'							=>	'Generado en %1$s segundos, %2$s consultas ejecutadas.',
+'Memory usage'						=>	'Memoria usada: %1$s',
 'Peak usage'						=>	'(Peak: %1$s)',
 'Query times'						=>	'Time (s)',
-'Query'								=>	'Query',
+'Query'								=>	'Consulta',
 'Total query time'					=>	'Total query time: %s',
 
 //
 // First run
 //
 
-'First run message'					=>	'Wow, it\'s great to have you here, welcome and thanks for joining us. We\'ve set up your account and you\'re ready to go. Through we like to point out some actions you might want to do first.',
-'Hi there'							=>	'Hi there, %s',
-'Welcome to'						=>	'Welcome to %s',
-'Change your avatar'				=>	'Change your avatar',
-'Extend profile'					=>	'Extend your details',
-'Get help'							=>	'Get help',
-'Do not show again'					=>	'Don\'t show again',
-'Search the board'					=>	'Search the board',
+'First run message'					=>	'Wow, es genial tenerte aquí, bienvenido y gracias por unirte. Hemos creado tu cuenta y ya estás listo empezar. Aquí puedes ver algunas acciones que puedes hacer lo primero.',
+'Hi there'							=>	'Hola, %s.',
+'Welcome to'						=>	'Bienvenido a %s',
+'Change your avatar'				=>	'Cambiar avatar',
+'Extend profile'					=>	'Modifica tus detalles',
+'Get help'							=>	'Obtén ayuda',
+'Do not show again'					=>	'No mostrar de nuevo',
+'Search the board'					=>	'Buscar en el foro',
 
 //
 // For extern.php RSS feed
@@ -198,7 +199,7 @@ $lang = array(
 //
 
 'New reports'						=>	'There are new reports',
-'Maintenance mode enabled'			=>	'Maintenance mode is enabled!',
+'Maintenance mode enabled'			=>	'¡El modo de mantenimiento está habilitado!',
 
 //
 // Units for file sizes
@@ -216,92 +217,92 @@ $lang = array(
 // Language for installation
 //
 
-'Choose install language'		=>	'Choose the install script language',
-'Choose install language info'	=>	'The language used for this install script. The default language used for the board itself can be set below.',
-'Install language'				=>	'Install language',
-'Change language'				=>	'Change language',
-'Already installed'				=>	'It seems like Luna is already installed. You should go <a href="index.php">here</a> instead.',
-'You are running error'			=>	'You are running %1$s version %2$s. Luna %3$s requires at least %1$s %4$s to run properly. You must upgrade your %1$s installation before you can continue.',
-'My Luna Forum'				=>	'My Luna Forum',
-'Description'					=>	'You can do anything',
-'Username 1'					=>	'Usernames must be at least 2 characters long.',
-'Username 2'					=>	'Usernames must not be more than 25 characters long.',
-'Username 3'					=>	'The username guest is reserved.',
-'Username 4'					=>	'Usernames may not be in the form of an IP address.',
-'Username 5'					=>	'Usernames may not contain all the characters \', " and [ or ] at once.',
-'Username 6'					=>	'Usernames may not contain any of the text formatting tags (BBCode) that the forum uses.',
-'Short password'				=>	'Passwords must be at least 6 characters long.',
-'Passwords not match'			=>	'Passwords do not match.',
-'Wrong email'					=>	'The administrator email address you entered is invalid.',
-'No board title'				=>	'You must enter a board title.',
-'Error default language'		=>	'The default language chosen doesn\'t seem to exist.',
-'Error default style'			=>	'The default style chosen doesn\'t seem to exist.',
-'No DB extensions'				=>	'PHP needs to have support for either MySQL or SQLite to run Luna to be installed. Non is available, through',
-'Administrator username'		=>	'Username',
-'Administrator password 1'		=>	'Administrator password 1',
-'Administrator password 2'		=>	'Administrator password 2',
+'Choose install language'		=>	'Elige el idioma de la instalación',
+'Choose install language info'	=>	'El idioma usado para esta instalación. El idioma por defecto del foro se puede configurar más adelante.',
+'Install language'				=>	'Idioma de instalación',
+'Change language'				=>	'Cambiar idioma',
+'Already installed'				=>	'Parece que Luna ya está instalado. Deberías ir <a href="index.php">here</a> en su lugar.',
+'You are running error'			=>	'Estás ejecutando %1$s v%2$s. Luna %3$s requiere al menos %1$s v%4$s para funcionar. Debes actualizar la versión de %1$s antes de continuar.',
+'My Luna Forum'				=>	'Mi foro Luna',
+'Description'					=>	'Puedes hacer cualquier cosa',
+'Username 1'					=>	'Los nombres de usuario deben tener al menos 2 caracteres.',
+'Username 2'					=>	'Los nombres de usuario no deben tener más de 25 caracteres.',
+'Username 3'					=>	'El nombre de usuario \'guest\' está reservado.',
+'Username 4'					=>	'Los nombres de usuario no deben tener un formato de IP.',
+'Username 5'					=>	'Los nombres de usuario no deben de contener los caracteres \', " y [ o ] a la vez.',
+'Username 6'					=>	'Los nombres de usuario no deben de contener ningún código BBCode que use el foro.',
+'Short password'				=>	'Las contraseñas deben de tener al menos 6 caracteres.',
+'Passwords not match'			=>	'Las contraseñas no coinciden.',
+'Wrong email'					=>	'El email del administrador no es válido.',
+'No board title'				=>	'Debes ingresar el título del foro.',
+'Error default language'		=>	'El idioma por defecto elegido no parece existir.',
+'Error default style'			=>	'El estilo por defecto elegido no parece existir.',
+'No DB extensions'				=>	'PHP necesita soporte para MySQL o SQLite para poder ejecutar Luna.',
+'Administrator username'		=>	'Usuario',
+'Administrator password 1'		=>	'Contraseña de administrador 1',
+'Administrator password 2'		=>	'Contraseña de administrador 2',
 'Administrator email'			=>	'Email',
-'Board title'					=>	'Board title',
-'Base URL'						=>	'No trailing slash',
-'Required field'				=>	'is a required field in this form.',
-'Luna Installation'			=>	'Luna Installation',
-'Install'						=>	'Install Luna %s',
-'Errors'						=>	'The following errors need to be corrected:',
-'Database setup'				=>	'Database setup',
-'Select database'				=>	'Select your database type',
-'Info 1'						=>	'What database do you want to use?',
-'Database type'					=>	'Type',
-'Info 2'						=>	'Where\'s the server?',
-'Info 3'						=>	'The database name',
-'Database server hostname'		=>	'Server hostname',
-'Database name'					=>	'Name',
-'Database enter informations'	=>	'Enter your database username and password',
-'Database username'				=>	'Username',
-'Info 4'						=>	'Your database username',
-'Database password'				=>	'Password',
-'Info 5'						=>	'Set for more Luna installation in this database',
-'Table prefix'					=>	'Table prefix',
-'Administration setup'			=>	'Administration setup',
-'Info 6'						=>	'2 to 25 characters long',
-'Info 7'						=>	'At least 6 characters long',
-'Confirm password'				=>	'Confirm password',
-'Board setup'					=>	'Board setup',
-'Board description'				=>	'Board description',
-'Appearance'					=>	'Appearance',
-'Default language'				=>	'Default language',
-'Default style'					=>	'Default style',
-'Start install'					=>	'Start install',
-'DB type not valid'				=>	'\'%s\' is not a valid database type',
-'Table prefix error'			=>	'The table prefix \'%s\' contains illegal characters or is too long. The prefix may contain the letters a to z, any numbers and the underscore character. They must however not start with a number. The maximum length is 40 characters. Please choose a different prefix',
-'Prefix reserved'				=>	'The table prefix \'sqlite_\' is reserved for use by the SQLite engine. Please choose a different prefix',
-'Existing table error'			=>	'A table called \'%susers\' is already present in the database \'%s\'. This could mean that Luna is already installed or that another piece of software is installed and is occupying one or more of the table names Luna requires. If you want to install multiple copies of Luna in the same database, you must choose a different table prefix',
-'InnoDB off'					=>	'InnoDB does not seem to be enabled. Please choose a database layer that does not have InnoDB support, or enable InnoDB on your MySQL server',
-'Administrators'				=>	'Administrators',
-'Moderators'					=>	'Moderators',
-'Guests'						=>	'Guests',
-'Members'						=>	'Members',
-'New member'					=>	'New member',
-'Maintenance message'			=>	'The forums are temporarily down for maintenance. Please try again in a few minutes.',
-'Alert cache'					=>	'<strong>The cache directory is currently not writable!</strong> In order for Luna to function properly, the directory <em>%s</em> must be writable by PHP. Use chmod to set the appropriate directory permissions. If in doubt, chmod to 0777.',
-'Alert avatar'					=>	'<strong>The avatar directory is currently not writable!</strong> If you want users to be able to upload their own avatar images you must see to it that the directory <em>%s</em> is writable by PHP. You can later choose to save avatar images in a different directory (see Admin/Options). Use chmod to set the appropriate directory permissions. If in doubt, chmod to 0777.',
-'Alert upload'					=>	'<strong>File uploads appear to be disallowed on this server!</strong> If you want users to be able to upload their own avatar images you must enable the file_uploads configuration setting in PHP. Once file uploads have been enabled, avatar uploads can be enabled in Administration/Options/Features.',
-'Luna has been installed'	=>	'Luna has been installed. To finalize the installation please follow the instructions below.',
-'Info 8'						=>	'To finalize the installation, you need to click on the button below to download a file called config.php. You then need to upload this file to the root directory of your Luna installation.',
-'Info 9'						=>	'Once you have uploaded config.php, Luna will be fully installed! At that point, you may <a href="index.php">go to the forum index</a>.',
-'Download config.php file'		=>	'Download config.php file',
-'Luna fully installed'		=>	'Luna has been fully installed! You may now <a href="index.php">go to the forum index</a>.',
+'Board title'					=>	'Título del foro',
+'Base URL'						=>	'Sin barra final',
+'Required field'				=>	'es un campo requerido.',
+'Luna Installation'			=>	'Instalación de Luna',
+'Install'						=>	'Instalar Luna %s',
+'Errors'						=>	'Los errores siguientes necesitan ser corregidos:',
+'Database setup'				=>	'Configurar la base de datos',
+'Select database'				=>	'Selecciona el tipo de base de datos',
+'Info 1'						=>	'¿Qué base de datos quieres utilizar?',
+'Database type'					=>	'Tipo',
+'Info 2'						=>	'¿Dónde está el servidor?',
+'Info 3'						=>	'El nombre de la base de datos',
+'Database server hostname'		=>	'Servidor',
+'Database name'					=>	'Nombre',
+'Database enter informations'	=>	'Ingresa el nombre de usuario de la base de datos y la contraseña.',
+'Database username'				=>	'Usuario',
+'Info 4'						=>	'El nombre de usuario de la base de datos',
+'Database password'				=>	'Contraseña',
+'Info 5'						=>	'Aplicar para más instalaciones de Luna en esta base de datos',
+'Table prefix'					=>	'Prefijo de las tablas',
+'Administration setup'			=>	'Configuración del administrador',
+'Info 6'						=>	'De 2 a 25 caracteres de largo',
+'Info 7'						=>	'Al menos 6 caracteres de largo',
+'Confirm password'				=>	'Confirmar contraseña',
+'Board setup'					=>	'Configuración del foro',
+'Board description'				=>	'Descripción del foro',
+'Appearance'					=>	'Apariencia',
+'Default language'				=>	'Idioma por defecto',
+'Default style'					=>	'Estilo por defecto',
+'Start install'					=>	'Empezar instalación',
+'DB type not valid'				=>	'\'%s\' no es un tipo de base de datos válido.',
+'Table prefix error'			=>	'El prefijo de la tabla \'%s\' contiene caracteres ilegales o es demasiado largo. El prefijo puede estar formado por letras a-z, números y guiones bajos. No debe de empezar por número. La longitud máxima son 40 caracteres. Por favor, elige otro prefijo distinto.',
+'Prefix reserved'				=>	'El prefijo de la tabla \'sqlite_\' está reservado para el uso de SQLite. Elije otro prefijo distinto.',
+'Existing table error'			=>	'Una tabla llamada \'%susers\' está presente en la base de datos \'%s\'. Esto puede significar que Luna ya esté instalado o que otro software está utilizando una o más tablas que Luna requiere. Si quieres instalar múltiples copias de Luna en la misma base de datos, debes elegir otro prefijo distinto.',
+'InnoDB off'					=>	'InnoDB parece no estar habilitado. Por favor elige otro motor de base de datos que no tenga soporte InnoDB o habilita InnoDB en tu servidor MySQL',
+'Administrators'				=>	'Administradores',
+'Moderators'					=>	'Moderadores',
+'Guests'						=>	'Invitados',
+'Members'						=>	'Miembros',
+'New member'					=>	'Nuevo miembro',
+'Maintenance message'			=>	'Los foros están temporalmente en mantenimiento. Por favor prueba otra vez mas tarde.',
+'Alert cache'					=>	'<strong>¡No se puede escribir en el directorio cache!</strong> Para hacer funcionar Luna correctamente el directorio <em>%s</em> debe de tener permisos de escritura. Utiliza chmod para asignar los permisos adecuados. En caso de duda, utiliza chmod 0777.',
+'Alert avatar'					=>	'<strong>¡No se puede escribir en el directorio avatar!</strong> Si quieres que los usuarios pueden subir su propio avatar <em>%s</em> debe de tener permisos de escritura. Puedes elegir más tarde el directorio para guardar los avatares (Administración/Ajustes). Utiliza chmod para asignar los permisos adecuados. En caso de duda, utiliza chmod 0777.',
+'Alert upload'					=>	'<strong>¡La subida de archivos está prohibida en este servidor!</strong> Si quieres que los usuarios pueden subir su propio avatar debes habilitar la configuracion <em>file_uploads</em> en la configuración de PHP. Una vez habilitada, la subida de avatares puede ser habilitada en Administración/Ajustes/Características.',
+'Luna has been installed'	=>	'Luna ha sido instalado. Para finalizar la instalación sigue las instrucciones de abajo.',
+'Info 8'						=>	'Para finalizar la instalación, debes hacer click en el botón de abajo para descargar un archivo llamado config.php. Necesitas subir este archivo a la carpeta raíz de Luna.',
+'Info 9'						=>	'Una vez que hayas subido el archivo config.php, Luna estará completamente instalado. En este punto puedes <a href="index.php">ir al índice de los foros</a>.',
+'Download config.php file'		=>	'Descargar el archivo config.php',
+'Luna fully installed'		=>	'Luna ha sido instalado correctamente. Puedes <a href="index.php">ir al índice de los foros</a>.',
 
 //
 // Language for updating
 //
 
-'Update Luna'				=>	'Update Luna',
-'Down'							=>	'The forums are temporarily down for maintenance. Please try again in a few minutes.',
+'Update Luna'				=>	'Actualizar Luna',
+'Down'							=>	'Los foros están temporalmente en mantenimiento. Por favor inténtalo más tarde.',
 
 'Version mismatch error'		=>	'Version mismatch. The database \'%s\' doesn\'t seem to be running a Luna database schema supported by this update script.',
 'No update error'				=>	'Your forum is already as up-to-date as this script can make it',
 
-'Start update'					=>	'Start update',
+'Start update'					=>	'Empezar actualización',
 'Correct errors'				=>	'The following errors need to be corrected:',
 
 'Preparsing item'				=>	'Preparsing %1$s %2$s …',
@@ -309,7 +310,7 @@ $lang = array(
 
 'post'							=>	'post',
 'topic'							=>	'topic',
-'signature'						=>	'signature',
+'signature'						=>	'firma',
 
 // Language for frontend
 
@@ -317,12 +318,12 @@ $lang = array(
 // Language for delete.php
 //
 
-'Delete post'			=>	'Delete post',
+'Delete post'			=>	'Borrar mensaje',
 'Topic warning'			=>	'Warning! This is the first post in the topic, the whole topic will be permanently deleted.',
 'Delete info'			=>	'The post you have chosen to delete is set out below for you to review before proceeding.',
 'Reply by'				=>	'Reply by %s - %s',
 'Topic by'				=>	'Topic started by %s - %s',
-'Delete'				=>	'Delete',
+'Delete'				=>	'Borrar',
 
 //
 // Language for help.php
@@ -353,13 +354,13 @@ $lang = array(
 'Video info'			=>  'Luna supports embedding from DailyMotion, Vimeo and YouTube. With the BBCode below, you can embed one of those services videos.',
 'Video link'			=>  'Put the link to the video here', 
 
-'Quotes'				=>	'Quotes',
+'Quotes'				=>	'Citas',
 'Quotes info'			=>	'If you want to quote someone, you should use the quote tag.',
 'Quotes info 2'			=>	'If you don\'t want to quote anyone in particular, you can use the quote tag without specifying a name. If a username contains the characters [ or ] you can enclose it in quote marks.',
 'Quote text'			=>	'This is the text I want to quote.',
 'produces quote box'	=>	'produces a quote box like this:',
 
-'Code'					=>	'Code',
+'Code'					=>	'Código',
 'Code info'				=>	'When displaying source code you should make sure that you use the code tag. Text displayed with the code tag will use a monospaced font and will not be affected by other tags.',
 'Syntax info'			=>	'You can also use syntax highlighting for markup, CSS, PHP and JavaScript. The language has to be noted on the first line inside the codetag and can\'t be on the same line as <code>[code]</code>.',
 'Code text'				=>	'This is some code.',
@@ -373,19 +374,19 @@ $lang = array(
 'produces list'			=>	'produces a bulleted list.',
 'produces decimal list'	=>	'produces a numbered list.',
 
-'Bold'					=>	'Bold',
-'Underline'				=>	'Underline',
-'Italic'				=>	'Italic',
-'Strike'				=>	'Strike',
+'Bold'					=>	'Negrita',
+'Underline'				=>	'Subrayado',
+'Italic'				=>	'Cursiva',
+'Strike'				=>	'Tachado',
 'URL'					=>	'URL',
-'List'					=>	'List',
+'List'					=>	'Lista',
 'List item'				=>	'List item',
-'Heading'				=>	'Heading',
+'Heading'				=>	'Cabecera',
 'Inline code'			=>	'Inline code',
-'Superscript'			=>	'Superscript',
-'Subscript'				=>	'Subscript',
-'Video'					=>	'Video',
-'Image'					=>	'Image',
+'Superscript'			=>	'Superíndice',
+'Subscript'				=>	'Subíndice',
+'Video'					=>	'Vídeo',
+'Image'					=>	'Imagen',
 
 'Smilies info'			=>	'If enabled, the forum can convert a series of smilies to graphical representations. The following smilies you can use are:',
 
@@ -394,7 +395,7 @@ $lang = array(
 'Forums and topics'				=>	'Forums and topics',
 'Labels question'				=>	'What do the labels in front of topic titles mean?',
 'Labels info'					=>	'You\'ll see that some of the topics are labeled, different labels have different meanings.',
-'Label'							=>	'Label',
+'Label'							=>	'Etiqueta',
 'Explanation'					=>	'Explanation',
 'Sticky explanation'			=>	'Sticky topics are usually important topics which you should read. It\'s worth it to take a look there.',
 'Closed explanation'			=>	'When a you see a closed label, it means you can\'t post on that topic any more, unless you have a permission that overwrites this. The topic is still available to read, through.',
@@ -403,7 +404,7 @@ $lang = array(
 'Star explanation'				=>	'You\'re following this topic, they will show up in you\'re subscription list.',
 'Posted explanation'			=>	'This label means you have made a post in this topic.',
 'Content question'				=>	'Smilies, signatures, avatars and images are not visible?',
-'Content answer'				=>	'You can change the behavior of the topic view in your profile settings. There you can enable smilies, signatures, avatars and images in posts, but they should be enabled by default unless your forum admin has disabled those features.',
+'Content answer'				=>	'You can change the behavior of the topic view in your profile settings. There you can enable smilies, signatures, avatars and images in posts, but they should be enabled by default unless your forum admin has disabled those features. You can see if images and smilies are disabled below the editor. If the labels have a red background, those features aren\'t available for you.',
 'Topics question'				=>	'Why can\'t I see any topics or forums?',
 'Topics answer'					=>	'You might not have the correct permissions to do so, ask the forum administrator for more help.',
 'Profile question'				=>	'Why can\'t I see any profiles?',
@@ -430,15 +431,15 @@ $lang = array(
 // Language for index.php
 //
 
-'Topics'		=>	'Topics',
+'Topics'		=>	'Temas',
 'Link to'		=>	'Link to:', // As in "Link to: http://getluna.org/"
 'Empty board'	=>	'Board is empty.',
-'Newest user'	=>	'Newest user',
-'Users online'	=>	'Users online',
-'Guests online'	=>	'Guests online',
-'No of users'	=>	'Users',
-'No of topics'	=>	'Topics',
-'No of post'	=>	'Posts',
+'Newest user'	=>	'Último usuario',
+'Users online'	=>	'Usuario(s) online',
+'Guests online'	=>	'Invitado(s) online',
+'No of users'	=>	'Usuarios',
+'No of topics'	=>	'Temas',
+'No of post'	=>	'Mensajes',
 'Online'		=>	'Online:', // As in "Online: User A, User B etc."
 'Board stats'	=>	'Board statistics',
 
@@ -447,10 +448,10 @@ $lang = array(
 //
 
 'Wrong user/pass'			=>	'Wrong username and/or password.',
-'Forgotten pass'			=>	'Forgotten password',
+'Forgotten pass'			=>	'Recordar contraseña',
 'No email match'			=>	'There is no user registered with the email address',
-'Request pass'				=>	'Request password',
-'Remember me'				=>	'Remember me',
+'Request pass'				=>	'Solicitar contraseña',
+'Remember me'				=>	'Recuérdame',
 'New password errors'		=>	'Password request error',
 'New passworderrors info'	=>	'The following error needs to be corrected before a new password can be sent:',
 
@@ -475,7 +476,7 @@ $lang = array(
 'No reason'						=>	'You must enter a reason.',
 'Reason too long'				=>	'Your message must be under 65535 bytes (~64kb).',
 'Report flood'					=>  'At least %s seconds have to pass between reports. Please wait %s seconds and try sending again.',
-'Report post'					=>	'Report post',
+'Report post'					=>	'Reportar mensaje',
 'Reason'						=>	'Reason',
 'Reason desc'					=>	'Please enter a short reason why you are reporting this post',
 
@@ -489,23 +490,23 @@ $lang = array(
 // General forum and topic moderation
 //
 
-'Moderate'						=>	'Moderate',
-'Select'						=>	'Select', // the header of a column of checkboxes
-'Move'							=>	'Move',
-'Split'							=>	'Split',
-'Merge'							=>	'Merge',
+'Moderate'						=>	'Moderar',
+'Select'						=>	'Seleccionar', // the header of a column of checkboxes
+'Move'							=>	'Mover',
+'Split'							=>	'Separar',
+'Merge'							=>	'Unir',
 
 //
 // Moderate forum
 //
 
-'Open'							=>	'Open',
-'Close'							=>	'Close',
-'Move topics'					=>	'Move topics',
-'Move to'						=>	'Move to',
+'Open'							=>	'Abrir',
+'Close'							=>	'Cerrar',
+'Move topics'					=>	'Mover temas',
+'Move to'						=>	'Mover a',
 'Nowhere to move'				=>	'There are no forums into which you can move topics.',
 'Leave redirect'				=>	'Leave redirect topic(s)',
-'Delete topics'					=>	'Delete topics',
+'Delete topics'					=>	'Borrar temas',
 'Delete topics comply'			=>	'Are you sure you want to delete the selected topics?',
 'No topics selected'			=>	'You must select at least one topic for move/delete/open/close.',
 'Not enough topics selected'	=>	'You must select at least two topics for merge.',
@@ -522,7 +523,7 @@ $lang = array(
 // Delete multiple posts in topic
 //
 
-'Delete posts'					=>	'Delete posts',
+'Delete posts'					=>	'Borrar mensajes',
 'Cannot select first'			=>	'First post cannot be selected for split/delete.',
 'Delete posts comply'			=>	'Are you sure you want to delete the selected posts?',
 'No posts selected'				=>	'You must select at least one post for split/delete.',
@@ -531,7 +532,7 @@ $lang = array(
 // Get host
 //
 
-'Host info 1'					=>	'The IP address is: %s',
+'Host info 1'					=>	'La dirección IP es: %s',
 'Host info 2'					=>	'The host name is: %s',
 'Show more users'				=>	'Show more users for this IP',
 
@@ -556,7 +557,7 @@ $lang = array(
 
 'Post errors'		=>	'Post errors',
 'Post preview'		=>	'Post preview',
-'Guest name'		=>	'Name', // For guests (instead of Username)
+'Guest name'		=>	'Nombre', // For guests (instead of Username)
 'Post a reply'		=>	'Post a reply',
 'Post new topic'	=>	'Post topic',
 'Hide smilies'		=>	'Never show smilies as icons for this post',
@@ -564,7 +565,7 @@ $lang = array(
 'Stay subscribed'	=>	'Stay subscribed to this topic',
 'Topic review'		=>	'Topic review (newest first)',
 'Flood start'		=>  'At least %s seconds have to pass between posts. Please wait %s seconds and try posting again.',
-'Preview'			=>	'Preview',
+'Preview'			=>	'Vista previa',
 
 //
 // Edit post
@@ -583,21 +584,21 @@ $lang = array(
 'Time format'				=>	'Time format',
 'Date format'				=>	'Date format',
 'Default'					=>	'Default',
-'Language'					=>	'Language',
+'Language'					=>	'Idioma',
 'Email setting info'		=>	'Email settings',
 'Email setting 1'			=>	'Display your email address.',
 'Email setting 2'			=>	'Hide your email address but allow form email.',
 'Email setting 3'			=>	'Hide your email address and disallow form email.',
 
-'Username too short'		=>	'Usernames must be at least 2 characters long. Please choose another (longer) username.',
-'Username too long'			=>	'Usernames must not be more than 25 characters long. Please choose another (shorter) username.',
+'Username too short'		=>	'Los nombres de usuario deben tener al menos 2 caracteres. Por favor elige otro nombre más largo.',
+'Username too long'			=>	'Los nombres de usuario no deben tener más de 25 caracteres. Por favor elige otro nombre más corto.',
 'Username guest'			=>	'The username guest is reserved. Please choose another username.',
-'Username IP'				=>	'Usernames may not be in the form of an IP address. Please choose another username.',
-'Username reserved chars'	=>	'Usernames may not contain all the characters \', " and [ or ] at once. Please choose another username.',
-'Username BBCode'			=>	'Usernames may not contain any of the text formatting tags (BBCode) that the forum uses. Please choose another username.',
+'Username IP'				=>	'Los nombres de usuario no deben tener un formato de IP. Por favor elige otro nombre.',
+'Username reserved chars'	=>	'Los nombres de usuario no deben de contener los caracteres \', " y [ o ] a la vez. Por favor elige otro nombre.',
+'Username BBCode'			=>	'Los nombres de usuario no deben de contener ningún código BBCode que use el foro. Por favor elige otro nombre.',
 'Banned username'			=>	'The username you entered is banned in this forum. Please choose another username.',
 'Pass too short'			=>	'Passwords must be at least 6 characters long. Please choose another (longer) password.',
-'Pass not match'			=>	'Passwords do not match.',
+'Pass not match'			=>	'Las contraseñas no coinciden.',
 'Banned email'				=>	'The email address you entered is banned in this forum. Please choose another email address.',
 'Dupe email'				=>	'Someone else is already registered with that email address. Please choose another email address.',
 'Sig too long'				=>	'Signatures cannot be longer than %1$s characters. Please reduce your signature by %2$s characters.',
@@ -626,10 +627,10 @@ $lang = array(
 'Pass key bad'					=>	'The specified password activation key was incorrect or has expired. Please re-request a new password. If that fails, contact the forum administrator at',
 'Pass updated'					=>	'Your password has been updated. You can now login with your new password.',
 'Wrong pass'					=>	'Wrong old password.',
-'Change pass'					=>	'Change password',
+'Change pass'					=>	'Cambiar contraseña',
 'Old pass'						=>	'Old password',
 'New pass'						=>	'New password',
-'Confirm new pass'				=>	'Confirm new password',
+'Confirm new pass'				=>	'Confirmar nueva contraseña',
 'Pass info'						=>	'Passwords must be at least 6 characters long and are case sensitive',
 
 //
@@ -650,7 +651,7 @@ $lang = array(
 'Avatars disabled'				=>	'The administrator has disabled avatar support.',
 'Too large ini'					=>	'The selected file was too large to upload. The server didn\'t allow the upload.',
 'Partial upload'				=>	'The selected file was only partially uploaded. Please try again.',
-'No tmp directory'				=>	'PHP was unable to save the uploaded file to a temporary location.',
+'No tmp directory'				=>	'PHP fue incapaz de guardar el archivo subido a un directorio temporal.',
 'No file'						=>	'You did not select a file for upload.',
 'Bad type'						=>	'The file you tried to upload is not of an allowed type. Allowed types are gif, jpeg and png.',
 'Too wide or high'				=>	'The file you tried to upload is wider and/or higher than the maximum allowed',
@@ -660,8 +661,8 @@ $lang = array(
 'Move failed'					=>	'The server was unable to save the uploaded file. Please contact the forum administrator at',
 'Unknown failure'				=>	'An unknown error occurred. Please try again.',
 'Avatar desc'					=>	'An avatar is a small image that will be displayed under your username in your posts. It must not be any bigger than',
-'Upload avatar'					=>	'Upload avatar',
-'Delete avatar'					=>	'Delete avatar', // only for admins
+'Upload avatar'					=>	'Subir avatar',
+'Delete avatar'					=>	'Borrar avatar', // only for admins
 'File'							=>	'File',
 'Upload'						=>	'Upload', // submit button
 
@@ -676,30 +677,30 @@ $lang = array(
 //
 
 'Email info'					=>	'Email: %s',
-'Last visit info'				=>	'Last visit',
-'Show posts'					=>	'Show posts',
-'Show topics'					=>	'Show topics',
-'Show subscriptions'			=>	'Show subscriptions',
+'Last visit info'				=>	'Última visita',
+'Show posts'					=>	'Mostrar mensajes',
+'Show topics'					=>	'Mostrar temas',
+'Show subscriptions'			=>	'Mostrar suscripciones',
 'Contact'						=>	'Contact',
-'Realname'						=>	'Real name',
-'Location'						=>	'Location',
-'Website'						=>	'Website',
-'Invalid website URL'			=>	'The website URL you entered is invalid.',
-'Microsoft'						=>	'Microsoft Account',
+'Realname'						=>	'Nombre',
+'Location'						=>	'Ubicación',
+'Website'						=>	'Página web',
+'Invalid website URL'			=>	'La dirección de la página web que has ingresado es inválida.',
+'Microsoft'						=>	'Cuenta Microsoft',
 'Facebook'						=>	'Facebook',
 'Twitter'						=>	'Twitter',
 'Google+'						=>	'Google+',
 'Avatar'						=>	'Avatar',
-'Sig max size'					=>	'Max length: %s characters / Max lines: %s',
-'Avatar info'					=>	'Upload an image to represent you',
-'Change avatar'					=>	'Change avatar',
-'Signature info'				=>	'Write a small piece to attach to every post you make',
-'Sig preview'					=>	'Signature preview',
-'No sig'						=>	'No signature currently stored in profile.',
+'Sig max size'					=>	'Longitud máxima: %s caracteres / Líneas máximas: %s',
+'Avatar info'					=>	'Sube una imagen que te represente',
+'Change avatar'					=>	'Cambiar avatar',
+'Signature info'				=>	'Escribe un pequeño texto para adjuntar cada mensaje que hagas',
+'Sig preview'					=>	'Vista previa firma',
+'No sig'						=>	'No hay ninguna firma guardada en el perfil.',
 'Signature quote/code/list/h'	=>	'The quote, code, list, and heading BBCodes are not allowed in signatures.',
 'Posts per page'				=>	'Posts per page',
 'Topics per page'				=>	'Topics per page',
-'Leave blank'					=>	'Leave blank to use default',
+'Leave blank'					=>	'Dejar en blanco para usar por defecto',
 'Notify full'					=>	'Include a plain text version of new posts in subscription notification emails.',
 'Auto notify full'				=>	'Automatically subscribe to every topic you post in.',
 'Show smilies'					=>	'Show smilies as graphic icons.',
@@ -717,7 +718,7 @@ $lang = array(
 //
 
 'Group membership legend'		=>	'Choose user group',
-'Save'							=>	'Save',
+'Save'							=>	'Guardar',
 'Set mods legend'				=>	'Set moderator access',
 'Moderator in info'				=>	'Choose which forums this user should be allowed to moderate. Note: This only applies to moderators. Administrators always have full permissions in all forums.',
 'Update forums'					=>	'Update forums',
@@ -739,7 +740,7 @@ $lang = array(
 'Rules legend'				=>	'You must agree to the following in order to register',
 'Registration flood'		=>	'A new user was registered with the same IP address as you within the last hour. To prevent registration flooding, at least an hour has to pass between registrations from the same IP. Sorry for the inconvenience.',
 'Agree'						=>	'Agree',
-'Cancel'					=>	'Cancel',
+'Cancel'					=>	'Cancelar',
 'Register legend'			=>	'Enter the requested data',
 
 //
@@ -787,62 +788,62 @@ $lang = array(
 'Sort order'						=>	'Sort order',
 'Search results info'				=>	'You can choose how you wish to sort and show your results.',
 'Sort by post time'					=>	'Post time',
-'Sort by author'					=>	'Author',
-'Ascending'							=>	'Ascending',
-'Descending'						=>	'Descending',
-'Show as'							=>	'Show as',
-'Show as posts'						=>	'Posts',
-'Advanced search'					=>	'Advanced search',
+'Sort by author'					=>	'Autor',
+'Ascending'							=>	'Ascendente',
+'Descending'						=>	'Descendente',
+'Show as'							=>	'Mostrar como',
+'Show as posts'						=>	'Mensajes',
+'Advanced search'					=>	'Búsqueda avanzada',
 
 //
 // Results
 //
 
-'Search results'					=>	'Search results',
-'Quick search show_new'				=>	'New',
-'Quick search show_recent'			=>	'Active',
-'Quick search show_unanswered'		=>	'Unanswered',
-'Quick search show_user_topics'		=>	'Topics by %s',
-'Quick search show_user_posts'		=>	'Posts by %s',
+'Search results'					=>	'Resultados de la búsqueda',
+'Quick search show_new'				=>	'Nuevo',
+'Quick search show_recent'			=>	'Activo',
+'Quick search show_unanswered'		=>	'Sin respuesta',
+'Quick search show_user_topics'		=>	'Temas por %s',
+'Quick search show_user_posts'		=>	'Mensajes por %s',
 'Quick search show_subscriptions'	=>	'Subscribed by %s',
-'By keywords show as topics'		=>	'Topics with posts containing \'%s\'',
-'By keywords show as posts'			=>	'Posts containing \'%s\'',
-'By user show as topics'			=>	'Topics with posts by %s',
-'By user show as posts'				=>	'Posts by %s',
+'By keywords show as topics'		=>	'Temas con mensajes conteniendo \'%s\'',
+'By keywords show as posts'			=>	'Mensajes conteniendo \'%s\'',
+'By user show as topics'			=>	'Temas con mensajes por %s',
+'By user show as posts'				=>	'Mensajes por %s',
 'By both show as topics'			=>	'Topics with posts containing \'%s\', by %s',
-'By both show as posts'				=>	'Posts containing \'%s\', by %s',
+'By both show as posts'				=>	'Mensajes conteniendo \'%s\', por %s',
 'No terms'							=>	'You have to enter at least one keyword and/or an author to search for.',
 'No hits'							=>	'Your search returned no hits.',
 'No user posts'						=>	'There are no posts by this user in this forum.',
 'No user topics'					=>	'There are no topics by this user in this forum.',
 'No subscriptions'					=>	'This user is currently not subscribed to any topics.',
-'No new posts'						=>	'There are no topics with new posts since your last visit.',
+'No new posts'						=>	'No hay temas con nuevos mensajes desde tu última visita.',
 'No recent posts'					=>	'No new posts have been made within the last 24 hours.',
 'No unanswered'						=>	'There are no unanswered posts in this forum.',
 'Go to post'						=>	'Go to post',
-'Go to topic'						=>	'Go to topic',
+'Go to topic'						=>	'Ir al tema',
 
 //
 // Language for viewtopic.php
 //
 
 'Post reply'		=>	'Post reply',
-'Topic closed'		=>	'Topic closed',
-'From'				=>	'From:', // User location
+'Topic closed'		=>	'Tema cerrado',
+'From'				=>	'Desde:', // User location
 'IP address logged'	=>	'IP log',
 'Note'				=>	'Note:', // Admin note
-'Posts'				=>	'Posts:',
-'Replies'			=>	'Replies:',
+'Posts'				=>	'Mensajes:',
+'Replies'			=>	'Respuestas:',
 'Last edit'			=>	'Last edited by',
 'Report'			=>	'Report',
-'Edit'				=>	'Edit',
-'Quote'				=>	'Quote',
+'Edit'				=>	'Editar',
+'Quote'				=>	'Citar',
 'Is subscribed'		=>	'You are subscribed',
 'Unsubscribe'		=>	'Unsubscribe',
 'Subscribe'			=>	'Subscribe',
 'Quick post'		=>	'Quick post',
 'New icon'			=>	'New post',
-'Re'				=>	'Re:',
+'Re'				=>	'Re: ',
 
 //
 // Language for userlist.php
@@ -850,7 +851,7 @@ $lang = array(
 
 'User search info'	=>	'Enter a username to search for and/or a user group to filter by. Use the wildcard character * for partial matches.',
 'User group'		=>	'User group',
-'No of posts'		=>	'Posts',
+'No of posts'		=>	'Mensajes',
 'All users'			=>	'All users',
 'Sort no of posts'	=>	'Sort by number of posts',
 'Sort username'		=>	'Sort by username',
@@ -860,12 +861,12 @@ $lang = array(
 // Language for viewforum.php
 //
 
-'Views'			=>	'Views',
-'Moved'			=>	'Moved',
+'Views'			=>	'Visitas',
+'Moved'			=>	'Movido',
 'Star'			=>	'Star',
-'Sticky'		=>	'Sticky',
-'Closed'		=>	'Closed',
-'Empty forum'	=>	'Forum is empty.',
+'Sticky'		=>	'Fijado',
+'Closed'		=>	'Cerrado',
+'Empty forum'	=>	'El foro está vacío.',
 
 //
 // Language for Backstage
@@ -892,7 +893,7 @@ $lang = array(
 'Date help'					=>	'(yyyy-mm-dd)',
 'Expire after label'		=>	'Expire after',
 'Expire before label'		=>	'Expire before',
-'Order by label'			=>	'Order by',
+'Order by label'			=>	'Ordenar por',
 'Order by ip'				=>	'IP',
 'Order by expire'			=>	'Expire date',
 'Submit search'				=>	'Submit search',
@@ -912,7 +913,7 @@ $lang = array(
 'Results head'				=>	'Search Results',
 'Results IP address head'	=>	'IP/IP-ranges',
 'Results expire head'		=>	'Expires',
-'Results banned by head'	=>	'Banned by',
+'Results banned by head'	=>	'Expulsado por',
 'No match'					=>	'No match',
 
 //
@@ -924,11 +925,11 @@ $lang = array(
 'Confirm delete cat info'		=>	'Are you sure that you want to delete the category <strong>%s</strong>?',
 'Delete category warn'			=>	'Deleting a category will delete all forums and posts (if any) in this category!',
 'Must enter integer message'	=>	'Position must be a positive integer value.',
-'Add categories head'			=>	'Add categories',
-'Delete categories head'		=>	'Delete categories',
-'Edit categories head'			=>	'Edit categories',
-'Category position label'		=>	'Position',
-'Category name label'			=>	'Name',
+'Add categories head'			=>	'Añadir categorías',
+'Delete categories head'		=>	'Borrar  categorías',
+'Edit categories head'			=>	'Editar categorías',
+'Category position label'		=>	'Posición',
+'Category name label'			=>	'Nombre',
 
 //
 // Language fox censoring.php
@@ -949,26 +950,26 @@ $lang = array(
 //
 
 'Backup options'		=>	'Backup options',
-'Backup type'			=>	'Backup type',
-'Full'					=>	'Full',
-'Structure only'		=>	'Structure only',
-'Data only'				=>	'Data only',
-'Gzip compression'		=>	'Gzip compression',
-'Start backup'			=>	'Start backup',
+'Backup type'			=>	'Tipo de copia de seguridad',
+'Full'					=>	'Completa',
+'Structure only'		=>	'Solo estructura',
+'Data only'				=>	'Solo datos',
+'Gzip compression'		=>	'Compresión Gzip',
+'Start backup'			=>	'Empezar copia de seguridad',
 
 'Backup info 1'			=>	'If your server supports it, you may also gzip-compress the file to reduce its size.',
 
-'Restore complete'		=>	'Restore complete',
-'Restore options'		=>	'Restore options',
-'Start restore'			=>	'Start restore',
+'Restore complete'		=>	'Restauración completa',
+'Restore options'		=>	'Opciones de restauración',
+'Start restore'			=>	'Empezar restauración',
 
 'Restore info 1'		=>	'This will perform a full restore of all Luna tables from a saved file. If your server supports it, you may upload a gzip-compressed text file and it will automatically be decompressed. This will overwrite any existing data. The restore may take a long time to process, so please do not move from this page until it is complete.',
 
 'Warning'				=>	'Warning: critical features',
 
-'Additional functions'	=>	'Additional functions',
-'Repair all tables'		=>	'Repair all tables',
-'Optimise all tables'	=>	'Optimise all tables',
+'Additional functions'	=>	'Funciones adicionales',
+'Repair all tables'		=>	'Reparar todas las tablas',
+'Optimise all tables'	=>	'Optimizar todas las tablas',
 
 'Additional info 1'		=>	'Additional features to help run a database, optimise and repair both do what they say.',
 
@@ -988,18 +989,18 @@ $lang = array(
 // Language for appearance.php
 //
 
-'Header appearance'					=>	'Header appearance',
-'Footer appearance'					=>	'Footer appearance',
-'Footer'							=>	'Footer',
+'Header appearance'					=>	'Apariencia de la cabecera',
+'Footer appearance'					=>	'Apariencia del pie de página',
+'Footer'							=>	'Pie de página',
 'Display head'						=>	'Display settings',
 'Default style help'				=>	'The default style will be used by new users and guests. Users can change the style they use, so changing the default style here won\'t change the design for already existing users. You can also force a style, this will reset the style setting for every user except the guest user.',
-'About style'						=>	'About %s',
-'version'							=>	'version %s',
-'Released on'						=>	'Released on %s',
+'About style'						=>	'Sobre %s',
+'version'							=>	'versión %s',
+'Released on'						=>	'Publicado el %s',
 'Designed for'						=>	'Designed for Luna %s to %s',
-'Force style'						=>	'Force style',
-'Set as default'					=>	'Set as default',
-'About'								=>	'About',
+'Force style'						=>	'Forzar estilo',
+'Set as default'					=>	'Establecer por defecto',
+'About'								=>	'Sobre',
 'Version number help'				=>	'Show Luna version number in footer.',
 'Info in posts help'				=>	'Show information about the poster under the username in topic view.',
 'Post count help'					=>	'Show the number of posts a user has made in topic view, profile and user list.',
@@ -1029,12 +1030,12 @@ $lang = array(
 'Menu show user list'				=>	'Show the user list menu item.',
 'Menu show search'					=>	'Show the search menu item.',
 'Menu show rules'					=>	'Show the rules menu item.',
-'User profile head'					=>	'User profile',
+'User profile head'					=>	'Perfil de usuario',
 'Title settings head'				=>	'Title settings',
 'Title in menu'						=>	'Show board title in menu.',
 'Title in header'					=>	'Show board title in header.',
-'Description in header'				=>	'Show board description in header.',
-'Description settings head'			=>	'Description settings',
+'Description in header'				=>	'Mostrar descripción del foro en la cabecera.',
+'Description settings head'			=>	'Ajustes de descripción',
 
 //
 // Language for email.php
@@ -1045,7 +1046,7 @@ $lang = array(
 'Admin e-mail help'					=>	'The admins email',
 'Webmaster e-mail label'			=>	'Webmaster email',
 'Webmaster e-mail help'				=>	'The email where the boards mails will be addressed from',
-'Subscriptions head'				=>	'Subscriptions',
+'Subscriptions head'				=>	'Suscripciones',
 'Forum subscriptions help'			=>	'Enable users to subscribe to forums.',
 'Topic subscriptions help'			=>	'Enable users to subscribe to topics.',
 'SMTP head'							=>	'SMTP settings',
@@ -1066,7 +1067,7 @@ $lang = array(
 'General'							=>	'General',
 'Topics and posts'					=>	'Topics and posts',
 'User features'						=>	'User features',
-'Search'							=>	'Search',
+'Search'							=>	'Buscar',
 'Advanced'							=>	'Advanced',
 'Quick post help'					=>	'Show a quick post form so users can post a reaction from the topic view.',
 'Responsive post help'              =>  'Show "Post" and "Preview" button in topic view on small screens, leave quick post enabled when this is disabled to allow small devices to post comments.',
@@ -1081,10 +1082,10 @@ $lang = array(
 'Search all help'					=>	'Allow search only in 1 forum at a time.',
 
 'First run'							=>	'First run',
-'General settings'					=>	'General settings',
+'General settings'					=>	'Ajustes generales',
 'Show first run label'				=>	'Show the first run panel when an user logs in for the first time.',
 'Show guests label'					=>	'Show the first run panel to guests with login field and registration button.',
-'Welcome text'						=>	'Welcome text',
+'Welcome text'						=>	'Texto de bienvenida',
 'First run help message'			=>	'The introduction to the forum displayed in the middle of the first run panel',
 
 //
@@ -1092,13 +1093,13 @@ $lang = array(
 //
 
 'Post must be integer message'	=>	'Position must be a positive integer value.',
-'New forum'						=>	'New forum',
+'New forum'						=>	'Nuevo foro',
 
 //
 // Entry page
 //
 
-'Add forum'					=>	'Add forum',
+'Add forum'					=>	'Añadir foro',
 'Update positions'			=>	'Update positions',
 'Confirm delete head'		=>	'Confirm delete forum',
 'Confirm delete forum info'	=>	'Are you sure that you want to delete the forum <strong>%s</strong>?',
@@ -1108,10 +1109,10 @@ $lang = array(
 // Detailed edit page
 //
 
-'Edit forum head'			=>	'Edit forum',
-'Edit details subhead'		=>	'Edit forum details',
-'Forum name label'			=>	'Forum name',
-'Forum description label'	=>	'Description',
+'Edit forum head'			=>	'Editar foro',
+'Edit details subhead'		=>	'Editar detalles del foro',
+'Forum name label'			=>	'Nombre del foro',
+'Forum description label'	=>	'Descripción',
 'Category label'			=>	'Category',
 'Sort by label'				=>	'Sort topics by',
 'Topic start'				=>	'Topic start',
@@ -1119,10 +1120,10 @@ $lang = array(
 'Redirect label'			=>	'Redirect URL',
 'Group permissions subhead'	=>	'Edit group permissions',
 'Group permissions info'	=>	'In this form, you can set the forum specific permissions for the different user groups. Administrators always have full permissions. Permission settings that differ from the default permissions for the user group are marked red. Some permissions are disabled under some conditions.',
-'Read forum label'			=>	'Read forum',
+'Read forum label'			=>	'Leer foro',
 'Post replies label'		=>	'Post replies',
 'Post topics label'			=>	'Post topics',
-'Revert to default'			=>	'Revert to default',
+'Revert to default'			=>	'Reestablecer',
 
 //
 // Language used in groups.php
@@ -1154,7 +1155,7 @@ $lang = array(
 'Mod privileges help'			=>	'In order for a user to have moderator abilities, they must be assigned to moderate one or more forums. This is done via the user administration page of the user\'s profile.',
 'Edit profile label'			=>	'Edit user profiles',
 'Edit profile help'				=>	'If moderator privileges are enabled, allow users to edit user profiles.',
-'Rename users label'			=>	'Rename users',
+'Rename users label'			=>	'Renombrar usuarios',
 'Rename users help'				=>	'If moderator privileges are enabled, allow users to rename users.',
 'Change passwords label'		=>	'Change passwords',
 'Change passwords help'			=>	'If moderator privileges are enabled, allow users to change user passwords.',
@@ -1193,25 +1194,25 @@ $lang = array(
 // Language used in index.php and update.php for Backstage
 //
 
-'Luna intro'					=>	'Welcome to Luna',
+'Luna intro'					=>	'Bienvenido a Luna',
 'Backup head'						=>	'Back-up',
-'Backup info'						=>	'Create new database backup.',
+'Backup info'						=>	'Crear nueva copia de seguridad de la base de datos.',
 'Backup button'						=>	'Create new backup',
 'New reports head'					=>	'New reports',
 'Statistics head'					=>	'Statistics',
 'Updates'							=>	'Updates',
 'View all'							=>	'View all',
-'posts'								=>	'posts',
+'posts'								=>	'mensajes',
 'replies'							=>	'replies',
 'reply'								=>	'reply',
 'topics'							=>	'topics',
 'views'								=>	'views',
 'view'								=>	'view',
-'users'								=>	'users',
+'users'								=>	'usuarios',
 
 'Not available'						=>	'Not available',
 'NA'								=>	'N/A',
-'About head'						=>	'About Luna',
+'About head'						=>	'Sobre Luna',
 'Luna version label'			=>	'Luna version',
 'Luna version data'				=>	'Luna version ',
 'Server statistics label'			=>	'Server statistics',
@@ -1283,7 +1284,7 @@ $lang = array(
 // Language for settings.php
 //
 
-'Options head'						=>	'Global settings',
+'Options head'						=>	'Ajustes globales',
 
 //
 // Essentials section
@@ -1291,11 +1292,11 @@ $lang = array(
 
 'Essentials subhead'				=>	'Essentials',
 'Board desc help'					=>	'What\'s this board about?',
-'Base URL label'					=>	'Board URL',
+'Base URL label'					=>	'URL del foro',
 'Base URL problem'					=>  'Your installation does not support automatic conversion of internationalized domain names. As your base URL contains special characters, you <strong>must</strong> use an online converter.',
 'Timezone label'					=>	'Default time zone',
 'DST help'							=>	'Advance time by 1 hour for daylight saving.',
-'Language help'						=>	'The default language',
+'Language help'						=>	'Idioma por defecto',
 
 //
 // Essentials section timezone options
@@ -1347,7 +1348,7 @@ $lang = array(
 //
 
 'Timeouts subhead'					=>	'Time and timeouts',
-'PHP manual'						=>	'PHP manual',
+'PHP manual'						=>	'Manual PHP',
 'Time format help'					=>	'Now: %s. See %s for more info',
 'Date format help'					=>	'Now: %s. See %s for more info',
 'Visit timeout label'				=>	'Visit timeout',
@@ -1392,7 +1393,7 @@ $lang = array(
 'Upload directory help'				=>	'Where avatars will be stored relative to Lunas root, write permission required',
 'Max width label'					=>	'Max width',
 'Max height label'					=>	'Max height',
-'Max size label'					=>	'Max size',
+'Max size label'					=>	'Tamaño máximo',
 
 //
 // Registration Section
@@ -1425,11 +1426,11 @@ $lang = array(
 // Maintenance Section
 //
 
-'Maintenance mode help'				=>	'Enable to activate maintenance mode, the board will only be available for admins. Do not log out when this feature is active!',
+'Maintenance mode help'				=>	'Activar el modo mantenimiento, el foro solo estará disponible para administradores. ¡No cierres sesión cuando esta función esté activada!',
 'Maintenance message help'			=>	'The message to tell users about the maintenance',
-'Cache'								=>	'Cache',
+'Cache'								=>	'Caché',
 'Cache info'						=>	'Remove all cache files so the database has to return up-to-date values',
-'Clear cache'						=>	'Clear cache',
+'Clear cache'						=>	'Limpiar caché',
 
 //
 // Language for permissions.php
@@ -1442,7 +1443,7 @@ $lang = array(
 'All caps message help'		=>	'Allow a message to contain only capital letters.',
 'All caps subject help'		=>	'Allow a subject to contain only capital letters.',
 'Require e-mail help'		=>	'Require guests to supply an email address when posting.',
-'Signatures subhead'		=>	'Signatures',
+'Signatures subhead'		=>	'Firmas',
 'BBCode sigs help'			=>	'Allow BBCode in user signatures.',
 'Image tag sigs help'		=>	'Allow the BBCode [img] tag in user signatures (not recommended).',
 'All caps sigs help'		=>	'Allow a signature to contain only capital letters.',
@@ -1484,12 +1485,12 @@ $lang = array(
 // Language for statistics.php
 //
 
-'PHPinfo disabled message'			=>	'The PHP function phpinfo() has been disabled on this server.',
+'PHPinfo disabled message'			=>	'La función PHP phpinfo() ha sido deshabilitada en este servidor.',
 'Server statistics head'			=>	'Server statistics',
-'Server load label'					=>	'Server load',
-'Server load data'					=>	'%s - %s user(s) online',
-'Environment label'					=>	'Environment',
-'Environment data OS'				=>	'Operating system: %s',
+'Server load label'					=>	'Carga del servidor',
+'Server load data'					=>	'%s - %s usuario(s) online',
+'Environment label'					=>	'Entorno',
+'Environment data OS'				=>	'Sistema operativo: %s',
 'Show info'							=>	'Show info',
 'Environment data version'			=>	'PHP: %s - %s',
 'Environment data acc'				=>	'Accelerator: %s',
@@ -1505,9 +1506,9 @@ $lang = array(
 'eAccelerator link'					=>	'www.eaccelerator.net/',
 'XCache'							=>	'XCache',
 'XCache link'						=>	'xcache.lighttpd.net/',
-'Database label'					=>	'Database',
-'Database data rows'				=>	'Rows: %s',
-'Database data size'				=>	'Size: %s',
+'Database label'					=>	'Base de datos',
+'Database data rows'				=>	'Filas %s',
+'Database data size'				=>	'Tamaño: %s',
 
 //
 // Language for users.php
@@ -1530,25 +1531,25 @@ $lang = array(
 'New group label'			=>	'New group',
 'New group help'			=>	'Select a new user group',
 'Invalid group message'		=>	'Invalid group ID.',
-'Delete users'				=>	'Delete users',
-'Ban users'					=>	'Ban users',
+'Delete users'				=>	'Borrar usuarios',
+'Ban users'					=>	'Expulsar usuarios',
 'Ban IP label'				=>	'Ban IP addresses',
 'Ban IP help'				=>	'Also ban the IP addresses of the banned users to make registering a new account more difficult for them.',
 
 'E-mail address label'		=>	'Email address',
-'Real name label'			=>	'Real name',
-'Signature'					=>	'Signature',
+'Real name label'			=>	'Nombre',
+'Signature'					=>	'Firma',
 'Posts more than label'		=>	'Number of posts greater than',
 'Posts less than label'		=>	'Number of posts less than',
 'Last post after label'		=>	'Last post is after',
 'Last post before label'	=>	'Last post is before',
 'Last visit after label'	=>	'Last visit is after',
 'Last visit before label'	=>	'Last visit is before',
-'Registered after label'	=>	'Registered after',
-'Registered before label'	=>	'Registered before',
+'Registered after label'	=>	'Registrado después',
+'Registered before label'	=>	'Registrado antes',
 'Order by posts'			=>	'Number of posts',
-'Order by last visit'		=>	'Last visit',
-'Order by registered'		=>	'Registered',
+'Order by last visit'		=>	'Última visita',
+'Order by registered'		=>	'Registrado',
 'All groups'				=>	'All groups',
 'Unverified users'			=>	'Unverified users',
 'IP search head'			=>	'IP search',
@@ -1580,22 +1581,22 @@ $lang = array(
 // Main menu
 //
 
-'Content'				=>	'Content',
-'Forums'				=>	'Forums',
-'Forum settings'		=>	'Forum settings',
+'Content'				=>	'Contenido',
+'Forums'				=>	'Foros',
+'Forum settings'		=>	'Ajustes del foro',
 'Categories'			=>	'Categories',
 'Board'					=>	'Board',
 'Board structure'		=>	'Board structure',
 'Censoring'				=>	'Censoring',
 'Reports'				=>	'Reports',
-'Users'					=>	'Users',
+'Users'					=>	'Usuarios',
 'Ranks'					=>	'Ranks',
 'Groups'				=>	'Groups',
 'Permissions'			=>	'Permissions',
 'Bans'					=>	'Bans',
-'Settings'				=>	'Settings',
+'Settings'				=>	'Ajustes',
 'Global'				=>	'Global',
-'Registration'			=>	'Registration',
+'Registration'			=>	'Registro',
 'Email'					=>	'Email',
 'Database'				=>	'Database management',
 'Extensions'			=>	'Extensions',
@@ -1604,14 +1605,14 @@ $lang = array(
 // Others
 //
 
-'Prune'					=>	'Prune',
+'Prune'					=>	'Limpiar',
 'Server statistics'		=>  'Server statistics',
 
 //
 // Update service
 //
 
-'Available'				=>	'Luna v%s is available, %s!',
+'Available'				=>	'¡La versión %s de Luna está disponible, %s!',
 'update now'			=>	'update now',
 'Development'			=>	'You are running version %s, the latest stable release is version %s.',
 'Download'				=>	'Download v%s',
@@ -1622,7 +1623,7 @@ $lang = array(
 //
 
 'Admin'					=>	'Admin',
-'Go back'				=>	'Go back',
+'Go back'				=>	'Volver',
 'Update'				=>	'Update',
 'Add'					=>	'Add',
 'Remove'				=>	'Remove',
@@ -1656,7 +1657,7 @@ $lang = array(
 'Inbox'					=>	'Inbox',
 'Outbox'				=>	'Sent',
 'Contacts'				=>	'Contacts',
-'Delete'				=>	'Delete',
+'Delete'				=>	'Borrar',
 'Please confirm'		=>	'Please confirm',
 'New message'			=>	'You have a private message not read!',
 'New messages'			=>	'You have %s privates messages not read!',
@@ -1666,16 +1667,16 @@ $lang = array(
 'Full boxes'			=>	'Your private message boxes are full!',
 'Empty boxes'			=>	'Your private message boxes are empty.',
 'Full to'				=>	'Private message boxes full to %s',
-'Select'				=>	'Select',
+'Select'				=>	'Seleccionar',
 'For select'			=>	'For the selection:',
 'Messages'				=>	'Messages',
-'OK'					=>	'OK',
+'OK'					=>	'Aceptar',
 'PM Menu'				=>	'Private messaging',
 'Sending lists'			=>	'Sending lists',
 
 // List a box
 'Date'					=>	'Date',
-'Subject'				=>	'Subject',
+'Subject'				=>	'Asunto',
 'Sender'				=>	'Sender',
 'Receiver'				=>	'Receiver(s)',
 'Mark as read select'	=>	'Mark as read',
@@ -1691,9 +1692,9 @@ $lang = array(
 // View a message
 'View'					=>	'View a private discussion',
 'Reply'					=>	'Reply',
-'Quote'					=>	'Quote',
+'Quote'					=>	'Citar',
 'Deleted User'			=>	'Deleted User',
-'Deleted'				=>	'(deleted)',
+'Deleted'				=>	'Deleted',
 'With'					=>	'with',
 
 // Send a message
