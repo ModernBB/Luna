@@ -2002,23 +2002,49 @@ function get_template_path($tpl_file) {
 //
 // Get the view that is required
 //
-function get_view_path($tpl_file) {
-	global $luna_user;
-
-	if (file_exists(FORUM_ROOT.'style/'.$luna_user['style'].'/objects/'.$tpl_file)) {
-		return FORUM_ROOT.'style/'.$luna_user['style'].'/objects/'.$tpl_file;
-	} else {
-		return FORUM_ROOT.'style/Core/templates/views/'.$tpl_file;
-	}
+function get_view_path($object) {
+	global $luna_user, $luna_config;
+	
+	$current_theme = $luna_config['o_default_style'];
+	include FORUM_ROOT.'/style/'.$current_theme.'/information.php';
+	$style_info = new SimpleXMLElement($xmlstr);
+	
+	if (($style_info->parent_theme == '') || (file_exists(FORUM_ROOT.'style/'.$luna_user['style'].'/objects/'.$object)))
+		return FORUM_ROOT.'style/'.$luna_user['style'].'/objects/'.$object;
+	else
+		return FORUM_ROOT.'style/'.$style_info->parent_theme.'/objects/'.$object;
 }
 
 //
 // Get the view that is required
 //
 function load_page($page) {
-	global $luna_user;
+	global $luna_user, $luna_config;
+	
+	$current_theme = $luna_config['o_default_style'];
+	include FORUM_ROOT.'/style/'.$current_theme.'/information.php';
+	$style_info = new SimpleXMLElement($xmlstr);
+	
+	if (($style_info->parent_theme == '') || (file_exists(FORUM_ROOT.'style/'.$luna_user['style'].'/'.$page)))
+		return FORUM_ROOT.'style/'.$luna_user['style'].'/'.$page;
+	else
+		return FORUM_ROOT.'style/'.$style_info->parent_theme.'/'.$page;
+}
 
-	return FORUM_ROOT.'style/'.$luna_user['style'].'/'.$page;
+//
+// Get the styles that are required
+//
+function load_css() {
+	global $luna_config;
+	
+	$current_theme = $luna_config['o_default_style'];
+	include FORUM_ROOT.'/style/'.$current_theme.'/information.php';
+	$style_info = new SimpleXMLElement($xmlstr);
+
+	echo '<link rel="stylesheet" type="text/css" href="style/'.$luna_config['o_default_style'].'/style.css" />';
+	
+	if ($style_info->parent_theme != '')
+		echo '<link rel="stylesheet" type="text/css" href="style/'.$style_info->parent_theme.'/style.css" />';
 }
 
 //

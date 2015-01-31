@@ -15,10 +15,11 @@ if (!$luna_user['is_admmod']) {
 }
 
 if (isset($_GET['default_style'])) {
-	confirm_referrer('backstage/style.php');
+	confirm_referrer('backstage/theme.php');
 	
 	$default_style = htmlspecialchars($_GET["default_style"]);
 
+	$db->query('UPDATE '.$db->prefix.'users SET style=\''.$default_style.'\' WHERE id > 0') or error('Unable to set style settings', __FILE__, __LINE__, $db->error());
 	$db->query('UPDATE '.$db->prefix.'config SET conf_value = \''.$default_style.'\' WHERE conf_name = \'o_default_style\'') or error('Unable to update default style', __FILE__, __LINE__, $db->error());
 
 	// Regenerate the config cache
@@ -28,15 +29,7 @@ if (isset($_GET['default_style'])) {
 	generate_config_cache();
 	clear_feed_cache();
 
-	redirect('backstage/style.php?saved=true');
-}
-
-if (isset($_GET['force_default'])) {
-	confirm_referrer('backstage/style.php');
-	
-	$force_default = htmlspecialchars($_GET["force_default"]);
-	
-	$db->query('UPDATE '.$db->prefix.'users SET style=\''.$force_default.'\' WHERE id > 0') or error('Unable to set style settings', __FILE__, __LINE__, $db->error());
+	redirect('backstage/theme.php?saved=true');
 }
 
 if ($luna_user['g_id'] != FORUM_ADMIN)
@@ -136,19 +129,12 @@ if (file_exists(FORUM_ROOT.'/style/'.$current_theme.'/theme_settings.php')) {
 								<div class="btn-group pull-right">
 									<?php
 										if ($luna_config['o_default_style'] == $style_info->name)
-											echo '<a class="btn btn-primary disabled">'.$lang['Default'].'</a>';
+											echo '<a class="btn btn-primary disabled">In use</a>';
 										else
-											echo '<a class="btn btn-primary" href="style.php?default_style='.$style_info->name.'">'.$lang['Set as default'].'</a>';
+											echo '<a class="btn btn-primary" href="theme.php?default_style='.$style_info->name.'">Use</a>';
+										
+										echo '<a class="btn btn-primary" data-toggle="modal" href="#" data-target="#'.$temp.'"><span class="fa fa-info-circle"></span></a>';
 									?>
-									<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-										<span class="caret"></span>
-										<span class="sr-only">Toggle Dropdown</span>
-									</a>
-									<ul class="dropdown-menu" role="menu">
-										<?php
-											echo '<li><a data-toggle="modal" href="#" data-target="#'.$temp.'">'.$lang['About'].'</a></li>';
-										?>
-									</ul>
 								</div>
 							</div>
 						</div>
