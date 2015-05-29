@@ -14,15 +14,15 @@ require FORUM_ROOT.'include/me_functions.php';
 
 // No guest here !
 if ($luna_user['is_guest'])
-	message(__('You do not have permission to access this page.', 'luna'));
+	message(__('You do not have permission to access this page. Please log in or create an account.', 'luna'));
 
 // User enable PM ?
 if (!$luna_user['use_pm'] == '1')
-	message(__('You do not have permission to access this page.', 'luna'));
+	message(__('You do not have permission to access this page. Enable PM on your profile to use this.', 'luna'));
 
 // Are we allowed to use this ?
 if (!$luna_config['o_pms_enabled'] =='1' || $luna_user['g_pm'] == '0')
-	message(__('You do not have permission to access this page.', 'luna'));
+	message(__('You do not have permission to access this page. Admins have disabled PMs.', 'luna'));
 
 // User block
 $avatar_user_card = draw_user_avatar($luna_user['id']);
