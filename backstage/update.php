@@ -183,15 +183,15 @@ if (isset($_GET['saved']))
                         <td><?php echo $luna_config['o_database_revision']; ?></td>
                     </tr>
                     <tr>
-                        <td><?php _e('Bootstrap version', 'luna') ?></td>
-                        <td>3.3.6</td>
+                        <td><?php _e('Bootstrap CDN version', 'luna') ?></td>
+                        <td>3.3.7</td>
                     </tr>
                     <tr>
-                        <td><?php _e('Font Awesome version', 'luna') ?></td>
-                        <td>4.6.3</td>
+                        <td><?php _e('Font Awesome CDN version', 'luna') ?></td>
+                        <td>4.7.0</td>
                     </tr>
                     <tr>
-                        <td><?php _e('jQuery version', 'luna') ?></td>
+                        <td><?php _e('jQuery CDN version', 'luna') ?></td>
                         <td>2.2.4</td>
                     </tr>
                 </tbody>

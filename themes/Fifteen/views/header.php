@@ -5,12 +5,12 @@ require ('header.php');
 <html class="<?php echo check_style_mode() ?>">
 	<head>
 		<?php load_meta(); ?>
-		<link rel="stylesheet" type="text/css" href="vendor/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="vendor/css/font-awesome.min.css">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="vendor/css/prism.css">
 		<?php load_css(); ?>
-		<script src="vendor/js/jquery.min.js"></script>
-		<script src="vendor/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<script src="vendor/js/prism.js"></script>
 		<style>
         <?php if ($luna_config['o_use_custom_css']) {
