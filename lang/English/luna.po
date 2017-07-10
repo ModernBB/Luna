@@ -859,97 +859,97 @@ msgid "Pozice musí být kladné číslo."
 msgstr ""
 
 #: backstage/board.php:135
-msgid "You must enter a forum name"
+msgid "Musíte zadat jméno fóra"
 msgstr ""
 
 #: backstage/board.php:169 backstage/board.php:421 backstage/board.php:516
-msgid "You must enter a name"
+msgid "Musíte zadat jméno"
 msgstr ""
 
 #: backstage/board.php:245
-msgid "Forum details"
+msgid "detaili fóra "
 msgstr ""
 
 #: backstage/board.php:250
-msgid "Forum name"
+msgid "Název fóra"
 msgstr ""
 
 #: backstage/board.php:256 backstage/settings.php:253 install.php:386
-msgid "Description"
+msgid "Popis"
 msgstr ""
 
 #: backstage/board.php:262
-msgid "Parent section"
+msgid "Sekce"
 msgstr ""
 
 #: backstage/board.php:265
-msgid "No parent forum selected"
+msgid "Žadné nadřazené fórum"
 msgstr ""
 
 #: backstage/board.php:294
-msgid "Category"
+msgid "Kategorie"
 msgstr ""
 
 #: backstage/board.php:310
-msgid "Sort threads by"
+msgid "Řadit podle"
 msgstr ""
 
 #: backstage/board.php:313 backstage/users.php:824
 #: themes/Fifteen/views/inbox.php:62
-msgid "Last comment"
+msgid "Poslední komentář"
 msgstr ""
 
 #: backstage/board.php:314
-msgid "Thread start"
+msgid " Začátek vlákna"
 msgstr ""
 
 #: backstage/board.php:315 comment.php:533 edit.php:135
 #: include/draw_functions.php:1076 misc.php:134 new_inbox.php:393
 #: themes/Fifteen/views/comment.php:42 themes/Fifteen/views/inbox-new.php:79
 #: themes/Fifteen/views/search-advanced.php:43
-msgid "Subject"
+msgid "Subjekt"
 msgstr ""
 
 #: backstage/board.php:320 backstage/board.php:664 backstage/board.php:670
 #: backstage/board.php:719 backstage/board.php:725
-msgid "Icon"
+msgid "Ikona"
 msgstr ""
 
 #: backstage/board.php:320
 #, php-format
 msgid ""
-"The Font Awesome icon you want to show next to the title, for a full "
-"overview, see the %s"
+"Ikona fontu kterou chcete zobrazit vedle titulku. "
+"Pro plný odkaz přečtete si %s"
 msgstr ""
 
 #: backstage/board.php:320 backstage/board.php:664 backstage/board.php:719
-msgid "Font Awesome icon guide"
+msgid "Font Awesome pomoc s ikonkou"
 msgstr ""
 
 #: backstage/board.php:329 backstage/board.php:675 backstage/board.php:730
-msgid "Forum color"
+msgid "Barva Fóra"
 msgstr ""
 
 #: backstage/board.php:335
-msgid "Solved"
+msgid "Vyřešeno"
 msgstr ""
 
 #: backstage/board.php:340
-msgid "Threads in this forum can be marked as solved."
+msgid "Vlákna v tomto fóru můžou být označena jako vyřešená."
 msgstr ""
 
 #: backstage/board.php:350
-msgid "Group permissions"
+msgid "Skupinové permise"
 msgstr ""
 
 #: backstage/board.php:354
 msgid ""
-"Permission settings that differ from the default permissions for the group "
-"are marked red. Some permissions are disabled under some conditions."
+"Nastavení povolení, která se liší od výchozích oprávnění pro skupinu"
+"Jsou označeny červeně. Některá oprávnění jsou z určitých podmínek zakázána."
 msgstr ""
 
 #: backstage/board.php:354 backstage/groups.php:465
-msgid "User groups"
+msgid "Uživatelská skupina"
 msgstr ""
 
 #: backstage/board.php:355
