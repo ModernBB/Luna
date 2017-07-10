@@ -694,11 +694,11 @@ msgid "Zpráva pro zabanované uživatele"
 msgstr ""
 
 #: backstage/bans.php:137 backstage/bans.php:467 backstage/users.php:555
-msgid "Expire date"
+msgid "Datum konce"
 msgstr ""
 
 #: backstage/bans.php:137 backstage/users.php:558
-msgid "When does the ban expire, blank for manually"
+msgid "Kdy ban skončí, nechte toto pole prazdné pro nekonečný ban(dá se odbanovat poté pouze ručně)"
 msgstr ""
 
 #: backstage/bans.php:139 backstage/bans.php:449 backstage/bans.php:455
@@ -707,12 +707,12 @@ msgstr ""
 
 #: backstage/bans.php:164
 msgid ""
-"You must enter either a username, an IP address or an email address (at "
-"least)."
+"Musíte zadat IP adresu, jméno či email  "
+"(minimálně)."
 msgstr ""
 
 #: backstage/bans.php:166
-msgid "The guest user cannot be banned."
+msgid "Nepřihlášeny uživatel nemůže byt zabanován."
 msgstr ""
 
 #: backstage/bans.php:199 backstage/bans.php:211
@@ -775,11 +775,11 @@ msgstr ""
 #: backstage/board.php:577 backstage/board.php:682 backstage/board.php:737
 #: backstage/censoring.php:146 backstage/ranks.php:150 backstage/reports.php:88
 #: notifications.php:118
-msgid "Remove"
+msgid "Odstranit"
 msgstr ""
 
 #: backstage/bans.php:375
-msgid "Unknown"
+msgid "???"
 msgstr ""
 
 #: backstage/bans.php:382 backstage/users.php:708
@@ -838,7 +838,7 @@ msgstr ""
 
 #: backstage/board.php:95
 #, php-format
-msgid "Are you sure that you want to delete the forum <strong>%s</strong>?"
+msgid "Opravdu chcete toto fórum SMAZAT? <strong>(%s)</strong>?"
 msgstr ""
 
 #: backstage/board.php:95
@@ -846,16 +846,16 @@ msgid "Deleting a forum will delete all comments (if any) in that forum!"
 msgstr ""
 
 #: backstage/board.php:114
-msgid "No forum and category data was found to save..."
+msgid "Žadné fórum či kategorie nenalezena..."
 msgstr ""
 
 #: backstage/board.php:121
-msgid "You must enter a category name"
+msgid "Musíte zadat název kategorie"
 msgstr ""
 
 #: backstage/board.php:123 backstage/board.php:137 backstage/board.php:519
 #: backstage/menu.php:66
-msgid "Position must be a positive integer value."
+msgid "Pozice musí být kladné číslo."
 msgstr ""
 
 #: backstage/board.php:135
