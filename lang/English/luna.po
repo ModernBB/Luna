@@ -474,22 +474,22 @@ msgid "Defaultní počet vláken na stranu"
 msgstr ""
 
 #: backstage/appearance.php:295 themes/Fifteen/views/settings.php:401
-msgid "Comments per page"
+msgid "Komentáře na stranu"
 msgstr ""
 
 #: backstage/appearance.php:295
-msgid "Default amount of comments per page"
+msgid "Defaultní počet komentářů na stranu"
 msgstr ""
 
 #: backstage/appearance.php:305
-msgid "Header"
+msgid "Hlavička"
 msgstr ""
 
 #: backstage/appearance.php:310 backstage/header.php:60 backstage/header.php:62
 #: backstage/header.php:76 backstage/prune.php:223 header.php:130
 #: header.php:132 header.php:146 include/me_functions.php:23
 #: include/me_functions.php:35 themes/Fifteen/views/notifications.php:28
-msgid "Notifications"
+msgid "Notifikace"
 msgstr ""
 
 #: backstage/appearance.php:315
@@ -506,31 +506,31 @@ msgstr ""
 #: themes/Fifteen/views/search-advanced.php:18
 #: themes/Fifteen/views/search.php:13 themes/Fifteen/views/search.php:25
 #: themes/Fifteen/views/users.php:30
-msgid "Search"
+msgid "hledat"
 msgstr ""
 
 #: backstage/appearance.php:327
-msgid "Show the search bar in the heading."
+msgid "Ukázat ¨hledání¨ v Hlavičce"
 msgstr ""
 
 #: backstage/appearance.php:337
-msgid "Footer"
+msgid "Záhlaví"
 msgstr ""
 
 #: backstage/appearance.php:342 backstage/index.php:188
-msgid "Statistics"
+msgid "Statistiky"
 msgstr ""
 
 #: backstage/appearance.php:347
-msgid "Show the board statistics."
+msgid "Ukázat statistiky v záhlaví."
 msgstr ""
 
 #: backstage/appearance.php:353
-msgid "Back to top"
+msgid "Nahoru"
 msgstr ""
 
 #: backstage/appearance.php:358
-msgid "Show a \"Back to top\" link in the footer."
+msgid "Ukázat ¨ \"Back to top\" ¨tlačítko v záhlaví."
 msgstr ""
 
 #: backstage/appearance.php:365 themes/Fifteen/views/footer.php:92
@@ -538,23 +538,23 @@ msgid "Copyright"
 msgstr ""
 
 #: backstage/appearance.php:370
-msgid "Show the copyright notice in the footer."
+msgid "Ukázat copyright v záhlaví."
 msgstr ""
 
 #: backstage/appearance.php:376
-msgid "Copyright content"
+msgid "text copyrightu"
 msgstr ""
 
 #: backstage/appearance.php:381
-msgid "Show default copyright"
+msgid "Ukázat defaultní copyright"
 msgstr ""
 
 #: backstage/appearance.php:387
-msgid "Show personalized copyright notices:"
+msgid "Ukázat vlastní copyright:"
 msgstr ""
 
 #: backstage/appearance.php:389
-msgid "Your copyright"
+msgid "Váš copyright"
 msgstr ""
 
 #: backstage/bans.php:27 backstage/bans.php:73 backstage/bans.php:79
@@ -595,8 +595,8 @@ msgstr ""
 #: viewinbox.php:97 viewinbox.php:105 viewinbox.php:128 viewinbox.php:181
 #: viewinbox.php:196 viewinbox.php:219
 msgid ""
-"Bad request. The link you followed is incorrect, outdated or you are simply "
-"not allowed to hang around here."
+"Link na který jste kliknul je špatný, zastaralý nebo nemáte povolení zobrazit tuto stranu."
+""
 msgstr ""
 
 #: backstage/bans.php:33
@@ -605,26 +605,26 @@ msgstr ""
 
 #: backstage/bans.php:42
 msgid ""
-"No user by that username registered. If you want to add a ban not tied to a "
-"specific username just leave the username blank."
+"Žadný uživatel s tímto jménem není registrován."
+"Pokud nechcete dát BAN určitému jméno, nechte pole UŽIVATEL prázdné."
 msgstr ""
 
 #: backstage/bans.php:49 backstage/bans.php:175
 #, php-format
 msgid ""
-"The user %s is an administrator and can't be banned. If you want to ban an "
-"administrator, you must first demote him/her."
+"Uživatel %s je administrátor. Pokud chcete dát BAN administrátorovi, nejdřív "
+"mu/jí musíte snížit postavení."
 msgstr ""
 
 #: backstage/bans.php:55 backstage/bans.php:181
 #, php-format
 msgid ""
-"The user %s is a moderator and can't be banned. If you want to ban a "
-"moderator, you must first demote him/her."
+"Uživatel %s je moderátor. Pokud chcete dát BAN moderátorovi, nejdřív "
+"mu/jí musíte snížit postavení."
 msgstr ""
 
 #: backstage/bans.php:96
-msgid "Ban range"
+msgid "rozsah BANu "
 msgstr ""
 
 #: backstage/bans.php:96 backstage/bans.php:126 backstage/users.php:542
@@ -640,28 +640,28 @@ msgstr ""
 #: register.php:246 themes/Fifteen/views/index.php:56
 #: themes/Fifteen/views/login.php:13 themes/Fifteen/views/register.php:20
 #: themes/Fifteen/views/settings.php:53 themes/Sunrise/views/index.php:56
-msgid "Username"
+msgid "Uživatel"
 msgstr ""
 
 #: backstage/bans.php:103
-msgid "The username to ban"
+msgid "Jméno na zabanování"
 msgstr ""
 
 #: backstage/bans.php:109 backstage/bans.php:429
-msgid "IP address/IP-ranges"
+msgid "IP addresy/IP-ranges"
 msgstr ""
 
 #: backstage/bans.php:109
-msgid "The IP you wish to ban, separate addresses with spaces"
+msgid "IP adresy na zabanování"
 msgstr ""
 
 #: backstage/bans.php:112
 #, php-format
-msgid "Click %s to see IP statistics for this user."
+msgid "Klikni  %s aby jste vyděli statistiky uživatele."
 msgstr ""
 
 #: backstage/bans.php:112
-msgid "here"
+msgid "zde"
 msgstr ""
 
 #: backstage/bans.php:116 backstage/bans.php:350 backstage/bans.php:435
@@ -678,19 +678,19 @@ msgid "Email"
 msgstr ""
 
 #: backstage/bans.php:116
-msgid "The email or email domain you wish to ban"
+msgid "Email či Emailová doména kterou chcete zabanovat"
 msgstr ""
 
 #: backstage/bans.php:126
-msgid "Ban details"
+msgid " detail banu"
 msgstr ""
 
 #: backstage/bans.php:131 backstage/users.php:548
-msgid "Ban message"
+msgid "Zpráva BANu"
 msgstr ""
 
 #: backstage/bans.php:131 backstage/users.php:551
-msgid "A message for banned users"
+msgid "Zpráva pro zabanované uživatele"
 msgstr ""
 
 #: backstage/bans.php:137 backstage/bans.php:467 backstage/users.php:555
