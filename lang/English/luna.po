@@ -5,7 +5,7 @@ msgstr ""
 "PO-Revision-Date: 2016-05-29 22:57+0200\n"
 "Last-Translator: \n"
 "Language-Team: Luna Group\n"
-"Language: en\n"
+"Language: cz\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,11 +25,11 @@ msgstr ""
 #: backstage/about.php:35 backstage/about.php:50 backstage/about.php:80
 #: backstage/about.php:81 backstage/about.php:82 backstage/about.php:83
 #: backstage/about.php:84 backstage/settings.php:682
-msgid "System"
+msgid "Systém"
 msgstr ""
 
 #: backstage/about.php:35
-msgid "jQuery has been updated to version 2.2.4"
+msgid "jQuery Byl aktualizován na verzi 2.2.4"
 msgstr ""
 
 #: backstage/about.php:36 backstage/about.php:37 backstage/about.php:38
@@ -37,51 +37,51 @@ msgstr ""
 #: backstage/about.php:90 backstage/about.php:91 backstage/about.php:92
 #: backstage/about.php:93 backstage/about.php:94 backstage/about.php:95
 #: backstage/about.php:96 backstage/about.php:97
-msgid "Improved"
+msgid "Zlepšeno"
 msgstr ""
 
 #: backstage/about.php:36
-msgid "Info messages no longer feel like an error if they're not"
+msgid "Informační zprávy již nevypadají jako error pokud nejsou."
 msgstr ""
 
 #: backstage/about.php:37
-msgid "Custom CSS is now loaded before emoji CSS to allow custom web fonts"
+msgid "Vlastní CSS styly jsou načteny dříve než styly na EMOJI."
 msgstr ""
 
 #: backstage/about.php:38
-msgid "Improved error design in Inbox"
+msgid "Zlepšen ERROR design v emailu."
 msgstr ""
 
 #: backstage/about.php:39 backstage/about.php:52 backstage/about.php:98
 #: backstage/about.php:99 backstage/about.php:100 backstage/about.php:101
 #: backstage/about.php:102
-msgid "Removed"
+msgid "odstraněno"
 msgstr ""
 
 #: backstage/about.php:39
-msgid "The quick reply box in Inbox has been replaced with a Reply-button"
+msgid "Ryhlá odpověď byla změněna na tlačítko."
 msgstr ""
 
 #: backstage/about.php:40 backstage/about.php:41 backstage/about.php:42
 #: backstage/about.php:53 backstage/about.php:54 backstage/about.php:55
 #: backstage/about.php:56 backstage/about.php:103
-msgid "Fixed"
+msgid "Opraveno"
 msgstr ""
 
 #: backstage/about.php:40
-msgid "An issue with signing in has been resolved"
+msgid "Chyba s přihlaašováním byla opravena."
 msgstr ""
 
 #: backstage/about.php:41
-msgid "Fixes the password reset link which was broken in certain situations"
+msgid "Opraven link na změnu hesla přes EMAIL."
 msgstr ""
 
 #: backstage/about.php:42
-msgid "Fixes wrong avatars in Inbox conversations"
+msgid "Opraveny chybné smajlíky v LUNA EMAILu."
 msgstr ""
 
 #: backstage/about.php:50
-msgid "Font Awesome has been updated to version 4.6.3"
+msgid "Font Awesome byl vylepšen na verzi 4.6.3"
 msgstr ""
 
 #: backstage/about.php:51
@@ -294,86 +294,86 @@ msgstr ""
 #: backstage/about.php:109
 #, php-format
 msgid ""
-"Luna is developed by the %s. Copyright %s. Released under the GPLv2 license."
+"Luna Byl developován %s. Copyright %s.Čeština Copyright Daniel Bulant.Licensováno pod GPLv2 licensí."
 msgstr ""
 
 #: backstage/about.php:115
-msgid "users"
+msgid "uživatelé"
 msgstr ""
 
 #: backstage/about.php:116
-msgid "threads"
+msgid "Vlákna"
 msgstr ""
 
 #: backstage/about.php:117 themes/Fifteen/objects/comment.php:9
-msgid "comments"
+msgid "komentáře"
 msgstr ""
 
 #: backstage/about.php:118
-msgid "views"
+msgid "Prohlížení"
 msgstr ""
 
 #: backstage/appearance.php:21 backstage/appearance.php:30
 #: backstage/features.php:22 backstage/features.php:30
 #: backstage/settings.php:22 backstage/settings.php:30 backstage/update.php:103
-msgid ""
-"Bad HTTP_REFERER. If you have moved these forums from one location to "
-"another or switched domains, you need to update the Base URL manually in the "
-"database (look for o_base_url in the config table) and then clear the cache "
-"by deleting all .php files in the /cache directory."
+msgid "CHYBA:"
+"Špatný HTTP_REFERER. Pokud jste přesunuli fórum z jedné domény na druhou, "
+"musíte manuálně změnit databazi (v CONFIF tabulce pod o_base_url) a pak vyčistit cache "
+"tím, že 1. půjdete do sekce SPRÁVA  kde vymažete cache a za 2. že smažete ručne všechny "
+".php soubory ve složce cache(ve složce kde je fórum nainstalováno."
 msgstr ""
 
 #: backstage/appearance.php:84 backstage/features.php:97
 #: backstage/settings.php:171 settings.php:472
 msgid ""
-"The selected file was too large to upload. The server didn't allow the "
-"upload."
+"Vybraný soubor byl moc velký pro upload, server to nedovolil. "
+""
 msgstr ""
 
 #: backstage/appearance.php:88 backstage/features.php:101
 #: backstage/settings.php:175 settings.php:476
-msgid "The selected file was only partially uploaded. Please try again."
+msgid "Vybraný soubor byl nahrán pouze z části, zkuste to znova."
 msgstr ""
 
 #: backstage/appearance.php:92 backstage/features.php:105
 #: backstage/settings.php:179 settings.php:484
-msgid "PHP was unable to save the uploaded file to a temporary location."
+msgid "PHP nedokázal uložit nahraný soubor do daně složky."
 msgstr ""
 
 #: backstage/appearance.php:98 backstage/features.php:111
 #: backstage/settings.php:185 settings.php:460 settings.php:480
 #: settings.php:490
-msgid "You did not select a file for upload."
+msgid "Nevybrali jste žádný soubor."
 msgstr ""
 
 #: backstage/appearance.php:107 backstage/appearance.php:123
 msgid ""
-"The file you tried to upload is not of an allowed type. Allowed types are "
-"jpeg and png."
+"Vybraný soubor nebyl v požadovaném formátu."
+"(jpg a png)"
 msgstr ""
 
 #: backstage/appearance.php:111 backstage/features.php:124
 #: backstage/settings.php:198 settings.php:507
 msgid ""
-"The server was unable to save the uploaded file. Please contact the forum "
-"administrator at"
+"Server nedokázal uložit vybraný soubor. "
+"Kontaktujte prosim administrátora na"
 msgstr ""
 
 #: backstage/appearance.php:134 backstage/features.php:135
 #: backstage/settings.php:209 settings.php:535
-msgid "An unknown error occurred. Please try again."
+msgid "Nezjištěná chyba. Zkuste to znovu."
 msgstr ""
 
 #: backstage/appearance.php:153 backstage/board.php:532
 #: backstage/features.php:154 backstage/index.php:81
 #: backstage/maintenance.php:174 backstage/settings.php:230
 #: backstage/update.php:144 backstage/users.php:744
-msgid "Your settings have been saved."
+msgid "Vaše nastavení bylo uloženo."
 msgstr ""
 
 #: backstage/appearance.php:159 backstage/appearance.php:164
 #: backstage/header.php:187
-msgid "Theme"
+msgid "Téma"
 msgstr ""
 
 #: backstage/appearance.php:159 backstage/appearance.php:255
@@ -392,85 +392,85 @@ msgstr ""
 #: backstage/settings.php:682 backstage/update.php:151 backstage/users.php:303
 #: themes/Fifteen/views/me-modals.php:17 themes/Fifteen/views/me-modals.php:43
 #: themes/Fifteen/views/settings.php:36 themes/Fifteen/views/settings.php:486
-msgid "Save"
+msgid "Uložit
 msgstr ""
 
 #: backstage/appearance.php:183
-msgid "Accents"
+msgid "Akcent"
 msgstr ""
 
 #: backstage/appearance.php:188
-msgid "Allow users to set their own accent color."
+msgid "Povolit uživatelům aby si mohli také vybrat svoji barvu fóra."
 msgstr ""
 
 #: backstage/appearance.php:194
-msgid "Allow users to change the night mode settings."
+msgid "Povolit uživatelům zménit nastavení nočního režimu."
 msgstr ""
 
 #: backstage/appearance.php:200 backstage/settings.php:332
 #: themes/Fifteen/views/settings.php:436 themes/Fifteen/views/settings.php:454
-msgid "Default"
+msgid "Defaultní"
 msgstr ""
 
 #: backstage/appearance.php:218 backstage/appearance.php:231
-msgid "Custom CSS"
+msgid "vlastní CSS styl"
 msgstr ""
 
 #: backstage/appearance.php:223
-msgid "Use the custom CSS as defined below."
+msgid "Použijte vlastní css."
 msgstr ""
 
 #: backstage/appearance.php:229
-msgid "CSS code"
+msgid "CSS kód"
 msgstr ""
 
 #: backstage/appearance.php:237
-msgid "Header background"
+msgid "Barva hlavičky"
 msgstr ""
 
 #: backstage/appearance.php:237
 msgid ""
-"You can upload a custom header here to show in the Mainstage and Backstage"
+"Můžete nahrát vlastní pozadí hlavičky zde."
 msgstr ""
 
 #: backstage/appearance.php:239
-msgid "Delete header"
+msgid "Smazat hlavičku"
 msgstr ""
 
 #: backstage/appearance.php:255
-msgid "Display"
+msgid "Displej"
 msgstr ""
 
 #: backstage/appearance.php:260
-msgid "User profile"
+msgid "Profil uživatele"
 msgstr ""
 
 #: backstage/appearance.php:265
-msgid "Show information about the commenter under the username in threads."
+msgid "Ukazat informace o komentařich."
 msgstr ""
 
 #: backstage/appearance.php:271
 msgid ""
-"Show the number of comments a user has made in threads, profile and the user "
-"list."
+"Ukázat kolik komentářů udělal, profil a list "
+"uživatelů."
 msgstr ""
 
 #: backstage/appearance.php:277
-msgid "Index settings"
+msgid "Nastavení domovské strany."
 msgstr ""
 
 #: backstage/appearance.php:282
 msgid ""
-"Show the \"Moderated by\" list when moderators are set on a per-forum base "
-"(requires theme support)."
+"Ukázat \"Moderated by\" list pokud je administrátor nastaven pro dané fórum "
+"(potřebuje pomoc tématu)."
 msgstr ""
 
 #: backstage/appearance.php:289 themes/Fifteen/views/settings.php:395
-msgid "Threads per page"
+msgid "počet vláken na stranu."
 msgstr ""
 
 #: backstage/appearance.php:289
-msgid "Default amount of threads per page"
+msgid "Defaultní počet vláken na stranu"
 msgstr ""
 
 #: backstage/appearance.php:295 themes/Fifteen/views/settings.php:401
